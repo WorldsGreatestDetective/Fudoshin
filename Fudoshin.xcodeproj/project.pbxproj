@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02D57770E4BCCBFA9E48E02C /* Pods_Fudoshin_FudoshinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECE8B7DE48466632AAADB7D /* Pods_Fudoshin_FudoshinUITests.framework */; };
+		42795BEE40665E36080F00E6 /* Pods_FudoshinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D043689CE16C5D430D39B4E2 /* Pods_FudoshinTests.framework */; };
+		8F00239B8A80D58C059FC419 /* Pods_Fudoshin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF43755367D19CA6B1A24DC /* Pods_Fudoshin.framework */; };
+		F52142C128567429000475AE /* LoginViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */; };
+		F52142C52857B208000475AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C42857B208000475AE /* User.swift */; };
+		F52142C92857B625000475AE /* BeltLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C82857B625000475AE /* BeltLevel.swift */; };
+		F52142CC2857BF40000475AE /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142CB2857BF40000475AE /* AppDatabase.swift */; };
+		F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142CD2857C27A000475AE /* AppPersistence.swift */; };
+		F52142D02858F457000475AE /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142CF2858F457000475AE /* Visit.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
-		F55F55EE281C431B00171AA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55ED281C431B00171AA0 /* ViewController.swift */; };
-		F55F55F1281C431B00171AA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F55EF281C431B00171AA0 /* Main.storyboard */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
 		F55F55F6281C432300171AA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F4281C432300171AA0 /* LaunchScreen.storyboard */; };
 		F55F5601281C432400171AA0 /* FudoshinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F5600281C432400171AA0 /* FudoshinTests.swift */; };
 		F55F560B281C432400171AA0 /* FudoshinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F560A281C432400171AA0 /* FudoshinUITests.swift */; };
 		F55F560D281C432400171AA0 /* FudoshinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F560C281C432400171AA0 /* FudoshinUITestsLaunchTests.swift */; };
+		F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F561D281C440400171AA0 /* LoginViewController.swift */; };
+		F55F5620281C443500171AA0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F561F281C443500171AA0 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +45,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20BA151012C42C50C235BD25 /* Pods-Fudoshin-FudoshinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fudoshin-FudoshinUITests.release.xcconfig"; path = "Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5B9D17CF481461CF6AC5931C /* Pods-FudoshinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FudoshinTests.debug.xcconfig"; path = "Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		699CED5B5FDCFB076A3C6E4F /* Pods-Fudoshin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fudoshin.debug.xcconfig"; path = "Target Support Files/Pods-Fudoshin/Pods-Fudoshin.debug.xcconfig"; sourceTree = "<group>"; };
+		7FCE7C5AC427FF66C4C127E6 /* Pods-Fudoshin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fudoshin.release.xcconfig"; path = "Target Support Files/Pods-Fudoshin/Pods-Fudoshin.release.xcconfig"; sourceTree = "<group>"; };
+		8DF43755367D19CA6B1A24DC /* Pods_Fudoshin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fudoshin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AECE8B7DE48466632AAADB7D /* Pods_Fudoshin_FudoshinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fudoshin_FudoshinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D043689CE16C5D430D39B4E2 /* Pods_FudoshinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FudoshinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFC18FAE7B01502EFDEBF3C8 /* Pods-Fudoshin-FudoshinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fudoshin-FudoshinUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E496AE7482651D003C21ECDC /* Pods-FudoshinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FudoshinTests.release.xcconfig"; path = "Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests.release.xcconfig"; sourceTree = "<group>"; };
+		F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDelegateProtocol.swift; sourceTree = "<group>"; };
+		F52142C42857B208000475AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F52142C82857B625000475AE /* BeltLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltLevel.swift; sourceTree = "<group>"; };
+		F52142CB2857BF40000475AE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		F52142CD2857C27A000475AE /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
+		F52142CF2858F457000475AE /* Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F55F55ED281C431B00171AA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F55F55F0281C431B00171AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F55F55F2281C432200171AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F55F55F5281C432300171AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F55F55F7281C432300171AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +71,8 @@
 		F55F5606281C432400171AA0 /* FudoshinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FudoshinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F560A281C432400171AA0 /* FudoshinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FudoshinUITests.swift; sourceTree = "<group>"; };
 		F55F560C281C432400171AA0 /* FudoshinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FudoshinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F55F561D281C440400171AA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F55F561F281C443500171AA0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F00239B8A80D58C059FC419 /* Pods_Fudoshin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42795BEE40665E36080F00E6 /* Pods_FudoshinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +96,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D57770E4BCCBFA9E48E02C /* Pods_Fudoshin_FudoshinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8947DE001BB080D14D36B6B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				699CED5B5FDCFB076A3C6E4F /* Pods-Fudoshin.debug.xcconfig */,
+				7FCE7C5AC427FF66C4C127E6 /* Pods-Fudoshin.release.xcconfig */,
+				DFC18FAE7B01502EFDEBF3C8 /* Pods-Fudoshin-FudoshinUITests.debug.xcconfig */,
+				20BA151012C42C50C235BD25 /* Pods-Fudoshin-FudoshinUITests.release.xcconfig */,
+				5B9D17CF481461CF6AC5931C /* Pods-FudoshinTests.debug.xcconfig */,
+				E496AE7482651D003C21ECDC /* Pods-FudoshinTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		946E0C6FB2B1C46AC0075C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DF43755367D19CA6B1A24DC /* Pods_Fudoshin.framework */,
+				AECE8B7DE48466632AAADB7D /* Pods_Fudoshin_FudoshinUITests.framework */,
+				D043689CE16C5D430D39B4E2 /* Pods_FudoshinTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F52142C72857B607000475AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F52142C82857B625000475AE /* BeltLevel.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F52142CA2857BEF1000475AE /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				F52142CB2857BF40000475AE /* AppDatabase.swift */,
+				F52142CD2857C27A000475AE /* AppPersistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		F55F55DD281C431A00171AA0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +150,8 @@
 				F55F55FF281C432400171AA0 /* FudoshinTests */,
 				F55F5609281C432400171AA0 /* FudoshinUITests */,
 				F55F55E7281C431B00171AA0 /* Products */,
+				8947DE001BB080D14D36B6B4 /* Pods */,
+				946E0C6FB2B1C46AC0075C8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +168,13 @@
 		F55F55E8281C431B00171AA0 /* Fudoshin */ = {
 			isa = PBXGroup;
 			children = (
+				F55F561C281C43D200171AA0 /* Models */,
+				F55F561A281C43BF00171AA0 /* Views */,
+				F55F561B281C43C800171AA0 /* Controllers */,
+				F5794B592853E6D500FE484C /* Protocols */,
+				F52142C72857B607000475AE /* Helpers */,
 				F55F55E9281C431B00171AA0 /* AppDelegate.swift */,
 				F55F55EB281C431B00171AA0 /* SceneDelegate.swift */,
-				F55F55ED281C431B00171AA0 /* ViewController.swift */,
-				F55F55EF281C431B00171AA0 /* Main.storyboard */,
 				F55F55F2281C432200171AA0 /* Assets.xcassets */,
 				F55F55F4281C432300171AA0 /* LaunchScreen.storyboard */,
 				F55F55F7281C432300171AA0 /* Info.plist */,
@@ -127,6 +199,48 @@
 			path = FudoshinUITests;
 			sourceTree = "<group>";
 		};
+		F55F5619281C43B500171AA0 /* Service Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Service Models";
+			sourceTree = "<group>";
+		};
+		F55F561A281C43BF00171AA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F55F561F281C443500171AA0 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F55F561B281C43C800171AA0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F55F561D281C440400171AA0 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F55F561C281C43D200171AA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F52142C42857B208000475AE /* User.swift */,
+				F52142CF2858F457000475AE /* Visit.swift */,
+				F52142CA2857BEF1000475AE /* Persistence */,
+				F55F5619281C43B500171AA0 /* Service Models */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5794B592853E6D500FE484C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F55F5610281C432400171AA0 /* Build configuration list for PBXNativeTarget "Fudoshin" */;
 			buildPhases = (
+				91F110457E89E437C695A539 /* [CP] Check Pods Manifest.lock */,
 				F55F55E2281C431B00171AA0 /* Sources */,
 				F55F55E3281C431B00171AA0 /* Frameworks */,
 				F55F55E4281C431B00171AA0 /* Resources */,
+				0828B180212919DF9CEFB6F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F55F5613281C432400171AA0 /* Build configuration list for PBXNativeTarget "FudoshinTests" */;
 			buildPhases = (
+				69E35CF9A0214A760E11D1E0 /* [CP] Check Pods Manifest.lock */,
 				F55F55F8281C432400171AA0 /* Sources */,
 				F55F55F9281C432400171AA0 /* Frameworks */,
 				F55F55FA281C432400171AA0 /* Resources */,
+				F8958DE6C888E9C2FDD79BF3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F55F5616281C432400171AA0 /* Build configuration list for PBXNativeTarget "FudoshinUITests" */;
 			buildPhases = (
+				6F5ED55188F9737865908C02 /* [CP] Check Pods Manifest.lock */,
 				F55F5602281C432400171AA0 /* Sources */,
 				F55F5603281C432400171AA0 /* Frameworks */,
 				F55F5604281C432400171AA0 /* Resources */,
+				E59C4ADE3F6EC0896E65ED66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +353,6 @@
 			files = (
 				F55F55F6281C432300171AA0 /* LaunchScreen.storyboard in Resources */,
 				F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */,
-				F55F55F1281C431B00171AA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,13 +372,140 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0828B180212919DF9CEFB6F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fudoshin/Pods-Fudoshin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fudoshin/Pods-Fudoshin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fudoshin/Pods-Fudoshin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69E35CF9A0214A760E11D1E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FudoshinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F5ED55188F9737865908C02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fudoshin-FudoshinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91F110457E89E437C695A539 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fudoshin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E59C4ADE3F6EC0896E65ED66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8958DE6C888E9C2FDD79BF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F55F55E2281C431B00171AA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55F55EE281C431B00171AA0 /* ViewController.swift in Sources */,
+				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,
+				F52142C128567429000475AE /* LoginViewDelegateProtocol.swift in Sources */,
+				F52142CC2857BF40000475AE /* AppDatabase.swift in Sources */,
+				F52142D02858F457000475AE /* Visit.swift in Sources */,
+				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
+				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
+				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
+				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
 				F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +543,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F55F55EF281C431B00171AA0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F55F55F0281C431B00171AA0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F55F55F4281C432300171AA0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,6 +672,7 @@
 		};
 		F55F5611281C432400171AA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 699CED5B5FDCFB076A3C6E4F /* Pods-Fudoshin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,7 +683,6 @@
 				INFOPLIST_FILE = Fudoshin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,6 +700,7 @@
 		};
 		F55F5612281C432400171AA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FCE7C5AC427FF66C4C127E6 /* Pods-Fudoshin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,7 +711,6 @@
 				INFOPLIST_FILE = Fudoshin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -490,6 +728,7 @@
 		};
 		F55F5614281C432400171AA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B9D17CF481461CF6AC5931C /* Pods-FudoshinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +749,7 @@
 		};
 		F55F5615281C432400171AA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E496AE7482651D003C21ECDC /* Pods-FudoshinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,6 +770,7 @@
 		};
 		F55F5617281C432400171AA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFC18FAE7B01502EFDEBF3C8 /* Pods-Fudoshin-FudoshinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +789,7 @@
 		};
 		F55F5618281C432400171AA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20BA151012C42C50C235BD25 /* Pods-Fudoshin-FudoshinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
