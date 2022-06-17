@@ -6,12 +6,20 @@
 //
 
 import Foundation
+import GRDB
 
-struct Visit {
-    let id: String = Visit.setid()
+struct Visit: VisitModelProtocol {
+    let id: String 
     let userid: String
     
     let visitDate: Date
+    
+    init(userid: String) {
+        self.id = Visit.setid()
+        self.visitDate = Date()
+        
+        self.userid = userid
+    }
     
     static func setid() -> String {
         let identifier: String = UUID().uuidString
@@ -19,3 +27,9 @@ struct Visit {
         return identifier
     }
 }
+
+extension Visit: Codable {}
+
+extension Visit: PersistableRecord {}
+
+extension Visit: FetchableRecord {}

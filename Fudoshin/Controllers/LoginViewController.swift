@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
     }
     
     func pushToRegisterVC() {
-        <#code#>
+        
     }
 
 }

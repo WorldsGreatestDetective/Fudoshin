@@ -17,3 +17,4 @@ enum BeltLevel: Int {
 }
 
 extension BeltLevel: DatabaseValueConvertible {}
+extension BeltLevel: Codable {}

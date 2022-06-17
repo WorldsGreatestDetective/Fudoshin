@@ -6,21 +6,24 @@
 //
 
 import Foundation
+import GRDB
 
-struct User {
-    let id: String = setid()
+struct User: UserModelProtocol {
+    let id: String = {
+        let identifier: String = UUID().uuidString
+        return identifier
+    }()
     
     var firstName: String
     var lastName: String
+    
     var email: String
     var password: String
     
     var beltLevel: BeltLevel
-    var visitLog: [Visit]
-    
-    static func setid() -> String {
-        let identifier: String = UUID().uuidString
-        
-        return identifier
-    }
 }
+
+extension User: Equatable {}
+extension User: Codable {}
+extension User: PersistableRecord {}
+extension User: FetchableRecord {}
