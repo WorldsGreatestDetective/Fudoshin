@@ -23,12 +23,12 @@ extension AppDatabase {
             
             let dbURL = folderURL.appendingPathComponent("db.sqlite")
             
-            var config = Configuration()
+            /*var config = Configuration()
             config.prepareDatabase { db in
                 db.trace { print($0) }
-            }
+            }*/
             
-            let dbPool = try DatabasePool(path: dbURL.path, configuration: config)
+            let dbPool = try DatabasePool(path: dbURL.path)
             
             let database = try AppDatabase(dbwriter: dbPool)
             

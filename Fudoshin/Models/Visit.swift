@@ -9,17 +9,10 @@ import Foundation
 import GRDB
 
 struct Visit: VisitModelProtocol {
-    let id: String 
-    let userid: String
+    var id: String
+    var userid: String
     
-    let visitDate: Date
-    
-    init(userid: String) {
-        self.id = Visit.setid()
-        self.visitDate = Date()
-        
-        self.userid = userid
-    }
+    var visitDate: DateString
     
     static func setid() -> String {
         let identifier: String = UUID().uuidString

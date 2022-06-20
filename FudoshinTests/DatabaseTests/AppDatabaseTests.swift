@@ -13,14 +13,6 @@ class AppDatabaseTests: XCTestCase {
     
     var user = MockUser()
 
-    override func setUpWithError() throws {
-        
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testUserInsert() throws {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
@@ -35,7 +27,7 @@ class AppDatabaseTests: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let visit = MockVisit(userid: user.id, visitDate: Date.now)
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
@@ -61,17 +53,14 @@ class AppDatabaseTests: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let visit = MockVisit(userid: user.id, visitDate: Date.now)
-        
-        let otherVisit = visit
-        XCTAssertEqual(visit, otherVisit)
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
             try visit.insert(db)
             
             if let newVisit = try MockVisit.fetchOne(db, key: visit.id) {
-               // XCTAssertEqual(visit.visitDate, newVisit.visitDate)
+                XCTAssertEqual(visit.visitDate, newVisit.visitDate)
             }
         })
     }
@@ -91,17 +80,30 @@ class AppDatabaseTests: XCTestCase {
         })
     }
     
-    func testVisitUpdate() throws {
+    func testUserDelete() throws {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
+        try appDatabase.dbwriter.write({ db in
+            try user.insert(db)
+            try user.delete(db)
+            
+            try XCTAssertFalse(user.exists(db))
+        })
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testVisitDelete() throws {
+        let dbQueue = DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
+        
+        try appDatabase.dbwriter.write({ db in
+            try user.insert(db)
+            try visit.insert(db)
+            try visit.delete(db)
+            
+            try XCTAssertFalse(visit.exists(db))
+        })
     }
-
 }

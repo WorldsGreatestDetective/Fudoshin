@@ -9,10 +9,7 @@ import Foundation
 import GRDB
 
 struct User: UserModelProtocol {
-    let id: String = {
-        let identifier: String = UUID().uuidString
-        return identifier
-    }()
+    var id: String 
     
     var firstName: String
     var lastName: String
@@ -21,6 +18,12 @@ struct User: UserModelProtocol {
     var password: String
     
     var beltLevel: BeltLevel
+    
+    static func setid() -> String{
+        let identifier: String = UUID().uuidString
+        
+        return identifier
+    }
 }
 
 extension User: Equatable {}

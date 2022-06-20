@@ -27,7 +27,7 @@ class MockDatabase {
             try db.create(table: "MockVisit", body: { t in
                 t.column("id", .text).primaryKey().notNull(onConflict: nil)
                 t.column("userid", .text).references("MockUser").notNull(onConflict: nil)
-                t.column("visitDate", .date).notNull(onConflict: nil)
+                t.column("visitDate", .text).notNull(onConflict: nil)
             })
         }
         return migrator

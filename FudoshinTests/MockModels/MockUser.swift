@@ -10,27 +10,13 @@ import GRDB
 @testable import Fudoshin
 
 struct MockUser: UserModelProtocol, Equatable, Codable, PersistableRecord, FetchableRecord {
-    let id: String
+    var id: String = User.setid()
     
-    var firstName: String
-    var lastName: String
+    var firstName: String = "Joe"
+    var lastName: String = "shmoe"
     
-    var email: String
-    var password: String
+    var email: String = "email"
+    var password: String = "password"
     
-    var beltLevel: BeltLevel
-    
-    init() {
-        self.id = {
-            let identifier: String = UUID().uuidString
-            return identifier
-        }()
-        
-        self.firstName = "john"
-        self.lastName = "deo"
-        
-        self.email = "email"
-        self.password = "password"
-        self.beltLevel = .white
-    }
+    var beltLevel: BeltLevel = .white
 }
