@@ -9,7 +9,7 @@ import UIKit
 
 class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
     
-    // service model
+    private var registerServiceModel: RegisterServiceModelProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +17,15 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         setView()
     }
     
-    func setView() {
+    private func setView() {
         let registerView = RegisterView(frame: self.view.frame)
         registerView.setDelegate(delegate: self)
         
         self.view = registerView
+    }
+    
+    func setServiceModel(serviceModel: RegisterServiceModelProtocol) {
+        registerServiceModel = serviceModel
     }
 
 }

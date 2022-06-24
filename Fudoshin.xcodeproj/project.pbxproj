@@ -28,6 +28,11 @@
 		F52142F0285BACFE000475AE /* MockDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142EF285BACFE000475AE /* MockDatabase.swift */; };
 		F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */; };
 		F52142F52861213C000475AE /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142F42861213C000475AE /* DateExt.swift */; };
+		F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142F82864CB59000475AE /* RegisterServiceModelProtocol.swift */; };
+		F52142FB2864CD18000475AE /* MockRegisterServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142FA2864CD17000475AE /* MockRegisterServiceModel.swift */; };
+		F52142FD2864E51D000475AE /* RegisterServiceModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142FC2864E51C000475AE /* RegisterServiceModelTest.swift */; };
+		F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142FF2864E7A1000475AE /* AppDatabaseProtocol.swift */; };
+		F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143012864EA04000475AE /* LoginServiceModelProtocol.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
@@ -84,6 +89,11 @@
 		F52142EF285BACFE000475AE /* MockDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabase.swift; sourceTree = "<group>"; };
 		F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceModelProtocol.swift; sourceTree = "<group>"; };
 		F52142F42861213C000475AE /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
+		F52142F82864CB59000475AE /* RegisterServiceModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceModelProtocol.swift; sourceTree = "<group>"; };
+		F52142FA2864CD17000475AE /* MockRegisterServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterServiceModel.swift; sourceTree = "<group>"; };
+		F52142FC2864E51C000475AE /* RegisterServiceModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServiceModelTest.swift; sourceTree = "<group>"; };
+		F52142FF2864E7A1000475AE /* AppDatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseProtocol.swift; sourceTree = "<group>"; };
+		F52143012864EA04000475AE /* LoginServiceModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModelProtocol.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +183,7 @@
 			children = (
 				F52142EA285B9DFB000475AE /* MockUser.swift */,
 				F52142E8285B9CFD000475AE /* MockVisit.swift */,
+				F52142FA2864CD17000475AE /* MockRegisterServiceModel.swift */,
 			);
 			path = MockModels;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 			children = (
 				F52142DF285A65EC000475AE /* UserModelProtocol.swift */,
 				F52142E4285A8562000475AE /* VisitModelProtocol.swift */,
+				F52143032864EA08000475AE /* ServiceModelProtocols */,
 			);
 			path = ModelProtocols;
 			sourceTree = "<group>";
@@ -193,6 +205,25 @@
 				F52142E1285A680E000475AE /* AppDatabaseTests.swift */,
 			);
 			path = DatabaseTests;
+			sourceTree = "<group>";
+		};
+		F52142FE2864E723000475AE /* DelegateProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				F52142D728590656000475AE /* RegisterViewDelegateProtocol.swift */,
+				F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */,
+			);
+			path = DelegateProtocols;
+			sourceTree = "<group>";
+		};
+		F52143032864EA08000475AE /* ServiceModelProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				F52142F82864CB59000475AE /* RegisterServiceModelProtocol.swift */,
+				F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */,
+				F52143012864EA04000475AE /* LoginServiceModelProtocol.swift */,
+			);
+			path = ServiceModelProtocols;
 			sourceTree = "<group>";
 		};
 		F55F55DD281C431A00171AA0 = {
@@ -238,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				F55F5600281C432400171AA0 /* FudoshinTests.swift */,
+				F52142FC2864E51C000475AE /* RegisterServiceModelTest.swift */,
 				F52142F1285BB9B6000475AE /* DatabaseTests */,
 				F52142E3285A685C000475AE /* MockModels */,
 			);
@@ -293,10 +325,9 @@
 		F5794B592853E6D500FE484C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */,
-				F52142D728590656000475AE /* RegisterViewDelegateProtocol.swift */,
+				F52142FE2864E723000475AE /* DelegateProtocols */,
 				F52142EC285BA6FC000475AE /* ModelProtocols */,
-				F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */,
+				F52142FF2864E7A1000475AE /* AppDatabaseProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -559,6 +590,7 @@
 			files = (
 				F52142DA28590779000475AE /* RegisterServiceModel.swift in Sources */,
 				F52142D428590445000475AE /* RegisterView.swift in Sources */,
+				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
@@ -569,6 +601,8 @@
 				F52142E0285A65EC000475AE /* UserModelProtocol.swift in Sources */,
 				F52142D02858F457000475AE /* Visit.swift in Sources */,
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
+				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
+				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
@@ -582,6 +616,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52142FD2864E51D000475AE /* RegisterServiceModelTest.swift in Sources */,
+				F52142FB2864CD18000475AE /* MockRegisterServiceModel.swift in Sources */,
 				F52142E2285A680E000475AE /* AppDatabaseTests.swift in Sources */,
 				F52142F0285BACFE000475AE /* MockDatabase.swift in Sources */,
 				F55F5601281C432400171AA0 /* FudoshinTests.swift in Sources */,

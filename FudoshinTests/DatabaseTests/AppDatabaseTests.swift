@@ -12,6 +12,8 @@ import GRDB
 class AppDatabaseTests: XCTestCase {
     
     var user = MockUser()
+    
+    // TODO: Test the db itself 
 
     func testUserInsert() throws {
         let dbQueue = DatabaseQueue()

@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-class AppDatabase {
+class AppDatabase: AppDatabaseProtocol {
     let dbwriter: DatabaseWriter
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()

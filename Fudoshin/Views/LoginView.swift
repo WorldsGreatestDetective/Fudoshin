@@ -186,7 +186,7 @@ class LoginView: UIView {
 
 }
 
-extension UITextField {
+extension UITextField { // TODO: Move to util as UITextFieldExt
     func setLeftPaddingPoints(_ amount:CGFloat){
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.leftView = paddingView

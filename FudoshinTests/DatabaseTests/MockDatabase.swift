@@ -9,7 +9,7 @@ import Foundation
 import GRDB
 @testable import Fudoshin
 
-class MockDatabase {
+class MockDatabase: AppDatabaseProtocol {
     let dbwriter: DatabaseWriter
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()

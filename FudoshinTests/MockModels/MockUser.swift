@@ -9,7 +9,7 @@ import Foundation
 import GRDB
 @testable import Fudoshin
 
-struct MockUser: UserModelProtocol, Equatable, Codable, PersistableRecord, FetchableRecord {
+struct MockUser: UserModelProtocol, Equatable {
     var id: String = User.setid()
     
     var firstName: String = "Joe"

@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-protocol VisitModelProtocol: Equatable, Codable, PersistableRecord, FetchableRecord { // TODO: - Change protocol properties to get only 
+protocol VisitModelProtocol: Codable, PersistableRecord, FetchableRecord { // TODO: - Change protocol properties to get only 
     var id: String {get set}
     var userid: String {get set} // TODO: Create Userid typealias
     var visitDate: DateString {get set}

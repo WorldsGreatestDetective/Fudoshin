@@ -8,7 +8,7 @@
 import Foundation
 import GRDB
 
-protocol UserModelProtocol: Equatable, Codable, FetchableRecord, PersistableRecord {
+protocol UserModelProtocol: Codable, FetchableRecord, PersistableRecord {
     var id: String {get set}
     var firstName: String {get set}
     var lastName: String {get set}
