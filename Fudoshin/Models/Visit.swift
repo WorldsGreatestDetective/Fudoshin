@@ -22,7 +22,5 @@ struct Visit: VisitModelProtocol {
 }
 
 extension Visit: Codable {}
-
 extension Visit: PersistableRecord {}
-
 extension Visit: FetchableRecord {}

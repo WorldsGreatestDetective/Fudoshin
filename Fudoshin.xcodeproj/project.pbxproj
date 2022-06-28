@@ -163,7 +163,6 @@
 		F52142C72857B607000475AE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F52142C82857B625000475AE /* BeltLevel.swift */,
 				F52142F42861213C000475AE /* DateExt.swift */,
 			);
 			path = Utilities;
@@ -316,6 +315,7 @@
 			children = (
 				F52142C42857B208000475AE /* User.swift */,
 				F52142CF2858F457000475AE /* Visit.swift */,
+				F52142C82857B625000475AE /* BeltLevel.swift */,
 				F52142CA2857BEF1000475AE /* Persistence */,
 				F55F5619281C43B500171AA0 /* ServiceModels */,
 			);

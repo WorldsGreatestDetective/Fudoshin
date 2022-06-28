@@ -33,11 +33,11 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.9)
+        textField.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(24)
+        textField.setLeftPaddingPoints(20)
         
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular) /*, NSAttributedString.Key.foregroundColor : UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)*/]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)/*, NSAttributedString.Key.foregroundColor : UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)*/]
         let attributedText = NSAttributedString(string: "Email", attributes: attributes)
         textField.attributedPlaceholder = attributedText
     
@@ -61,9 +61,9 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.9)
+        textField.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(24)
+        textField.setLeftPaddingPoints(20)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), /*,NSAttributedString.Key.foregroundColor : NamedColors.darkGray*/]
         let attributedText = NSAttributedString(string: "Password", attributes: attributes)
@@ -84,6 +84,7 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
         
         return button
     }()
@@ -92,6 +93,7 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
         
         return button
     }()
@@ -157,7 +159,7 @@ class LoginView: UIView {
     }
     
     @objc private func registerButtonTapped() {
-        // delegate method
+        delegate?.pushToRegisterVC()
     }
     
     @objc private func loginButtonTapped() {

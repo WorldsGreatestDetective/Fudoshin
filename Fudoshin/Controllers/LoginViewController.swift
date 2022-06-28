@@ -25,7 +25,9 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
     }
     
     func pushToRegisterVC() {
+        let registerViewController = RegisterViewController()
         
+        present(registerViewController, animated: true, completion: nil)
     }
 
 }

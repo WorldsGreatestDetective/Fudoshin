@@ -17,9 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        //let navigationController = UINavigationController(rootViewController: viewController)
         
-        window?.rootViewController = navigationController
+        window?.rootViewController = viewController
         window?.overrideUserInterfaceStyle = .dark
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene

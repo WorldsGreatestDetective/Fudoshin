@@ -13,7 +13,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     
     private var delegate: RegisterViewDelegateProtocol?
 
-    private let beltLevelsArray: [String] = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt", "Coral Belt"]
+    private let beltLevelsArray: [String] = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt"]
     
     private let promptLabel: UILabel = {
         let label = UILabel()
@@ -147,6 +147,8 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     private func commonInit() {
+        backgroundColor = .systemBackground
+        
         let textFieldArray = [firstNameField, lastNameField, emailField]
         
         for textField in textFieldArray {
@@ -232,9 +234,10 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         }
     }
     
-    func getBeltLevel() -> String? {
+    func getBeltLevel() -> BeltLevel? {
         if let beltLevel = beltLevelField.text {
-            return beltLevel
+            let belt = beltLevel.stringToBeltLevel(beltString: beltLevel)
+            return belt
         } else {
             return nil
         }
@@ -248,7 +251,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     @objc private func registerButtonTapped() {
-        
+        delegate?.registerUser()
     }
     
     // MARK: - Picker View Delegate Methods
@@ -269,4 +272,25 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         beltLevelField.text = beltLevelsArray[row]
     }
 
+}
+
+extension String {
+    func stringToBeltLevel(beltString: String) -> BeltLevel? {
+        let beltLevels = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt"]
+        
+        switch beltString {
+        case beltLevels[0]:
+            return .white
+        case beltLevels[1]:
+            return .blue
+        case beltLevels[2]:
+            return .purple
+        case beltLevels[3]:
+            return .brown
+        case beltLevels[4]:
+            return .black
+        default:
+            return nil
+        }
+    }
 }
