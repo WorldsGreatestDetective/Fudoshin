@@ -29,5 +29,9 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         
         present(registerViewController, animated: true, completion: nil)
     }
+    
+    func loginUser() {
+        //
+    }
 
 }

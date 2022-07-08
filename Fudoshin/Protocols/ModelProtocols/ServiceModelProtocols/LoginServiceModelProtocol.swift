@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol LoginServiceModelProtocol {
+    var user: UserModelProtocol {get set}
+    var appDatabase: AppDatabaseProtocol {get set}
+    
+    
+}

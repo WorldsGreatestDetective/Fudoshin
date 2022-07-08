@@ -4,6 +4,8 @@
 //
 //  Created by Nathan Reilly on 6/15/22.
 //
+//  TODO: Be sure to test db schema see: https://github.com/groue/GRDB.swift/blob/master/Documentation/DemoApps/GRDBDemoiOS/GRDBDemoiOSTests/AppDatabaseTests.swift
+//
 
 import XCTest
 import GRDB
@@ -29,7 +31,7 @@ class AppDatabaseTests: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
@@ -55,7 +57,7 @@ class AppDatabaseTests: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
@@ -98,7 +100,7 @@ class AppDatabaseTests: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), userid: user.id)
+        let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
@@ -106,6 +108,26 @@ class AppDatabaseTests: XCTestCase {
             try visit.delete(db)
             
             try XCTAssertFalse(visit.exists(db))
+        })
+    }
+    
+    func testFetchAllUsers() throws {
+        let dbQueue = DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        let userOne = MockUser()
+        let userTwo = MockUser()
+        let userThree = MockUser()
+        
+        let userArray: [MockUser] = [userOne, userTwo, userThree]
+        
+        try appDatabase.dbwriter.write({ db in
+            for user in userArray {
+                try user.insert(db)
+            }
+            
+            let newUserArray: [MockUser] = try MockUser.fetchAll(db)
+            XCTAssertEqual(userArray, newUserArray)
         })
     }
 }

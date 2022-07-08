@@ -12,5 +12,6 @@ import GRDB
 struct MockVisit: VisitModelProtocol, Equatable {
     var id: String
     var visitDate: DateString
+    var sessionType: SessionType
     var userid: String
 }

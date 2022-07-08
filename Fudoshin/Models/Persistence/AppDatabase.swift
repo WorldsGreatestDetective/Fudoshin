@@ -27,6 +27,7 @@ class AppDatabase: AppDatabaseProtocol {
                 t.column("id", .text).primaryKey().notNull(onConflict: nil)
                 t.column("userid", .text).references("User").notNull(onConflict: nil)
                 t.column("visitDate", .date).notNull(onConflict: nil)
+                t.column("sessionType", .integer).notNull(onConflict: nil)
             })
         }
         return migrator

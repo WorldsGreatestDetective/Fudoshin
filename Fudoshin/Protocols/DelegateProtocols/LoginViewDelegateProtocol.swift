@@ -8,5 +8,6 @@
 import Foundation
 
 protocol LoginViewDelegateProtocol {
-    func pushToRegisterVC() 
+    func pushToRegisterVC()
+    func loginUser()
 }

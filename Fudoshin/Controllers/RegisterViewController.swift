@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
     }
     
     func presentAlertEmptyField() {
-        <#code#>
+        //
     }
 
 }

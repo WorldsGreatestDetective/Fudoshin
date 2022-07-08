@@ -11,6 +11,7 @@ import GRDB
 struct Visit: VisitModelProtocol {
     var id: String
     var userid: String
+    var sessionType: SessionType
     
     var visitDate: DateString
     
