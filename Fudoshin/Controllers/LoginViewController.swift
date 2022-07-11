@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController, LoginViewDelegateProtocol {
     
-    // Model or Service(View)Model
+    private var loginServiceModel: LoginServiceModelProtocol? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         setView()
     }
     
-    func setView() {
+    private func setView() {
         let loginView = LoginView(frame: self.view.frame)
         loginView.setDelegate(delegate: self)
         
@@ -31,7 +31,27 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
     }
     
     func loginUser() {
-        //
+        guard let loginView = view as? LoginView else {return}
+        
+        if let email = loginView.getEmail(), let password = loginView.getPassword() {
+            loginServiceModel = LoginServiceModel(email: email, password: password)
+            
+            if loginServiceModel?.fetchUserByLogin() == nil {
+                // pass public loginsm properties to profilesm
+                
+                // configure and push to nav controller; embed profile vc
+            } else {
+                presentLoginErrorAlert()
+            }
+        }
+    }
+    
+    private func pushToProfileVC() {
+        // May have to push to nav controller
+    }
+    
+    private func presentLoginErrorAlert() {
+        // present alert
     }
 
 }
