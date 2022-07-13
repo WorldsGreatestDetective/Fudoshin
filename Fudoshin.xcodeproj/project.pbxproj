@@ -40,6 +40,7 @@
 		F521439628788189000475AE /* LoginServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439528788188000475AE /* LoginServiceModel.swift */; };
 		F52143982879E97C000475AE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143972879E97B000475AE /* ErrorType.swift */; };
 		F521439A2879F1AF000475AE /* LoginServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143992879F1AF000475AE /* LoginServiceModelTests.swift */; };
+		F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439B287E1645000475AE /* HeaderTableViewCell.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		F521439528788188000475AE /* LoginServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModel.swift; sourceTree = "<group>"; };
 		F52143972879E97B000475AE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		F52143992879F1AF000475AE /* LoginServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModelTests.swift; sourceTree = "<group>"; };
+		F521439B287E1645000475AE /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				F55F561F281C443500171AA0 /* LoginView.swift */,
 				F52142D328590445000475AE /* RegisterView.swift */,
+				F521439B287E1645000475AE /* HeaderTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
+				F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
 				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
 				F521439628788189000475AE /* LoginServiceModel.swift in Sources */,
