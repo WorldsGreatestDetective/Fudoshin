@@ -41,6 +41,8 @@
 		F52143982879E97C000475AE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143972879E97B000475AE /* ErrorType.swift */; };
 		F521439A2879F1AF000475AE /* LoginServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143992879F1AF000475AE /* LoginServiceModelTests.swift */; };
 		F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439B287E1645000475AE /* HeaderTableViewCell.swift */; };
+		F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439D28807EB7000475AE /* ProfileViewController.swift */; };
+		F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A02881D98C000475AE /* VisitsByWeekCell.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
@@ -109,6 +111,8 @@
 		F52143972879E97B000475AE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		F52143992879F1AF000475AE /* LoginServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModelTests.swift; sourceTree = "<group>"; };
 		F521439B287E1645000475AE /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		F521439D28807EB7000475AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F52143A02881D98C000475AE /* VisitsByWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByWeekCell.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +276,15 @@
 			path = MockDelegates;
 			sourceTree = "<group>";
 		};
+		F521439F28809B23000475AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F521439B287E1645000475AE /* HeaderTableViewCell.swift */,
+				F52143A02881D98C000475AE /* VisitsByWeekCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F55F55DD281C431A00171AA0 = {
 			isa = PBXGroup;
 			children = (
@@ -345,9 +358,9 @@
 		F55F561A281C43BF00171AA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F521439F28809B23000475AE /* Cells */,
 				F55F561F281C443500171AA0 /* LoginView.swift */,
 				F52142D328590445000475AE /* RegisterView.swift */,
-				F521439B287E1645000475AE /* HeaderTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +370,7 @@
 			children = (
 				F55F561D281C440400171AA0 /* LoginViewController.swift */,
 				F52142D528590626000475AE /* RegisterViewController.swift */,
+				F521439D28807EB7000475AE /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -647,6 +661,8 @@
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
+				F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */,
+				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
 				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,

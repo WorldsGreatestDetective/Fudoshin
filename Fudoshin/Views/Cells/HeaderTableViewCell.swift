@@ -43,6 +43,18 @@ class HeaderTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let allLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "All"
+        label.font = UIFont(name: "kefa", size: 15)
+        label.tintColor = .white
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
     private let noGiLabel: UILabel = {
         let label = UILabel()
         
@@ -86,11 +98,12 @@ class HeaderTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(giLabel)
+        stackView.addArrangedSubview(allLabel)
         stackView.addArrangedSubview(noGiLabel)
         
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 220 // May change when testing on different devices
+        stackView.spacing = 110 // May change when testing on different devices
     }
     
     // For all constraints where a fixed distance is applied; should consider a minimum/maximum (variable) distance instead of fixed distance
