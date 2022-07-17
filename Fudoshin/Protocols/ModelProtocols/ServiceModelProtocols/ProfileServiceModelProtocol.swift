@@ -8,5 +8,14 @@
 import Foundation
 
 protocol ProfileServiceModelProtocol {
-    var user: User {get set}
+    var user: UserModelProtocol {get set}
+    var appDatabase: AppDatabaseProtocol {get set}
+    
+    var email: String {get set}
+    var password: String {get set}
+    
+    var id: String? {get set}
+    var firstName: String? {get set}
+    var lastName: String? {get set}
+    var beltLevel: BeltLevel? {get set}
 }

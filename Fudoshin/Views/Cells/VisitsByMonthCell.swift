@@ -1,14 +1,14 @@
 //
-//  VisitsByWeekCell.swift
+//  VisitsByMonthCell.swift
 //  Fudoshin
 //
-//  Created by Nathan Reilly on 7/15/22.
+//  Created by Nathan Reilly on 7/17/22.
 //
 
 import UIKit
 
-class VisitsByWeekCell: UITableViewCell {
-    
+class VisitsByMonthCell: UITableViewCell {
+
     private let giVisitsLabel: UILabel = {
         let label = UILabel()
         
@@ -40,7 +40,7 @@ class VisitsByWeekCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this week" // Work with and change font size/style when adjusting ui
+        label.text = "this month" // Work with and change font size/style when adjusting ui
         label.textAlignment = .center
         
         return label
@@ -56,9 +56,10 @@ class VisitsByWeekCell: UITableViewCell {
 
     private func commonInit() {
         backgroundColor = super.backgroundColor
-        configureStackView()
         
+        configureStackView()
         addSubview(stackView)
+        
         activateConstraints()
     }
     
@@ -82,16 +83,15 @@ class VisitsByWeekCell: UITableViewCell {
         NSLayoutConstraint.activate(constraintsArray)
     }
     
-    func setGiVisitsByWeek(visits: Int) {
+    func setGiVisitsByMonth(visits: Int) {
         giVisitsLabel.text = "\(visits)"
     }
     
-    func setNoGiVisitsByWeek(visits: Int) {
+    func setNoGiVisitsByMonth(visits: Int) {
         noGiVisitsLabel.text = "\(visits)"
     }
     
-    func setAllVisitsByWeek(visits: Int) {
+    func setAllVisitsByMonth(visits: Int) {
         allVisitsLabel.text = "\(visits)"
     }
-    
 }

@@ -1,14 +1,14 @@
 //
-//  VisitsByWeekCell.swift
+//  VisitsByTotalCell.swift
 //  Fudoshin
 //
-//  Created by Nathan Reilly on 7/15/22.
+//  Created by Nathan Reilly on 7/17/22.
 //
 
 import UIKit
 
-class VisitsByWeekCell: UITableViewCell {
-    
+class VisitsByTotalCell: UITableViewCell {
+
     private let giVisitsLabel: UILabel = {
         let label = UILabel()
         
@@ -40,7 +40,7 @@ class VisitsByWeekCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this week" // Work with and change font size/style when adjusting ui
+        label.text = "total visits" // Work with and change font size/style when adjusting ui
         label.textAlignment = .center
         
         return label
@@ -82,16 +82,16 @@ class VisitsByWeekCell: UITableViewCell {
         NSLayoutConstraint.activate(constraintsArray)
     }
     
-    func setGiVisitsByWeek(visits: Int) {
+    func setGiVisitsByTotal(visits: Int) {
         giVisitsLabel.text = "\(visits)"
     }
     
-    func setNoGiVisitsByWeek(visits: Int) {
+    func setNoGiVisitsByTotal(visits: Int) {
         noGiVisitsLabel.text = "\(visits)"
     }
     
-    func setAllVisitsByWeek(visits: Int) {
+    func setAllVisitsByTotal(visits: Int) {
         allVisitsLabel.text = "\(visits)"
     }
-    
+
 }

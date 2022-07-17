@@ -43,6 +43,9 @@
 		F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439B287E1645000475AE /* HeaderTableViewCell.swift */; };
 		F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439D28807EB7000475AE /* ProfileViewController.swift */; };
 		F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A02881D98C000475AE /* VisitsByWeekCell.swift */; };
+		F52143A3288486EF000475AE /* VisitsByMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A2288486EF000475AE /* VisitsByMonthCell.swift */; };
+		F52143A528848785000475AE /* VisitsByYearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A428848785000475AE /* VisitsByYearCell.swift */; };
+		F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A628848CD5000475AE /* VisitsByTotalCell.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
@@ -113,6 +116,9 @@
 		F521439B287E1645000475AE /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F521439D28807EB7000475AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F52143A02881D98C000475AE /* VisitsByWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByWeekCell.swift; sourceTree = "<group>"; };
+		F52143A2288486EF000475AE /* VisitsByMonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByMonthCell.swift; sourceTree = "<group>"; };
+		F52143A428848785000475AE /* VisitsByYearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByYearCell.swift; sourceTree = "<group>"; };
+		F52143A628848CD5000475AE /* VisitsByTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByTotalCell.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +287,9 @@
 			children = (
 				F521439B287E1645000475AE /* HeaderTableViewCell.swift */,
 				F52143A02881D98C000475AE /* VisitsByWeekCell.swift */,
+				F52143A2288486EF000475AE /* VisitsByMonthCell.swift */,
+				F52143A428848785000475AE /* VisitsByYearCell.swift */,
+				F52143A628848CD5000475AE /* VisitsByTotalCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -358,9 +367,9 @@
 		F55F561A281C43BF00171AA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F521439F28809B23000475AE /* Cells */,
 				F55F561F281C443500171AA0 /* LoginView.swift */,
 				F52142D328590445000475AE /* RegisterView.swift */,
+				F521439F28809B23000475AE /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -657,6 +666,7 @@
 			files = (
 				F52142DA28590779000475AE /* RegisterServiceModel.swift in Sources */,
 				F52143982879E97C000475AE /* ErrorType.swift in Sources */,
+				F52143A3288486EF000475AE /* VisitsByMonthCell.swift in Sources */,
 				F52142D428590445000475AE /* RegisterView.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
@@ -675,12 +685,14 @@
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
+				F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
 				F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
 				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
 				F521439628788189000475AE /* LoginServiceModel.swift in Sources */,
+				F52143A528848785000475AE /* VisitsByYearCell.swift in Sources */,
 				F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */,
 				F52142F52861213C000475AE /* DateExt.swift in Sources */,
 			);
