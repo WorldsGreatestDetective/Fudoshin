@@ -21,14 +21,14 @@ class LoginServiceModelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testFetchUserByLogin() throws {
         let dbQueue = DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
-        let registerServiceModel = MockRegisterServiceModel(database: appDatabase)
+        let registerServiceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)
         registerServiceModel.insertNewUser()
         
-        let loginServiceModel = LoginServiceModel(email: user.email, password: user.password)
+        let loginServiceModel = LoginServiceModel(email: user.email, password: user.password, appDatabase: appDatabase)
         let error = loginServiceModel.fetchUserByLogin()
         
         if error == nil {
@@ -36,8 +36,6 @@ class LoginServiceModelTests: XCTestCase {
         } else {
             print("login test failed")
         }
-        
-        
     }
 
 }

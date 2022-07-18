@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
             if password == confirmPass {
                 let user = User(id: User.setid(), firstName: firstname, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
                 
-                guard let registerService = RegisterServiceModel(db: AppDatabase.sharedPool, userModel: user) as? RegisterServiceModelProtocol else {return}
+                guard let registerService = RegisterServiceModel(appDatabase: AppDatabase.sharedPool, userModel: user) as? RegisterServiceModelProtocol else {return}
                 setServiceModel(serviceModel: registerService)
                 
                 registerServiceModel?.insertNewUser()

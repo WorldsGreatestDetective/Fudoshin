@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         guard let loginView = view as? LoginView else {return}
         
         if let email = loginView.getEmail(), let password = loginView.getPassword() {
-            loginServiceModel = LoginServiceModel(email: email, password: password)
+            loginServiceModel = LoginServiceModel(email: email, password: password, appDatabase: AppDatabase.sharedPool)
             
             if loginServiceModel?.fetchUserByLogin() == nil {
                 // pass public loginsm properties to profilesm

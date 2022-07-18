@@ -17,3 +17,5 @@ extension Date {
         return dateString
     }
 }
+
+// Perhaps format dateString to be ready for being filtered in profile sm

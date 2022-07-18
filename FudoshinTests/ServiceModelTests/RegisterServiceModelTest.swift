@@ -10,6 +10,8 @@ import GRDB
 @testable import Fudoshin
 
 class RegisterServiceModelTest: XCTestCase {
+    
+    let user = MockUser()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,7 +25,7 @@ class RegisterServiceModelTest: XCTestCase {
         let dbQueue = DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
-        let serviceModel = MockRegisterServiceModel(database: appDatabase)
+        let serviceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)
         
         serviceModel.insertNewUser()
         try appDatabase.dbwriter.read({ db in

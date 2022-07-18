@@ -8,12 +8,12 @@
 import Foundation
 
 class RegisterServiceModel {
-    internal let user: User
-    internal let appDatabase: AppDatabase
+    internal let user: UserModelProtocol
+    internal let appDatabase: AppDatabaseProtocol
     
-    init(db: AppDatabase, userModel: UserModelProtocol) {
-        appDatabase = db
-        user = userModel as! User // TODO: Check SO or reddit to see if force-unwrap is ok here
+    init(appDatabase: AppDatabaseProtocol, userModel: UserModelProtocol) {
+        self.appDatabase = appDatabase
+        user = userModel // TODO: Check SO or reddit to see if force-unwrap is ok here
     }
     
     func insertNewUser() {

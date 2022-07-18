@@ -14,8 +14,6 @@ import GRDB
 class AppDatabaseTests: XCTestCase {
     
     var user = MockUser()
-    
-    // TODO: Test the db itself 
 
     func testUserInsert() throws {
         let dbQueue = DatabaseQueue()
@@ -119,15 +117,54 @@ class AppDatabaseTests: XCTestCase {
         let userTwo = MockUser()
         let userThree = MockUser()
         
-        let userArray: [MockUser] = [userOne, userTwo, userThree]
+        let users: [MockUser] = [userOne, userTwo, userThree]
         
         try appDatabase.dbwriter.write({ db in
-            for user in userArray {
+            for user in users {
                 try user.insert(db)
             }
             
-            let newUserArray: [MockUser] = try MockUser.fetchAll(db)
-            XCTAssertEqual(userArray, newUserArray)
+            let newUsers: [MockUser] = try MockUser.fetchAll(db)
+            XCTAssertEqual(users, newUsers)
         })
     }
+    
+    func testFetchAllVisits() throws {
+        let dbQueue = DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        let visitOne = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
+        let visitTwo = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .noGi, userid: user.id)
+        let visitThree = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
+        
+        let visits = [visitOne, visitTwo, visitThree]
+        
+        try appDatabase.dbwriter.write({ db in
+            try user.insert(db)
+            
+            for visit in visits {
+                try visit.insert(db)
+            }
+            
+            let fetchVisitsSQL = "SELECT * FROM MockVisit where userid = ?"
+            let fetchVisitsStmt = try db.makeStatement(sql: fetchVisitsSQL)
+            fetchVisitsStmt.arguments = ["\(user.id)"]
+            
+            let newVisits = try MockVisit.fetchAll(fetchVisitsStmt, arguments: fetchVisitsStmt.arguments, adapter: nil)
+            
+            XCTAssertEqual(visits, newVisits)
+            for visit in newVisits {
+                XCTAssertEqual(visit.userid, user.id)
+            }
+        })
+    }
+    
+    /*
+     let fetchUserSQL = "SELECT * FROM VisitLog WHERE userid = ?"
+     let fetchUserStatement = try db.makeStatement(sql: fetchUserSQL)
+             
+     fetchUserStatement.arguments = ["\(userid)"]
+     
+     visitLog = try VisitLog.fetchAll(fetchUserStatement, arguments: fetchUserStatement.arguments, adapter: nil)
+     */
 }

@@ -22,14 +22,16 @@ class LoginServiceModel: LoginServiceModelProtocol {
         }
     }
     
-    internal var appDatabase: AppDatabaseProtocol = AppDatabase.sharedPool
+    internal var appDatabase: AppDatabaseProtocol
     
     var email: String
     var password: String
     
-    init(email: String, password: String) {
+    init(email: String, password: String, appDatabase: AppDatabaseProtocol) {
         self.email = email
         self.password = password
+        
+        self.appDatabase = appDatabase
     }
     
     var id: String?
