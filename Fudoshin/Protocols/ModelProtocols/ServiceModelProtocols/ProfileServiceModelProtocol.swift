@@ -23,12 +23,17 @@ protocol ProfileServiceModelProtocol {
     var beltLevel: BeltLevel {get set}
     
     func getCountByWeek() -> [Int]
-    func getCountByMonth() -> [Int]
+    func getCountByMonth() -> [Int]?
     func getCountByYear() -> [Int]
     func getCountByTotal() -> [Int]
     
     func insertNewVisit()
+    func fetchVisitsByUser() -> [VisitModelProtocol]?
+    
+    func getMonthsByVisits() -> [Int]?
+    
     func setNewVisit(visit: VisitModelProtocol)
+    func setVisits(visits: [VisitModelProtocol])
 }
 
 // init profile sm with user property parameters, set user with params, fetch and set visits by user id as tested

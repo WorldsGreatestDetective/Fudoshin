@@ -13,7 +13,7 @@ class RegisterServiceModel {
     
     init(appDatabase: AppDatabaseProtocol, userModel: UserModelProtocol) {
         self.appDatabase = appDatabase
-        user = userModel // TODO: Check SO or reddit to see if force-unwrap is ok here
+        user = userModel 
     }
     
     func insertNewUser() {

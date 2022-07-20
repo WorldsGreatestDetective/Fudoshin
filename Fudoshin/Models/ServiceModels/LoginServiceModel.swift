@@ -48,7 +48,7 @@ class LoginServiceModel: LoginServiceModelProtocol {
                 
                 if let usersByEmail = filterUsersByEmail(users: users) {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
-                        user = usersByPassword[0]
+                        user = usersByPassword[0] // TODO: Check apple docs for better way to ensure and access user acct
                     } else {
                         loginError = .loginError
                     }

@@ -28,7 +28,8 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         registerServiceModel = serviceModel
     }
     
-    func registerUser() {
+    func registerUser() { // TODO: Rewrite method after refectoring RegisterServiceModel init
+        
         guard let registerView = self.view as? RegisterView else {return}
         
         if let email = registerView.getEmail(), let password = registerView.getPassword(), let confirmPass = registerView.getConfirmPassword(), let firstname = registerView.getFirstName(), let lastName = registerView.getLastName(), let beltLevel = registerView.getBeltLevel() {
