@@ -24,16 +24,23 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         self.user = User(id: id, firstName: firstName, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
         
         if let fetchedVisits = fetchVisitsByUser() {
-            setVisits(visits: fetchedVisits)
-        } else {
-            setVisits(visits: [])
+            visits = fetchedVisits
         }
     }
     
-    internal var newVisit: VisitModelProtocol?
-    internal var visits: [VisitModelProtocol]
+    internal var newVisit: VisitModelProtocol? = nil
+    internal var visits: [VisitModelProtocol] = [] {
+        didSet {
+            let noGiVisits = visits.filter {$0.sessionType == .noGi}
+            let giVisits = visits.filter {$0.sessionType == .gi}
+            
+            self.noGiVisits = noGiVisits
+            self.giVisits = giVisits
+        }
+    }
     
-    
+    internal var noGiVisits: [VisitModelProtocol] = []
+    internal var giVisits: [VisitModelProtocol] = []
     
     var email: String
     var password: String
@@ -42,29 +49,249 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     var lastName: String
     var beltLevel: BeltLevel
     
-    func getCountByWeek() -> [Int] {
-        <#code#>
+    func getCountByWeek() -> Int? {
+        guard let weeks = getWeeksByVisits() else {return nil}
+        
+        let visitsThisWeek = weeks.filter {$0 == Date.currentWeekOfMonth} // TODO: Rename constant; doesnt make sense
+        return visitsThisWeek.count
     }
     
-    func getCountByMonth() -> [Int]? {
+    func getCountByWeekGi() -> Int? {
+        guard let weeks = getWeeksByVisitsGi() else {return nil}
+        
+        let visitsThisWeek = weeks.filter {$0 == Date.currentWeekOfMonth}
+        return visitsThisWeek.count
+    }
+    
+    func getCountByWeekNoGi() -> Int? {
+        guard let weeks = getWeeksByVisitsNoGi() else {return nil}
+        
+        let visitsThisWeek = weeks.filter {$0 == Date.currentWeekOfMonth}
+        return visitsThisWeek.count
+    }
+    
+    func getCountByMonth() -> Int? {
         guard let months = getMonthsByVisits() else {return nil}
         
-        //let visitsByMonth = visits.filter {$0}
+        let visitsThisMonth = months.filter {$0 == Date.currentMonth}
+        return visitsThisMonth.count
     }
     
-    func getCountByYear() -> [Int] {
-        <#code#>
+    func getCountByMonthGi() -> Int? {
+        guard let months = getMonthsByVisitsGi() else {return nil}
+        
+        let visitsThisMonth = months.filter {$0 == Date.currentMonth}
+        return visitsThisMonth.count
     }
     
-    func getCountByTotal() -> [Int] {
-        <#code#>
+    func getCountByMonthNoGi() -> Int? {
+        guard let months = getMonthsByVisitsNoGi() else {return nil}
+        
+        let visitsThisMonth = months.filter {$0 == Date.currentMonth}
+        return visitsThisMonth.count
     }
     
-    func insertNewVisit() {
-        guard let newVisit = newVisit else {return}
+    func getCountByYear() -> Int? {
+        guard let years = getYearsByVisits() else {return nil}
+        
+        let visitsThisYear = years.filter {$0 == Date.currentYear}
+        return visitsThisYear.count
+    }
+    
+    func getCountByYearGi() -> Int? {
+        guard let years = getYearsByVisitsGi() else {return nil}
+        
+        let visitsThisYear = years.filter {$0 == Date.currentYear}
+        return visitsThisYear.count
+    }
+    
+    func getCountByYearNoGi() -> Int? {
+        guard let years = getYearsByVisitsNoGi() else {return nil}
+        
+        let visitsThisYear = years.filter {$0 == Date.currentYear}
+        return visitsThisYear.count
+    }
+    
+    func getCountByTotal() -> Int? {
+        return visits.count
+    }
+    
+    func getCountByTotalGi() -> Int? {
+        return giVisits.count
+    }
+    
+    func getCountByTotalNoGi() -> Int? {
+        return noGiVisits.count
+    }
+    
+    internal func getWeeksByVisits() -> [Int]? {
+        var weeks: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in visits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let weekComponent = Calendar.current.dateComponents([.weekOfMonth], from: dateOfVisit)
+            guard let week = weekComponent.weekOfMonth else {return nil}
+            
+            weeks.append(week)
+        }
+        
+        return weeks
+    }
+    
+    internal func getWeeksByVisitsGi() -> [Int]? {
+        var weeks: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in giVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let weekComponent = Calendar.current.dateComponents([.weekOfMonth], from: dateOfVisit)
+            guard let week = weekComponent.weekOfMonth else {return nil}
+            
+            weeks.append(week)
+        }
+        
+        return weeks
+    }
+    
+    internal func getWeeksByVisitsNoGi() -> [Int]? {
+        var weeks: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in noGiVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let weekComponent = Calendar.current.dateComponents([.weekOfMonth], from: dateOfVisit)
+            guard let week = weekComponent.weekOfMonth else {return nil}
+            
+            weeks.append(week)
+        }
+        
+        return weeks
+    }
+    
+    internal func getMonthsByVisits() -> [Int]? {
+        var months: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in visits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let monthComponent = Calendar.current.dateComponents([.month], from: dateOfVisit)
+            guard let month = monthComponent.month else {return nil}
+            
+            months.append(month)
+        }
+        
+        return months
+    }
+    
+    internal func getMonthsByVisitsGi() -> [Int]? {
+        var months: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in giVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let monthComponent = Calendar.current.dateComponents([.month], from: dateOfVisit)
+            guard let month = monthComponent.month else {return nil}
+            
+            months.append(month)
+        }
+        
+        return months
+    }
+    
+    internal func getMonthsByVisitsNoGi() -> [Int]? {
+        var months: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in noGiVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let monthComponent = Calendar.current.dateComponents([.month], from: dateOfVisit)
+            guard let month = monthComponent.month else {return nil}
+            
+            months.append(month)
+        }
+        
+        return months
+    }
+    
+    internal func getYearsByVisits() -> [Int]? {
+        var years: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in visits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let yearComponent = Calendar.current.dateComponents([.year], from: dateOfVisit)
+            guard let year = yearComponent.year else {return nil}
+            
+            years.append(year)
+        }
+        
+        return years
+    }
+    
+    internal func getYearsByVisitsGi() -> [Int]? {
+        var years: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in giVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let yearComponent = Calendar.current.dateComponents([.year], from: dateOfVisit)
+            guard let year = yearComponent.year else {return nil}
+            
+            years.append(year)
+        }
+        
+        return years
+    }
+    
+    internal func getYearsByVisitsNoGi() -> [Int]? {
+        var years: [Int] = []
+        let formatter = DateFormatter()
+        
+        for visit in noGiVisits {
+            let dateString = visit.visitDate
+            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            
+            let yearComponent = Calendar.current.dateComponents([.year], from: dateOfVisit)
+            guard let year = yearComponent.year else {return nil}
+            
+            years.append(year)
+        }
+        
+        return years
+    }
+    
+    func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
+        insertNewVisit(id: id, visitDate: visitDate, sessionType: sessionType, userid: userid)
+        if let newVisit = newVisit {
+            visits.append(newVisit)
+        } else {
+            return
+        }
+    }
+    
+    internal func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
+        newVisit = Visit(id: id, userid: userid, sessionType: sessionType, visitDate: visitDate)
         
         do {
             try appDatabase.dbwriter.write({ db in
+                guard let newVisit = newVisit else {return}
                 try newVisit.insert(db)
             })
         } catch {
@@ -90,31 +317,6 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         }
         
         return newVisits
-    }
-    
-    func getMonthsByVisits() -> [Int]? {
-        var months: [Int] = []
-        let formatter = DateFormatter()
-        
-        for visit in visits {
-            let dateString = visit.visitDate
-            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
-            
-            let monthComponent = Calendar.current.dateComponents([.month], from: dateOfVisit)
-            guard let month = monthComponent.month else {return nil}
-            
-            months.append(month)
-        }
-        
-        return months
-    }
-    
-    internal func setNewVisit(visit: VisitModelProtocol) {
-        newVisit = visit
-    }
-    
-    internal func setVisits(visits: [VisitModelProtocol]) {
-        self.visits = visits
     }
     
 }

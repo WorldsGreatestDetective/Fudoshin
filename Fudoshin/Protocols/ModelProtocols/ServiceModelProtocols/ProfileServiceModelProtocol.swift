@@ -13,6 +13,8 @@ protocol ProfileServiceModelProtocol {
     
     var newVisit: VisitModelProtocol? {get set}
     var visits: [VisitModelProtocol] {get set}
+    var giVisits: [VisitModelProtocol] {get set}
+    var noGiVisits: [VisitModelProtocol] {get set}
     
     var email: String {get set}
     var password: String {get set}
@@ -22,19 +24,35 @@ protocol ProfileServiceModelProtocol {
     var lastName: String {get set}
     var beltLevel: BeltLevel {get set}
     
-    func getCountByWeek() -> [Int]
-    func getCountByMonth() -> [Int]?
-    func getCountByYear() -> [Int]
-    func getCountByTotal() -> [Int]
+    func getCountByWeek() -> Int?
+    func getCountByWeekGi() -> Int?
+    func getCountByWeekNoGi() -> Int?
     
-    func insertNewVisit()
-    func fetchVisitsByUser() -> [VisitModelProtocol]?
+    func getCountByMonth() -> Int?
+    func getCountByMonthGi() -> Int?
+    func getCountByMonthNoGi() -> Int?
+    
+    func getCountByYear() -> Int?
+    func getCountByYearGi() -> Int?
+    func getCountByYearNoGi() -> Int?
+    
+    func getCountByTotal() -> Int?
+    func getCountByTotalGi() -> Int?
+    func getCountByTotalNoGi() -> Int?
+    
+    func getWeeksByVisits() -> [Int]?
+    func getWeeksByVisitsGi() -> [Int]?
+    func getWeeksByVisitsNoGi() -> [Int]?
     
     func getMonthsByVisits() -> [Int]?
+    func getMonthsByVisitsGi() -> [Int]?
+    func getMonthsByVisitsNoGi() -> [Int]?
     
-    func setNewVisit(visit: VisitModelProtocol)
-    func setVisits(visits: [VisitModelProtocol])
+    func getYearsByVisits() -> [Int]?
+    func getYearsByVisitsGi() -> [Int]?
+    func getYearsByVisitsNoGi() -> [Int]?
+    
+    func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
+    func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
+    func fetchVisitsByUser() -> [VisitModelProtocol]?
 }
-
-// init profile sm with user property parameters, set user with params, fetch and set visits by user id as tested
-//
