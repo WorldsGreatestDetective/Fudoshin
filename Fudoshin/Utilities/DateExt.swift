@@ -12,10 +12,22 @@ extension Date {
         let now = Date()
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         let dateString = formatter.string(from: now)
         
         return dateString
     }
+    
+    static let formatterFull: DateFormatter = {
+        let formatter = DateFormatter()
+        
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
+        return formatter
+    }()
     
     static let currentWeekOfMonth: Int? = {
         let now = Date()

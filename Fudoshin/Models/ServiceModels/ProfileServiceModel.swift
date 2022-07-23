@@ -22,10 +22,6 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         self.beltLevel = beltLevel
         
         self.user = User(id: id, firstName: firstName, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
-        
-        if let fetchedVisits = fetchVisitsByUser() {
-            visits = fetchedVisits
-        }
     }
     
     internal var newVisit: VisitModelProtocol? = nil
@@ -50,7 +46,7 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     var beltLevel: BeltLevel
     
     func getCountByWeek() -> Int? {
-        guard let weeks = getWeeksByVisits() else {return nil}
+        guard let weeks = getWeeksByVisits() else {print("crap"); return nil}
         
         let visitsThisWeek = weeks.filter {$0 == Date.currentWeekOfMonth} // TODO: Rename constant; doesnt make sense
         return visitsThisWeek.count
@@ -128,12 +124,15 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         var weeks: [Int] = []
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         for visit in visits {
             let dateString = visit.visitDate
-            guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
+            guard let dateOfVisit = formatter.date(from: dateString) else {print("Could not format string"); return nil}
             
             let weekComponent = Calendar.current.dateComponents([.weekOfMonth], from: dateOfVisit)
-            guard let week = weekComponent.weekOfMonth else {return nil}
+            guard let week = weekComponent.weekOfMonth else {print("could not extract component"); return nil}
             
             weeks.append(week)
         }
@@ -277,6 +276,14 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         return years
     }
     
+    func getVisits() -> [VisitModelProtocol] {
+        return visits
+    }
+    
+    func setVisits(visits: [VisitModelProtocol]) {
+        self.visits = visits
+    }
+    
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
         insertNewVisit(id: id, visitDate: visitDate, sessionType: sessionType, userid: userid)
         if let newVisit = newVisit {
@@ -286,20 +293,7 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         }
     }
     
-    internal func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
-        newVisit = Visit(id: id, userid: userid, sessionType: sessionType, visitDate: visitDate)
-        
-        do {
-            try appDatabase.dbwriter.write({ db in
-                guard let newVisit = newVisit else {return}
-                try newVisit.insert(db)
-            })
-        } catch {
-            print(error)
-        }
-    }
-    
-    internal func fetchVisitsByUser() -> [VisitModelProtocol]? {
+    func fetchVisitsByUser() -> [VisitModelProtocol]? {
         var newVisits: [VisitModelProtocol]? = nil
         
         do {
@@ -317,6 +311,19 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         }
         
         return newVisits
+    }
+    
+    internal func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
+        newVisit = Visit(id: id, userid: userid, sessionType: sessionType, visitDate: visitDate)
+        
+        do {
+            try appDatabase.dbwriter.write({ db in
+                guard let newVisit = newVisit else {return}
+                try newVisit.insert(db)
+            })
+        } catch {
+            print(error)
+        }
     }
     
 }

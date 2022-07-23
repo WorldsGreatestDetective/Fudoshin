@@ -47,6 +47,7 @@
 		F52143A528848785000475AE /* VisitsByYearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A428848785000475AE /* VisitsByYearCell.swift */; };
 		F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A628848CD5000475AE /* VisitsByTotalCell.swift */; };
 		F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A828870744000475AE /* ProfileServiceModel.swift */; };
+		F52143AB288B2418000475AE /* ProfileServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143AA288B2417000475AE /* ProfileServiceModelTests.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
 		F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55EB281C431B00171AA0 /* SceneDelegate.swift */; };
 		F55F55F3281C432200171AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F55F2281C432200171AA0 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		F52143A428848785000475AE /* VisitsByYearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByYearCell.swift; sourceTree = "<group>"; };
 		F52143A628848CD5000475AE /* VisitsByTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByTotalCell.swift; sourceTree = "<group>"; };
 		F52143A828870744000475AE /* ProfileServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceModel.swift; sourceTree = "<group>"; };
+		F52143AA288B2417000475AE /* ProfileServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceModelTests.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F55E9281C431B00171AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F55EB281C431B00171AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				F52142FC2864E51C000475AE /* RegisterServiceModelTest.swift */,
 				F52143992879F1AF000475AE /* LoginServiceModelTests.swift */,
+				F52143AA288B2417000475AE /* ProfileServiceModelTests.swift */,
 			);
 			path = ServiceModelTests;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				F52142EB285B9DFB000475AE /* MockUser.swift in Sources */,
 				F5214387286CFE6C000475AE /* MockRegisterViewDelegate.swift in Sources */,
 				F52142E9285B9CFD000475AE /* MockVisit.swift in Sources */,
+				F52143AB288B2418000475AE /* ProfileServiceModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

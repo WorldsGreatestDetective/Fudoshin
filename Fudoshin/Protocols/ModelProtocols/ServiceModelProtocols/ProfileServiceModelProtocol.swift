@@ -52,6 +52,10 @@ protocol ProfileServiceModelProtocol {
     func getYearsByVisitsGi() -> [Int]?
     func getYearsByVisitsNoGi() -> [Int]?
     
+    func getVisits() -> [VisitModelProtocol]
+    
+    func setVisits(visits: [VisitModelProtocol])
+    
     func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func fetchVisitsByUser() -> [VisitModelProtocol]?

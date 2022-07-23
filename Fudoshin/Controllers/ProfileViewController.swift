@@ -9,18 +9,23 @@ import UIKit
 
 /*class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Profile service model
+    var profileServiceModel: ProfileServiceModel? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func setServiceModel(appDatabase: AppDatabaseProtocol, email: String, password: String, id: String, firstName: String, lastName: String, beltLevel: BeltLevel) {
+        
+        profileServiceModel = ProfileServiceModel(appDatabase: appDatabase, email: email, password: password, id: id, firstName: firstName, lastName: lastName, beltLevel: beltLevel)
+    }
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
     }
 
