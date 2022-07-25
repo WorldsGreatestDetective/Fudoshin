@@ -144,6 +144,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         var weeks: [Int] = []
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         for visit in giVisits {
             let dateString = visit.visitDate
             guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
@@ -160,6 +163,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     internal func getWeeksByVisitsNoGi() -> [Int]? {
         var weeks: [Int] = []
         let formatter = DateFormatter()
+        
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
         
         for visit in noGiVisits {
             let dateString = visit.visitDate
@@ -178,6 +184,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         var months: [Int] = []
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         for visit in visits {
             let dateString = visit.visitDate
             guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
@@ -194,6 +203,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     internal func getMonthsByVisitsGi() -> [Int]? {
         var months: [Int] = []
         let formatter = DateFormatter()
+        
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
         
         for visit in giVisits {
             let dateString = visit.visitDate
@@ -212,6 +224,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         var months: [Int] = []
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         for visit in noGiVisits {
             let dateString = visit.visitDate
             guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
@@ -228,6 +243,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     internal func getYearsByVisits() -> [Int]? {
         var years: [Int] = []
         let formatter = DateFormatter()
+        
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
         
         for visit in visits {
             let dateString = visit.visitDate
@@ -246,6 +264,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         var years: [Int] = []
         let formatter = DateFormatter()
         
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        
         for visit in giVisits {
             let dateString = visit.visitDate
             guard let dateOfVisit = formatter.date(from: dateString) else {return nil}
@@ -262,6 +283,9 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     internal func getYearsByVisitsNoGi() -> [Int]? {
         var years: [Int] = []
         let formatter = DateFormatter()
+        
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
         
         for visit in noGiVisits {
             let dateString = visit.visitDate

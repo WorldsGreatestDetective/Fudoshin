@@ -28,8 +28,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         registerServiceModel = serviceModel
     }
     
-    func registerUser() { // TODO: Rewrite method after refectoring RegisterServiceModel init
-        
+    func registerUser() {
         guard let registerView = self.view as? RegisterView else {return}
         
         if let email = registerView.getEmail(), let password = registerView.getPassword(), let confirmPass = registerView.getConfirmPassword(), let firstname = registerView.getFirstName(), let lastName = registerView.getLastName(), let beltLevel = registerView.getBeltLevel() {
@@ -41,6 +40,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
                 setServiceModel(serviceModel: registerService)
                 
                 registerServiceModel?.insertNewUser()
+                dismiss(animated: true)
             } else {
                 presentAlertEmptyField()
             }

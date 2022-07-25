@@ -24,15 +24,15 @@ class LoginServiceModel: LoginServiceModelProtocol {
     
     internal var appDatabase: AppDatabaseProtocol
     
-    var email: String
-    var password: String
-    
     init(email: String, password: String, appDatabase: AppDatabaseProtocol) {
         self.email = email
         self.password = password
         
         self.appDatabase = appDatabase
     }
+    
+    var email: String
+    var password: String
     
     var id: String?
     var firstName: String?
@@ -48,7 +48,9 @@ class LoginServiceModel: LoginServiceModelProtocol {
                 
                 if let usersByEmail = filterUsersByEmail(users: users) {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
-                        user = usersByPassword[0] // TODO: Check apple docs for better way to ensure and access user acct
+                        // TODO: Write if-stmt ensuring usersByPassword.count == 1 
+                        
+                        user = usersByPassword[0]
                     } else {
                         loginError = .loginError
                     }
