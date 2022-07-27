@@ -7,9 +7,9 @@
 
 import Foundation
 
-class RegisterServiceModel {
-    internal let user: UserModelProtocol
-    internal let appDatabase: AppDatabaseProtocol
+class RegisterServiceModel: RegisterServiceModelProtocol {
+    internal var user: UserModelProtocol
+    internal var appDatabase: AppDatabaseProtocol
     
     init(appDatabase: AppDatabaseProtocol, userModel: UserModelProtocol) {
         self.appDatabase = appDatabase

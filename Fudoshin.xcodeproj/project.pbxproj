@@ -56,6 +56,11 @@
 		F55F560D281C432400171AA0 /* FudoshinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F560C281C432400171AA0 /* FudoshinUITestsLaunchTests.swift */; };
 		F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F561D281C440400171AA0 /* LoginViewController.swift */; };
 		F55F5620281C443500171AA0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F561F281C443500171AA0 /* LoginView.swift */; };
+		F5BB68972890541D005BA194 /* AddVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68962890541D005BA194 /* AddVisitViewController.swift */; };
+		F5BB6899289059E2005BA194 /* AddVisitServiceModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB6898289059E2005BA194 /* AddVisitServiceModelProtocol.swift */; };
+		F5BB689B289199C3005BA194 /* AddVisitServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB689A289199C3005BA194 /* AddVisitServiceModel.swift */; };
+		F5BB689F2891A35B005BA194 /* AddVisitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB689E2891A35B005BA194 /* AddVisitView.swift */; };
+		F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68A02891A91C005BA194 /* AddVisitViewDelegateProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +140,11 @@
 		F55F560C281C432400171AA0 /* FudoshinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FudoshinUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F55F561D281C440400171AA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F55F561F281C443500171AA0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F5BB68962890541D005BA194 /* AddVisitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVisitViewController.swift; sourceTree = "<group>"; };
+		F5BB6898289059E2005BA194 /* AddVisitServiceModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVisitServiceModelProtocol.swift; sourceTree = "<group>"; };
+		F5BB689A289199C3005BA194 /* AddVisitServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVisitServiceModel.swift; sourceTree = "<group>"; };
+		F5BB689E2891A35B005BA194 /* AddVisitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVisitView.swift; sourceTree = "<group>"; };
+		F5BB68A02891A91C005BA194 /* AddVisitViewDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVisitViewDelegateProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +231,6 @@
 			children = (
 				F52142DF285A65EC000475AE /* UserModelProtocol.swift */,
 				F52142E4285A8562000475AE /* VisitModelProtocol.swift */,
-				F52143032864EA08000475AE /* ServiceModelProtocols */,
 			);
 			path = ModelProtocols;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 			children = (
 				F52142D728590656000475AE /* RegisterViewDelegateProtocol.swift */,
 				F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */,
+				F5BB68A02891A91C005BA194 /* AddVisitViewDelegateProtocol.swift */,
 			);
 			path = DelegateProtocols;
 			sourceTree = "<group>";
@@ -250,6 +260,7 @@
 				F52142F82864CB59000475AE /* RegisterServiceModelProtocol.swift */,
 				F52143012864EA04000475AE /* LoginServiceModelProtocol.swift */,
 				F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */,
+				F5BB6898289059E2005BA194 /* AddVisitServiceModelProtocol.swift */,
 			);
 			path = ServiceModelProtocols;
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 				F52142D928590779000475AE /* RegisterServiceModel.swift */,
 				F521439528788188000475AE /* LoginServiceModel.swift */,
 				F52143A828870744000475AE /* ProfileServiceModel.swift */,
+				F5BB689A289199C3005BA194 /* AddVisitServiceModel.swift */,
 			);
 			path = ServiceModels;
 			sourceTree = "<group>";
@@ -375,6 +387,7 @@
 			children = (
 				F55F561F281C443500171AA0 /* LoginView.swift */,
 				F52142D328590445000475AE /* RegisterView.swift */,
+				F5BB689E2891A35B005BA194 /* AddVisitView.swift */,
 				F521439F28809B23000475AE /* Cells */,
 			);
 			path = Views;
@@ -386,6 +399,7 @@
 				F55F561D281C440400171AA0 /* LoginViewController.swift */,
 				F52142D528590626000475AE /* RegisterViewController.swift */,
 				F521439D28807EB7000475AE /* ProfileViewController.swift */,
+				F5BB68962890541D005BA194 /* AddVisitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -409,6 +423,7 @@
 				F521438A286D01C3000475AE /* ViewProtocols */,
 				F52142FE2864E723000475AE /* DelegateProtocols */,
 				F52142EC285BA6FC000475AE /* ModelProtocols */,
+				F52143032864EA08000475AE /* ServiceModelProtocols */,
 				F52142FF2864E7A1000475AE /* AppDatabaseProtocol.swift */,
 			);
 			path = Protocols;
@@ -674,12 +689,14 @@
 				F52143982879E97C000475AE /* ErrorType.swift in Sources */,
 				F52143A3288486EF000475AE /* VisitsByMonthCell.swift in Sources */,
 				F52142D428590445000475AE /* RegisterView.swift in Sources */,
+				F5BB689F2891A35B005BA194 /* AddVisitView.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */,
 				F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */,
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
+				F5BB689B289199C3005BA194 /* AddVisitServiceModel.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
 				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,
@@ -689,10 +706,13 @@
 				F52142E0285A65EC000475AE /* UserModelProtocol.swift in Sources */,
 				F521438F2875F4BA000475AE /* SessionType.swift in Sources */,
 				F52142D02858F457000475AE /* Visit.swift in Sources */,
+				F5BB6899289059E2005BA194 /* AddVisitServiceModelProtocol.swift in Sources */,
+				F5BB68972890541D005BA194 /* AddVisitViewController.swift in Sources */,
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
 				F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */,
+				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
 				F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */,

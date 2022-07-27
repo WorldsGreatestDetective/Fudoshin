@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
             if password == confirmPass {
                 let user = User(id: User.setid(), firstName: firstname, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
                 
-                guard let registerService = RegisterServiceModel(appDatabase: AppDatabase.sharedPool, userModel: user) as? RegisterServiceModelProtocol else {return}
+                let registerService = RegisterServiceModel(appDatabase: AppDatabase.sharedPool, userModel: user) 
                 setServiceModel(serviceModel: registerService)
                 
                 registerServiceModel?.insertNewUser()
@@ -47,8 +47,13 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         }
     }
     
-    func presentAlertEmptyField() {
-        //
+    func presentAlertEmptyField() { // TODO: Make nicer message 
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Required fields are empty", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
 }

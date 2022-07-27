@@ -46,7 +46,7 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     var beltLevel: BeltLevel
     
     func getCountByWeek() -> Int? {
-        guard let weeks = getWeeksByVisits() else {print("crap"); return nil}
+        guard let weeks = getWeeksByVisits() else {return nil}
         
         let visitsThisWeek = weeks.filter {$0 == Date.currentWeekOfMonth} // TODO: Rename constant; doesnt make sense
         return visitsThisWeek.count

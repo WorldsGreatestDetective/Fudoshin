@@ -10,15 +10,13 @@ import Foundation
 class LoginServiceModel: LoginServiceModelProtocol {
     internal var user: UserModelProtocol? {
         didSet {
-            guard let user = user else {return}
+            setid(id: user!.id)
+            setFirstName(firstName: user!.firstName)
+            setLastName(lastName: user!.lastName)
+            setBeltlevel(beltLevel: user!.beltLevel)
             
-            setid(id: user.id)
-            setFirstName(firstName: user.firstName)
-            setLastName(lastName: user.lastName)
-            setBeltlevel(beltLevel: user.beltLevel)
-            
-            setEmail(email: user.email)
-            setPassword(password: user.password)
+            setEmail(email: user!.email)
+            setPassword(password: user!.password)
         }
     }
     
@@ -52,9 +50,11 @@ class LoginServiceModel: LoginServiceModelProtocol {
                         
                         user = usersByPassword[0]
                     } else {
+                        print("1")
                         loginError = .loginError
                     }
                 } else {
+                    print("2")
                     loginError = .loginError
                 }
             })
@@ -66,16 +66,16 @@ class LoginServiceModel: LoginServiceModelProtocol {
     }
     
     internal func filterUsersByEmail(users: [UserModelProtocol]) -> [UserModelProtocol]? {
-        guard let user = user else {return nil}
+        //guard let user = user else {return nil}
         
-        let newUsers = users.filter {$0.email == user.email}
+        let newUsers = users.filter {$0.email == email}
         return newUsers
     }
     
     internal func filterUsersByPassword(users: [UserModelProtocol]) -> [UserModelProtocol]? {
-        guard let user = user else {return nil}
+        //guard let user = user else {return nil}
         
-        let newUsers = users.filter {$0.password == user.password}
+        let newUsers = users.filter {$0.password == password}
         return newUsers
     }
     

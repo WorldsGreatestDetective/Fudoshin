@@ -163,7 +163,7 @@ class LoginView: UIView {
     }
     
     @objc private func loginButtonTapped() {
-        // delegate method
+        delegate?.loginUser()
     }
     
     func setDelegate(delegate: LoginViewDelegateProtocol) {
