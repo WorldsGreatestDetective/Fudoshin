@@ -48,10 +48,14 @@ class VisitsByTotalCell: UITableViewCell {
     
     private let stackView = UIStackView()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 
     private func commonInit() {
