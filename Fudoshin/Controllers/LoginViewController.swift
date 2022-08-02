@@ -35,7 +35,8 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         
         if let email = loginView.getEmail(), let password = loginView.getPassword() {
             loginServiceModel = LoginServiceModel(email: email, password: password, appDatabase: AppDatabase.sharedPool)
-            guard let loginServiceModel = loginServiceModel else {print("4"); return}
+            
+            guard let loginServiceModel = loginServiceModel else {return}
             
             if loginServiceModel.fetchUserByLogin() == nil {
                 
@@ -47,7 +48,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
                     let profileViewController = ProfileViewController()
                     
                     profileViewController.setServiceModel(serviceModel: profileServiceModel)
-                    navigationController.pushViewController(profileViewController, animated: false)
+                    navigationController.pushViewController(profileViewController, animated: true)
                 }
             } else {
                 presentLoginErrorAlert()

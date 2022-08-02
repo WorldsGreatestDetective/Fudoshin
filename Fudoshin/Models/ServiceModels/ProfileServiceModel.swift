@@ -22,18 +22,20 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         self.beltLevel = beltLevel
         
         self.user = User(id: id, firstName: firstName, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
+        
+        guard let fetchedVisits = fetchVisitsByUser() else {return} // TODO: provide error handling
+        
+        visits = fetchedVisits
+        
+        let noGiVisits = visits.filter {$0.sessionType == .noGi}
+        let giVisits = visits.filter {$0.sessionType == .gi}
+        
+        self.noGiVisits = noGiVisits
+        self.giVisits = giVisits
     }
     
     internal var newVisit: VisitModelProtocol? = nil
-    internal var visits: [VisitModelProtocol] = [] {
-        didSet {
-            let noGiVisits = visits.filter {$0.sessionType == .noGi}
-            let giVisits = visits.filter {$0.sessionType == .gi}
-            
-            self.noGiVisits = noGiVisits
-            self.giVisits = giVisits
-        }
-    }
+    internal var visits: [VisitModelProtocol] = [] 
     
     internal var noGiVisits: [VisitModelProtocol] = []
     internal var giVisits: [VisitModelProtocol] = []
@@ -317,12 +319,12 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         }
     }
     
-    func fetchVisitsByUser() -> [VisitModelProtocol]? {
+    internal func fetchVisitsByUser() -> [VisitModelProtocol]? {
         var newVisits: [VisitModelProtocol]? = nil
         
         do {
             try appDatabase.dbwriter.write({ db in
-                let fetchVisitsSQL = "SELECT * FROM MockVisit where userid = ?"
+                let fetchVisitsSQL = "SELECT * FROM Visit where userid = ?"
                 let fetchVisitsStmt = try db.makeStatement(sql: fetchVisitsSQL)
                 fetchVisitsStmt.arguments = ["\(user.id)"]
                 

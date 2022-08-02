@@ -41,6 +41,7 @@ class VisitsByWeekCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "this week" // Work with and change font size/style when adjusting ui
+        label.font = UIFont(name: "PingFang HK Regular", size: 14)
         label.textAlignment = .center
         
         return label
@@ -62,6 +63,7 @@ class VisitsByWeekCell: UITableViewCell {
         backgroundColor = super.backgroundColor
         configureStackView()
         
+        addSubview(timeUnitLabel)
         addSubview(stackView)
         activateConstraints()
     }
@@ -81,7 +83,16 @@ class VisitsByWeekCell: UITableViewCell {
     // For all constraints where a fixed distance is applied; should consider a minimum/maximum (variable) distance instead of fixed distance
     
     private func activateConstraints() {
-        let constraintsArray: [NSLayoutConstraint] = [timeUnitLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), timeUnitLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 4), stackView.bottomAnchor.constraint(equalTo: timeUnitLabel.topAnchor, constant: 12), stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor), stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor), stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)]
+        let constraintsArray: [NSLayoutConstraint] = [
+            timeUnitLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timeUnitLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10),
+            
+            stackView.bottomAnchor.constraint(equalTo: timeUnitLabel.topAnchor, constant: 25),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            //stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor)
+        ]
         
         NSLayoutConstraint.activate(constraintsArray)
     }

@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavController()
+        configureNavigation()
         
         if profileServiceModel != nil {
             configureTableView()
@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(VisitsByMonthCell.self, forCellReuseIdentifier: "cellByMonth")
         tableView.register(VisitsByYearCell.self, forCellReuseIdentifier: "cellByYear")
         tableView.register(VisitsByTotalCell.self, forCellReuseIdentifier: "cellByTotal")
+        tableView.refreshControl = UIRefreshControl()
         tableView.backgroundColor = view.backgroundColor
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +52,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let someCell = UITableViewCell()
-        guard let profileServiceModel = profileServiceModel else {print("7"); return someCell}
+        guard let profileServiceModel = profileServiceModel else {return someCell}
         
         switch indexPath.row {
         case 0:
@@ -111,6 +112,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 130
+        } else {
+            return 90
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     private func presentAlertError() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: "Error", message: "Data could not be loaded", preferredStyle: .alert)
@@ -120,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         present(alertController, animated: true, completion: nil)
     }
     
-    private func configureNavController() {
+    private func configureNavigation() {
         guard let navigationController = self.navigationController else {return}
         
         let barAppearance = UINavigationBarAppearance()
@@ -129,6 +142,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationController.navigationBar.standardAppearance = barAppearance
         navigationController.setNavigationBarHidden(false, animated: false)
         
+        navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
         //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "profileSettings"), style: .plain, target: nil, action: nil)
     }
@@ -142,6 +156,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         addVisitViewController.setServiceModel(serviceModel: addVisitServiceModel)
         addVisitViewController.modalPresentationStyle = .popover
         addVisitViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        
+        present(addVisitViewController, animated: true)
+        
+        if addVisitViewController.isBeingDismissed == true {
+            tableView?.reloadData()
+        }
     }
 
 }

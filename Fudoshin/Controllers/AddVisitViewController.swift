@@ -30,14 +30,18 @@ class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
     
     func saveVisitGi() {
         guard let addVisitServiceModel = addVisitServiceModel else {return}
+        
         addVisitServiceModel.setVisit(sessionType: .gi)
         addVisitServiceModel.insertNewVisit()
+        dismiss(animated: true)
     }
     
     func saveVisitNoGi() {
         guard let addVisitServiceModel = addVisitServiceModel else {return}
-        addVisitServiceModel.setVisit(sessionType: .gi)
+        
+        addVisitServiceModel.setVisit(sessionType: .noGi)
         addVisitServiceModel.insertNewVisit()
+        dismiss(animated: true)
     }
 
 }

@@ -13,7 +13,7 @@ class HeaderTableViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "kefa", size: 18)
+        label.font = UIFont(name: "kefa", size: 24)
         label.tintColor = .white
         label.textAlignment = .center
         
@@ -24,7 +24,7 @@ class HeaderTableViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "kefa", size: 15)
+        label.font = UIFont(name: "kefa", size: 19)
         label.tintColor = .white
         label.textAlignment = .center
         
@@ -36,7 +36,7 @@ class HeaderTableViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Gi"
-        label.font = UIFont(name: "kefa", size: 15)
+        label.font = UIFont(name: "kefa", size: 19)
         label.tintColor = .white
         label.textAlignment = .center
         
@@ -48,9 +48,9 @@ class HeaderTableViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "All"
-        label.font = UIFont(name: "kefa", size: 15)
+        label.font = UIFont(name: "kefa", size: 19)
         label.tintColor = .white
-        label.textAlignment = .center
+        label.textAlignment = .right
         
         return label
     }()
@@ -60,9 +60,9 @@ class HeaderTableViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No Gi"
-        label.font = UIFont(name: "kefa", size: 15)
+        label.font = UIFont(name: "kefa", size: 19)
         label.tintColor = .white
-        label.textAlignment = .center
+        label.textAlignment = .right
         
         return label
     }()
@@ -113,7 +113,17 @@ class HeaderTableViewCell: UITableViewCell {
     // For all constraints where a fixed distance is applied; should consider a minimum/maximum (variable) distance instead of fixed distance
     
     private func activateConstraints() {
-        let constraintsArray: [NSLayoutConstraint] = [nameLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30), stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), stackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 55), stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30)]
+        let constraintsArray: [NSLayoutConstraint] = [
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2),
+            
+            beltLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
+            beltLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.topAnchor.constraint(equalTo: beltLabel.bottomAnchor, constant: 30),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
+        ]
         
         NSLayoutConstraint.activate(constraintsArray)
     }

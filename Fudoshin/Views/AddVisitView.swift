@@ -46,6 +46,9 @@ class AddVisitView: UIView {
     }
     
     private func commonInit() {
+        addSubview(giButton)
+        addSubview(noGiButton)
+        
         addTargetsToButtons()
         activateConstraints()
     }

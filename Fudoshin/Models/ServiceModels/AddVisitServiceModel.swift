@@ -21,7 +21,7 @@ class AddVisitServiceModel: AddVisitServiceModelProtocol {
     
     func insertNewVisit() { // TODO: Add ErrorType? return
         guard let visit = visit else {return}
-
+        
         do {
             try appDatabase.dbwriter.write({ db in
                 try visit.insert(db)
