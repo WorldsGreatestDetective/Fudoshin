@@ -11,7 +11,7 @@ import GRDB
 
 class MockRegisterServiceModel: RegisterServiceModelProtocol {
     var user: UserModelProtocol = MockUser()
-    let appDatabase: AppDatabaseProtocol
+    var appDatabase: AppDatabaseProtocol
     
     init(database: AppDatabaseProtocol) {
         self.appDatabase = database

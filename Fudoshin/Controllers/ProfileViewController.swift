@@ -41,7 +41,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(VisitsByYearCell.self, forCellReuseIdentifier: "cellByYear")
         tableView.register(VisitsByTotalCell.self, forCellReuseIdentifier: "cellByTotal")
         tableView.refreshControl = UIRefreshControl()
-        tableView.backgroundColor = view.backgroundColor
+        //tableView.backgroundColor = view.backgroundColor
+        //tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(white: 0.05, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -56,7 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as? HeaderTableViewCell else {print("8");return someCell}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as? HeaderTableViewCell else {return someCell}
             
             cell.setNameLabelText(firstName: profileServiceModel.firstName, lastName: profileServiceModel.lastName)
             cell.setBeltLabelText(beltLevel: profileServiceModel.beltLevel)
@@ -112,7 +114,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 130
         } else {
@@ -120,17 +122,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    internal func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
-    }
-    
-    private func presentAlertError() {
-        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        let alertController = UIAlertController(title: "Error", message: "Data could not be loaded", preferredStyle: .alert)
-        
-        alertController.addAction(dismissAction)
-        
-        present(alertController, animated: true, completion: nil)
     }
     
     private func configureNavigation() {
@@ -142,9 +135,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationController.navigationBar.standardAppearance = barAppearance
         navigationController.setNavigationBarHidden(false, animated: false)
         
+        configureNavigationItems()
+    }
+    
+    private func configureNavigationItems() {
         navigationItem.setHidesBackButton(true, animated: false)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "profileSettings"), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(settingsBarButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    
+    private func presentAlertError() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Data could not be loaded", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc func addBarButtonTapped() {
@@ -162,6 +172,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if addVisitViewController.isBeingDismissed == true {
             tableView?.reloadData()
         }
+    }
+    
+    @objc func settingsBarButtonTapped() {
+        guard let id = profileServiceModel?.id else {return}
+        
+        let settingsViewController = SettingsViewController()
+        let settingsServiceModel = SettingsServiceModel(appDatabase: AppDatabase.sharedPool, id: id)
+        
+        settingsViewController.setServiceModel(serviceModel: settingsServiceModel)
+        
+        guard let navigationController = self.navigationController else {return}
+        navigationController.pushViewController(settingsViewController, animated: false)
     }
 
 }

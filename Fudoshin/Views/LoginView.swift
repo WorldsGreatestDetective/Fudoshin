@@ -33,11 +33,11 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.9)
+        textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(20)
         
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)/*, NSAttributedString.Key.foregroundColor : UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)*/]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Email", attributes: attributes)
         textField.attributedPlaceholder = attributedText
     
@@ -61,11 +61,11 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.9)
+        textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(20)
         
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), /*,NSAttributedString.Key.foregroundColor : NamedColors.darkGray*/]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Password", attributes: attributes)
         textField.attributedPlaceholder = attributedText
     
@@ -112,6 +112,8 @@ class LoginView: UIView {
     }
     
     private func commonInit() {
+        backgroundColor = UIColor(white: 0.05, alpha: 1)
+        
         configureSubViews()
         addTargetsToButtons()
         activateConstraints()
@@ -148,7 +150,17 @@ class LoginView: UIView {
     }
     
     private func activateConstraints() {
-        let constraintsArray: [NSLayoutConstraint] = [logoLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), logoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50), fieldStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), fieldStackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 120), buttonStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), buttonStackView.topAnchor.constraint(equalTo: fieldStackView.bottomAnchor, constant: 40)]
+        let constraintsArray: [NSLayoutConstraint] = [
+            logoLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            logoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
+            
+            fieldStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            fieldStackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 105),
+            fieldStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            
+            buttonStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            buttonStackView.topAnchor.constraint(equalTo: fieldStackView.bottomAnchor, constant: 40)
+        ]
         
         NSLayoutConstraint.activate(constraintsArray)
     }
@@ -186,17 +198,4 @@ class LoginView: UIView {
         }
     }
 
-}
-
-extension UITextField { // TODO: Move to util as UITextFieldExt
-    func setLeftPaddingPoints(_ amount:CGFloat){
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
-    }
-    func setRightPaddingPoints(_ amount:CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.rightView = paddingView
-        self.rightViewMode = .always
-    }
 }

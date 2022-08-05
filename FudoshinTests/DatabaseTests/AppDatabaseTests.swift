@@ -6,6 +6,8 @@
 //
 //  TODO: Be sure to test db schema see: https://github.com/groue/GRDB.swift/blob/master/Documentation/DemoApps/GRDBDemoiOS/GRDBDemoiOSTests/AppDatabaseTests.swift
 //
+//  TODO: Refactor tests for more efficient memory managemnt
+//
 
 import XCTest
 import GRDB
@@ -159,12 +161,44 @@ class AppDatabaseTests: XCTestCase {
         })
     }
     
-    /*
-     let fetchUserSQL = "SELECT * FROM VisitLog WHERE userid = ?"
-     let fetchUserStatement = try db.makeStatement(sql: fetchUserSQL)
-             
-     fetchUserStatement.arguments = ["\(userid)"]
-     
-     visitLog = try VisitLog.fetchAll(fetchUserStatement, arguments: fetchUserStatement.arguments, adapter: nil)
-     */
+    func testUserDeleteByid() throws {
+        let dbQueue = DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        try appDatabase.dbwriter.write({ db in
+            try user.insert(db)
+            try MockUser.deleteOne(db, key: user.id)
+            
+            try XCTAssertFalse(user.exists(db))
+        })
+    }
+    
+    func testVisitsDeleteByUser() throws {
+        let dbQueue = DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        let visitOne = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
+        let visitTwo = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .noGi, userid: user.id)
+        let visitThree = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
+        
+        let visits = [visitOne, visitTwo, visitThree]
+        
+        try appDatabase.dbwriter.write({ db in
+            try user.insert(db)
+            
+            for visit in visits {
+                try visit.insert(db)
+            }
+            
+            let fetchVisitsSQL = "DELETE FROM MockVisit where userid = ?"
+            let fetchVisitsStmt = try db.makeStatement(sql: fetchVisitsSQL)
+            fetchVisitsStmt.arguments = ["\(user.id)"]
+            
+            try fetchVisitsStmt.execute(arguments: fetchVisitsStmt.arguments)
+            
+            for visit in visits {
+                try XCTAssertFalse(visit.exists(db))
+            }
+        })
+    }
 }

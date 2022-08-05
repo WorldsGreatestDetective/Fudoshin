@@ -79,12 +79,6 @@ class HeaderTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    /*override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }*/
-    
     private func commonInit() {
         backgroundColor = super.backgroundColor
         configureStackView()
@@ -107,10 +101,8 @@ class HeaderTableViewCell: UITableViewCell {
         
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 110 // May change when testing on different devices
+        stackView.spacing = 110 
     }
-    
-    // For all constraints where a fixed distance is applied; should consider a minimum/maximum (variable) distance instead of fixed distance
     
     private func activateConstraints() {
         let constraintsArray: [NSLayoutConstraint] = [

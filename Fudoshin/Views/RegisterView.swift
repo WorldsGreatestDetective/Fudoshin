@@ -20,7 +20,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Enter Your Information Below"
-        label.font = .boldSystemFont(ofSize: 24)
+        label.font = UIFont(name: "kefa", size: 24)
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = label.frame.width
         label.textAlignment = .center
@@ -35,6 +35,13 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
+    
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "First name", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
     
         return textField
     }()
@@ -42,24 +49,36 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let lastNameField: UITextField = {
         let textField = UITextField()
     
-        textField.placeholder = "last name"
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
     
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "Last name", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
+        
         return textField
     }()
     
     private let emailField: UITextField = {
         let textField = UITextField()
-    
-        textField.placeholder = "email"
+        
+        textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.textContentType = .emailAddress
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.borderStyle = .roundedRect
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "Email", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
     
         return textField
     }()
@@ -68,13 +87,19 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let passwordField: UITextField = {
         let textField = UITextField()
     
-        textField.placeholder = "password"
         textField.textContentType = .newPassword
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "Password", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
     
         return textField
     }()
@@ -82,13 +107,19 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let confirmPasswordField: UITextField = {
         let textField = UITextField()
      
-        textField.placeholder = "confirm password"
         textField.textContentType = .newPassword
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.borderStyle = .roundedRect
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "Confirm password", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
      
         return textField
      }()
@@ -97,6 +128,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         let button = UIButton(type: .system)
         button.setTitle("Confirm & Register", for: .normal)
         
+        button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -105,9 +137,15 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let beltLevelField: UITextField = {
         let textField = UITextField()
      
-        textField.placeholder = "belt level"
         textField.borderStyle = .roundedRect
         textField.textAlignment = .left
+        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        textField.setLeftPaddingPoints(20)
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
+        let attributedText = NSAttributedString(string: "Belt level", attributes: attributes)
+        textField.attributedPlaceholder = attributedText
      
         return textField
     }()
@@ -147,7 +185,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     private func commonInit() {
-        backgroundColor = .systemBackground
+        backgroundColor = UIColor(white: 0.15, alpha: 1)
         
         let textFieldArray = [firstNameField, lastNameField, emailField]
         
@@ -183,7 +221,18 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     // MARK: - Constraints
     
     private func activateConstraints() {
-        let constraintsArray: [NSLayoutConstraint] = [promptLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), promptLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30), promptLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 70), stackView.topAnchor.constraint(equalTo: promptLabel.bottomAnchor, constant: 40), stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), stackView.widthAnchor.constraint(equalToConstant: 300), registerButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor), registerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30)]
+        let constraintsArray: [NSLayoutConstraint] = [
+            promptLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            promptLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            promptLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 70),
+            
+            stackView.topAnchor.constraint(equalTo: promptLabel.bottomAnchor, constant: 40),
+            stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 300),
+            
+            registerButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            registerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30)
+        ]
         
         NSLayoutConstraint.activate(constraintsArray)
     }
