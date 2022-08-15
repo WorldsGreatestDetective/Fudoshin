@@ -43,5 +43,4 @@ class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
         addVisitServiceModel.insertNewVisit()
         dismiss(animated: true)
     }
-
 }

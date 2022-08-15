@@ -29,7 +29,7 @@ class AddVisitView: UIView {
         config.title = "No gi"
         
         let button = UIButton(configuration: config, primaryAction: nil)
-        button.tintColor = .black
+        button.tintColor = UIColor(white: 0.05, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -46,8 +46,11 @@ class AddVisitView: UIView {
     }
     
     private func commonInit() {
-        addSubview(giButton)
-        addSubview(noGiButton)
+        let buttons = [giButton, noGiButton]
+        
+        for button in buttons {
+            addSubview(button)
+        }
         
         addTargetsToButtons()
         activateConstraints()
@@ -55,15 +58,13 @@ class AddVisitView: UIView {
     
     private func activateConstraints() {
         let constraintsArray: [NSLayoutConstraint] = [
-            giButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 2),
-            giButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 2),
-            giButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 2),
+            giButton.widthAnchor.constraint(equalToConstant: frame.width),
+            giButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            giButton.bottomAnchor.constraint(equalTo: noGiButton.topAnchor),
             
-            noGiButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 2),
-            noGiButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 2),
-            noGiButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 2),
-            
-            giButton.bottomAnchor.constraint(equalTo: noGiButton.topAnchor, constant: 1)
+            noGiButton.widthAnchor.constraint(equalToConstant: frame.width),
+            noGiButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            noGiButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ]
         
         NSLayoutConstraint.activate(constraintsArray)

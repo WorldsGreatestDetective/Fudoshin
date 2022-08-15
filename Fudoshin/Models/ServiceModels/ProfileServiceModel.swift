@@ -23,15 +23,7 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         
         self.user = User(id: id, firstName: firstName, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
         
-        guard let fetchedVisits = fetchVisitsByUser() else {return} // TODO: provide error handling
-        
-        visits = fetchedVisits
-        
-        let noGiVisits = visits.filter {$0.sessionType == .noGi}
-        let giVisits = visits.filter {$0.sessionType == .gi}
-        
-        self.noGiVisits = noGiVisits
-        self.giVisits = giVisits
+        setAllVisits()
     }
     
     internal var newVisit: VisitModelProtocol? = nil
@@ -317,6 +309,18 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         } else {
             return
         }
+    }
+    
+    internal func setAllVisits() {
+        guard let fetchedVisits = fetchVisitsByUser() else {return} // TODO: provide error handling
+        
+        visits = fetchedVisits
+        
+        let noGiVisits = visits.filter {$0.sessionType == .noGi}
+        let giVisits = visits.filter {$0.sessionType == .gi}
+        
+        self.noGiVisits = noGiVisits
+        self.giVisits = giVisits
     }
     
     internal func fetchVisitsByUser() -> [VisitModelProtocol]? {

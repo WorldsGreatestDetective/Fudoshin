@@ -14,6 +14,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Settings"
         configureTableView()
     }
     
@@ -29,11 +31,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.backgroundColor = UIColor(white: 0.05, alpha: 1)
+        tableView.backgroundColor = UIColor(white: 0.05, alpha: 1)
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

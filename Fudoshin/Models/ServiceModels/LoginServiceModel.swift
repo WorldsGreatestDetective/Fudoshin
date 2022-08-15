@@ -46,9 +46,15 @@ class LoginServiceModel: LoginServiceModelProtocol {
                 
                 if let usersByEmail = filterUsersByEmail(users: users) {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
+                        
                         // TODO: Write if-stmt ensuring usersByPassword.count == 1 
                         
-                        user = usersByPassword[0]
+                        if let user = usersByPassword.first {
+                            self.user = user
+                        } else {
+                            print("test: no user found")
+                            loginError = .loginError
+                        }
                     } else {
                         print("1")
                         loginError = .loginError
