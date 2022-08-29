@@ -197,5 +197,10 @@ class LoginView: UIView {
             return nil
         }
     }
+    
+    func clearTextFields() {
+        emailField.text = ""
+        passwordField.text = ""
+    }
 
 }

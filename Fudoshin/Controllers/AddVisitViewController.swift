@@ -9,7 +9,7 @@ import UIKit
 
 class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
     
-    var addVisitServiceModel: AddVisitServiceModelProtocol?
+    private var addVisitServiceModel: AddVisitServiceModelProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
         setView()
     }
     
-    func setView() {
+    private func setView() {
         let addVisitView = AddVisitView(frame: view.frame)
         addVisitView.setDelegate(delegate: self)
         
@@ -33,6 +33,7 @@ class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
         
         addVisitServiceModel.setVisit(sessionType: .gi)
         addVisitServiceModel.insertNewVisit()
+        
         dismiss(animated: true)
     }
     
@@ -41,6 +42,17 @@ class AddVisitViewController: UIViewController, AddVisitViewDelegateProtocol {
         
         addVisitServiceModel.setVisit(sessionType: .noGi)
         addVisitServiceModel.insertNewVisit()
+        
         dismiss(animated: true)
     }
+    
+    private func presentAlertAddVisit() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Visit Added", message: "Pull down to refresh your visits", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }

@@ -40,12 +40,7 @@
 		F521439628788189000475AE /* LoginServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439528788188000475AE /* LoginServiceModel.swift */; };
 		F52143982879E97C000475AE /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143972879E97B000475AE /* ErrorType.swift */; };
 		F521439A2879F1AF000475AE /* LoginServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143992879F1AF000475AE /* LoginServiceModelTests.swift */; };
-		F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439B287E1645000475AE /* HeaderTableViewCell.swift */; };
 		F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521439D28807EB7000475AE /* ProfileViewController.swift */; };
-		F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A02881D98C000475AE /* VisitsByWeekCell.swift */; };
-		F52143A3288486EF000475AE /* VisitsByMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A2288486EF000475AE /* VisitsByMonthCell.swift */; };
-		F52143A528848785000475AE /* VisitsByYearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A428848785000475AE /* VisitsByYearCell.swift */; };
-		F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A628848CD5000475AE /* VisitsByTotalCell.swift */; };
 		F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143A828870744000475AE /* ProfileServiceModel.swift */; };
 		F52143AB288B2418000475AE /* ProfileServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52143AA288B2417000475AE /* ProfileServiceModelTests.swift */; };
 		F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F55E9281C431B00171AA0 /* AppDelegate.swift */; };
@@ -126,12 +121,7 @@
 		F521439528788188000475AE /* LoginServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModel.swift; sourceTree = "<group>"; };
 		F52143972879E97B000475AE /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		F52143992879F1AF000475AE /* LoginServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceModelTests.swift; sourceTree = "<group>"; };
-		F521439B287E1645000475AE /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F521439D28807EB7000475AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		F52143A02881D98C000475AE /* VisitsByWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByWeekCell.swift; sourceTree = "<group>"; };
-		F52143A2288486EF000475AE /* VisitsByMonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByMonthCell.swift; sourceTree = "<group>"; };
-		F52143A428848785000475AE /* VisitsByYearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByYearCell.swift; sourceTree = "<group>"; };
-		F52143A628848CD5000475AE /* VisitsByTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsByTotalCell.swift; sourceTree = "<group>"; };
 		F52143A828870744000475AE /* ProfileServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceModel.swift; sourceTree = "<group>"; };
 		F52143AA288B2417000475AE /* ProfileServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceModelTests.swift; sourceTree = "<group>"; };
 		F55F55E6281C431B00171AA0 /* Fudoshin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fudoshin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,11 +306,6 @@
 		F521439F28809B23000475AE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F521439B287E1645000475AE /* HeaderTableViewCell.swift */,
-				F52143A02881D98C000475AE /* VisitsByWeekCell.swift */,
-				F52143A2288486EF000475AE /* VisitsByMonthCell.swift */,
-				F52143A428848785000475AE /* VisitsByYearCell.swift */,
-				F52143A628848CD5000475AE /* VisitsByTotalCell.swift */,
 				F5BB68A628997E15005BA194 /* VisitsViewCell.swift */,
 			);
 			path = Cells;
@@ -706,7 +691,6 @@
 				F52142DA28590779000475AE /* RegisterServiceModel.swift in Sources */,
 				F52143982879E97C000475AE /* ErrorType.swift in Sources */,
 				F5BB68A728997E15005BA194 /* VisitsViewCell.swift in Sources */,
-				F52143A3288486EF000475AE /* VisitsByMonthCell.swift in Sources */,
 				F52142D428590445000475AE /* RegisterView.swift in Sources */,
 				F5BB689F2891A35B005BA194 /* AddVisitView.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
@@ -714,7 +698,6 @@
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */,
 				F5BB68A9289D62D5005BA194 /* SettingsServiceModelProtocol.swift in Sources */,
-				F52143A12881D98C000475AE /* VisitsByWeekCell.swift in Sources */,
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
 				F5BB689B289199C3005BA194 /* AddVisitServiceModel.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
@@ -734,15 +717,12 @@
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
-				F52143A728848CD5000475AE /* VisitsByTotalCell.swift in Sources */,
 				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
-				F521439C287E1646000475AE /* HeaderTableViewCell.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
 				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
 				F521439628788189000475AE /* LoginServiceModel.swift in Sources */,
-				F52143A528848785000475AE /* VisitsByYearCell.swift in Sources */,
 				F55F55EC281C431B00171AA0 /* SceneDelegate.swift in Sources */,
 				F52142F52861213C000475AE /* DateExt.swift in Sources */,
 			);

@@ -17,6 +17,13 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         setView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let view = self.view as? LoginView else {return}
+        view.clearTextFields()
+    }
+    
     private func setView() {
         let loginView = LoginView(frame: self.view.frame)
         loginView.setDelegate(delegate: self)

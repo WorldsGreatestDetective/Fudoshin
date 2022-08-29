@@ -11,17 +11,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private var profileServiceModel: ProfileServiceModelProtocol? = nil
     private var tableView: UITableView?
-    private var didDataLoad: Bool? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Profile"
         
+        title = "Profile"
         configureNavigation()
         
         if profileServiceModel != nil {
             configureTableView()
-            //tableView?.reloadData()
         } else {
             // present some error?
             print("service model not injected")
@@ -38,10 +36,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
         view.addSubview(tableView)
         tableView.register(VisitsViewCell.self, forCellReuseIdentifier: "visitsCell")
-        tableView.refreshControl = UIRefreshControl()
-        //tableView.backgroundColor = view.backgroundColor
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(white: 0.05, alpha: 1)
+        tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -50,13 +47,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return 1
     }
     
-    
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let someCell = UITableViewCell()
         guard let profileServiceModel = profileServiceModel else {return someCell}
         
+        // TODO: Provide better error handling than just returning someCell; perhaps when returning someCell be sure to return to login?
+        
         switch indexPath.row {
         case 0:
+            profileServiceModel.setAllVisits()
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "visitsCell", for: indexPath) as? VisitsViewCell else {return someCell}
             
             guard let countByWeek = profileServiceModel.getCountByWeek() else {presentAlertError(); return someCell}
@@ -79,6 +79,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
             cell.setNameLabelText(firstName: profileServiceModel.firstName, lastName: profileServiceModel.lastName)
             cell.setBeltLabelText(beltLevel: profileServiceModel.beltLevel)
+            cell.setSymbolColor(beltLevel: profileServiceModel.beltLevel)
             
             cell.setAllVisitsByWeek(visits: countByWeek)
             cell.setGiVisitsByWeek(visits: countGiByWeek)
@@ -95,8 +96,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.setAllVisitsByTotal(visits: countByTotal)
             cell.setGiVisitsByTotal(visits: countGiByTotal)
             cell.setNoGiVisitsByTotal(visits: countNoGiByTotal)
-            
-            didDataLoad = true
             
             return cell
         default:
@@ -117,6 +116,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         barAppearance.configureWithDefaultBackground()
         
         navigationController.navigationBar.standardAppearance = barAppearance
+        navigationController.navigationBar.tintColor = .white
         navigationController.setNavigationBarHidden(false, animated: false)
         
         configureNavigationItems()
@@ -143,15 +143,41 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private func presentAlertAddVisit() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        let alertController = UIAlertController(title: "Visit Added", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Visit Added", message: "Pull down to refresh your visits", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         
         present(alertController, animated: true, completion: nil)
     }
     
-    @objc func addBarButtonTapped() {
+    @objc func presentActionSheetAddVisit() {
         guard let profileServiceModel = profileServiceModel else {return}
+        guard let tableView = tableView else {return}
+
+        let giAction = UIAlertAction(title: "Gi", style: .default) { action in
+            profileServiceModel.insertNewVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: profileServiceModel.id)
+            tableView.reloadData()
+        }
+        
+        let noGiAction = UIAlertAction(title: "No Gi", style: .default) { action in
+            profileServiceModel.insertNewVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .noGi, userid: profileServiceModel.id)
+            tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let addVisitController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        addVisitController.addAction(giAction)
+        addVisitController.addAction(noGiAction)
+        addVisitController.addAction(cancelAction)
+        addVisitController.view.tintColor = .white
+        
+        present(addVisitController, animated: true, completion: nil)
+    }
+    
+    @objc func addBarButtonTapped() {
+        /*guard let profileServiceModel = profileServiceModel else {return}
         
         let addVisitViewController = AddVisitViewController()
         let addVisitServiceModel = AddVisitServiceModel(appDatabase: AppDatabase.sharedPool, userid: profileServiceModel.id)
@@ -163,14 +189,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             presenter.detents = [.medium()]
         }
         
-        present(addVisitViewController, animated: true, completion: nil)
-        
-        //present(addVisitViewController, animated: true)
-        
-        if addVisitViewController.isBeingDismissed == true {
-            //tableView?.reloadData()
-            presentAlertAddVisit()
-        }
+        present(addVisitViewController, animated: true, completion: nil)*/
+        presentActionSheetAddVisit()
     }
     
     @objc func settingsBarButtonTapped() {

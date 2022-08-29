@@ -185,7 +185,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     private func commonInit() {
-        backgroundColor = UIColor(white: 0.15, alpha: 1)
+        backgroundColor = UIColor.systemGray6
         
         let textFieldArray = [firstNameField, lastNameField, emailField]
         
