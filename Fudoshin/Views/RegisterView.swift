@@ -124,16 +124,6 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         return textField
      }()
     
-    private let registerButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Confirm & Register", for: .normal)
-        
-        button.tintColor = .white
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
     private let beltLevelField: UITextField = {
         let textField = UITextField()
      
@@ -148,6 +138,16 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.attributedPlaceholder = attributedText
      
         return textField
+    }()
+    
+    private let registerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Confirm & Register", for: .normal)
+        
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
     }()
     
     private let beltPicker: UIPickerView = {
@@ -193,11 +193,12 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
             textField.delegate = self
         }
         
-        self.beltPicker.delegate = self
-        self.beltPicker.dataSource = self
+        beltPicker.delegate = self
+        beltPicker.dataSource = self
+        beltToolbar.items = [doneBeltBarButton]
         
-        self.beltLevelField.inputView = beltPicker
-        self.beltLevelField.inputAccessoryView = beltToolbar
+        beltLevelField.inputView = beltPicker
+        beltLevelField.inputAccessoryView = beltToolbar
         
         let views: [UIView] = [firstNameField, lastNameField, emailField, passwordField, confirmPasswordField, beltLevelField]
         
@@ -295,7 +296,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     // MARK: - Button Target Methods
     
     @objc private func doneBeltBarButtonTapped() {
-        beltPicker.delegate?.pickerView?(beltPicker, didSelectRow: 0, inComponent: 0)
+        //beltPicker.delegate?.pickerView?(beltPicker, didSelectRow: 0, inComponent: 0)
         endEditing(false)
     }
     

@@ -229,7 +229,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this week" // Work with and change font size/style when adjusting ui
+        label.text = "this week" 
         label.font = UIFont(name: "PingFang HK Regular", size: 14)
         label.textAlignment = .center
         
@@ -240,7 +240,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this month" // Work with and change font size/style when adjusting ui
+        label.text = "this month"
         label.font = UIFont(name: "PingFang HK Regular", size: 14)
         label.textAlignment = .center
         
@@ -251,7 +251,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this year" // Work with and change font size/style when adjusting ui
+        label.text = "this year"
         label.font = UIFont(name: "PingFang HK Regular", size: 14)
         label.textAlignment = .center
         
@@ -262,7 +262,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "total visits" // Work with and change font size/style when adjusting ui
+        label.text = "total visits"
         label.font = UIFont(name: "PingFang HK Regular", size: 14)
         label.textAlignment = .center
         

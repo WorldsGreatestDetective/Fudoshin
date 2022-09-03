@@ -50,14 +50,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let someCell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
         
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-            var content = cell.defaultContentConfiguration()
-            
             content.text = "Delete all user data"
             content.textProperties.color = .red
             
@@ -65,10 +62,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-            var content = cell.defaultContentConfiguration()
-            
             content.text = "Belt promotion"
             content.textProperties.color = .white
             
@@ -76,10 +69,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            
-            var content = cell.defaultContentConfiguration()
-            
             content.text = "Change email"
             content.textProperties.color = .white
             
@@ -87,10 +76,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            
-            var content = cell.defaultContentConfiguration()
-            
             content.text = "Change password"
             content.textProperties.color = .white
             
@@ -98,10 +83,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            
-            var content = cell.defaultContentConfiguration()
-            
             content.text = "Logout"
             content.textProperties.color = .white
             
@@ -109,7 +90,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         default:
-            return someCell
+            return cell
         }
     }
     
@@ -132,7 +113,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             present(alertController, animated: true)
         case 1:
-            print("tapped")
+            guard let settingsServiceModel = settingsServiceModel else {return}
+            guard let navigationController = self.navigationController else {return}
+            
+            let beltSettingsViewController = BeltSettingsViewController()
+            beltSettingsViewController.setServiceModel(serviceModel: settingsServiceModel)
+            
+            navigationController.pushViewController(beltSettingsViewController, animated: true)
         case 2:
             print("tapped")
         case 3:

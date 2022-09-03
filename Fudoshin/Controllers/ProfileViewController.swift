@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Profile"
+        title = ""
         configureNavigation()
         
         if profileServiceModel != nil {
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         view.addSubview(tableView)
         tableView.register(VisitsViewCell.self, forCellReuseIdentifier: "visitsCell")
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(white: 0.05, alpha: 1)
+        tableView.backgroundColor = UIColor.systemGray6
         tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self

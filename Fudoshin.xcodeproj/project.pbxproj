@@ -62,6 +62,8 @@
 		F5BB68AB289D63C8005BA194 /* SettingsServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68AA289D63C8005BA194 /* SettingsServiceModel.swift */; };
 		F5BB68AD289D68A8005BA194 /* SettingsServiceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68AC289D68A8005BA194 /* SettingsServiceModelTests.swift */; };
 		F5BB68AF289D7268005BA194 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68AE289D7268005BA194 /* SettingsViewController.swift */; };
+		F5BB68B228C2432A005BA194 /* BeltSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */; };
+		F5BB68B628C28A8A005BA194 /* BeltFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		F5BB68AA289D63C8005BA194 /* SettingsServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceModel.swift; sourceTree = "<group>"; };
 		F5BB68AC289D68A8005BA194 /* SettingsServiceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceModelTests.swift; sourceTree = "<group>"; };
 		F5BB68AE289D7268005BA194 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltSettingsViewController.swift; sourceTree = "<group>"; };
+		F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltFieldTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				F5BB68A628997E15005BA194 /* VisitsViewCell.swift */,
+				F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -402,7 +407,7 @@
 				F52142D528590626000475AE /* RegisterViewController.swift */,
 				F521439D28807EB7000475AE /* ProfileViewController.swift */,
 				F5BB68962890541D005BA194 /* AddVisitViewController.swift */,
-				F5BB68AE289D7268005BA194 /* SettingsViewController.swift */,
+				F5BB68B028C242EB005BA194 /* SettingsViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -430,6 +435,15 @@
 				F52142FF2864E7A1000475AE /* AppDatabaseProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F5BB68B028C242EB005BA194 /* SettingsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB68AE289D7268005BA194 /* SettingsViewController.swift */,
+				F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */,
+			);
+			path = SettingsViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +707,7 @@
 				F5BB68A728997E15005BA194 /* VisitsViewCell.swift in Sources */,
 				F52142D428590445000475AE /* RegisterView.swift in Sources */,
 				F5BB689F2891A35B005BA194 /* AddVisitView.swift in Sources */,
+				F5BB68B628C28A8A005BA194 /* BeltFieldTableViewCell.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
@@ -720,6 +735,7 @@
 				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
+				F5BB68B228C2432A005BA194 /* BeltSettingsViewController.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
 				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
 				F521439628788189000475AE /* LoginServiceModel.swift in Sources */,
