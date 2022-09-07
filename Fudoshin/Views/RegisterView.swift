@@ -166,6 +166,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     
     private let doneBeltBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBeltBarButtonTapped))
+        barButton.tintColor = .white
         
         return barButton
     }()
@@ -295,8 +296,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     
     // MARK: - Button Target Methods
     
-    @objc private func doneBeltBarButtonTapped() {
-        //beltPicker.delegate?.pickerView?(beltPicker, didSelectRow: 0, inComponent: 0)
+    @objc private func doneBeltBarButtonTapped(_ sender: UIButton) {
         endEditing(false)
     }
     
@@ -321,26 +321,11 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         beltLevelField.text = beltLevelsArray[row]
     }
+    
+    // MARK: - UITextField Delegate Methods
+    /*
+    internal func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // if
+    }*/
 
-}
-
-extension String {
-    func stringToBeltLevel(beltString: String) -> BeltLevel? {
-        let beltLevels = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt"]
-        
-        switch beltString {
-        case beltLevels[0]:
-            return .white
-        case beltLevels[1]:
-            return .blue
-        case beltLevels[2]:
-            return .purple
-        case beltLevels[3]:
-            return .brown
-        case beltLevels[4]:
-            return .black
-        default:
-            return nil
-        }
-    }
 }

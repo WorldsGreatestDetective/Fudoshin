@@ -11,8 +11,12 @@ class BeltFieldTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVie
     
     private let beltLevelsArray: [String] = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt"]
     
-    private let beltLevelField: UITextField = {
-        let textField = UITextField()
+    private let textField: UITextField = {
+        let textField = TextFieldForCell()
+        
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "New belt level"
+        textField.textAlignment = .left
      
         return textField
     }()
@@ -32,7 +36,9 @@ class BeltFieldTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVie
     }()
     
     private let doneBeltBarButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(title: "Done", style: .done, target: BeltFieldTableViewCell.self, action: #selector(doneBeltBarButtonTapped))
+        let barButton = UIBarButtonItem(title: "done", style: .done, target: self, action: #selector(doneBeltBarButtonTapped))
+        
+        barButton.tintColor = .white
         
         return barButton
     }()
@@ -47,22 +53,26 @@ class BeltFieldTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVie
         super.init(coder: coder)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func commonInit() {
-        addSubview(beltLevelField)
+    private func commonInit() {
+        contentView.addSubview(textField)
         
         beltPicker.dataSource = self
         beltPicker.delegate = self
         
-        beltLevelField.inputView = beltPicker
-        beltLevelField.inputAccessoryView = beltToolbar
+        textField.inputView = beltPicker
+        textField.inputAccessoryView = beltToolbar
+        textField.frame = bounds
         
         beltToolbar.items = [doneBeltBarButton]
+    }
+    
+    func getBeltLevel() -> BeltLevel? {
+        guard let beltLevel = textField.text else {return nil}
+        return beltLevel.stringToBeltLevel(beltString: beltLevel)
+    }
+    
+    func setTextFieldDelegate(delegate: BeltSettingsViewController) {
+        textField.delegate = delegate
     }
     
     internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -78,10 +88,10 @@ class BeltFieldTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVie
     }
     
     internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        beltLevelField.text = beltLevelsArray[row]
+        textField.text = beltLevelsArray[row]
     }
     
-    @objc private func doneBeltBarButtonTapped() {
+    @objc private func doneBeltBarButtonTapped(_ sender: UIButton) {
         endEditing(false)
     }
 

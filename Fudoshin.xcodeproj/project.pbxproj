@@ -64,6 +64,13 @@
 		F5BB68AF289D7268005BA194 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68AE289D7268005BA194 /* SettingsViewController.swift */; };
 		F5BB68B228C2432A005BA194 /* BeltSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */; };
 		F5BB68B628C28A8A005BA194 /* BeltFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */; };
+		F5BB68B828C39678005BA194 /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B728C39678005BA194 /* EmailSettingsViewController.swift */; };
+		F5BB68BA28C3978B005BA194 /* EmailFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68B928C3978B005BA194 /* EmailFieldTableViewCell.swift */; };
+		F5BB68BC28C67FD6005BA194 /* TextFieldForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68BB28C67FD6005BA194 /* TextFieldForCell.swift */; };
+		F5BB68BE28C7B152005BA194 /* PasswordFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68BD28C7B152005BA194 /* PasswordFieldTableViewCell.swift */; };
+		F5BB68C128C7B207005BA194 /* ConfirmFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C028C7B207005BA194 /* ConfirmFieldTableViewCell.swift */; };
+		F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */; };
+		F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C628C90EAA005BA194 /* StringExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +158,13 @@
 		F5BB68AE289D7268005BA194 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltSettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F5BB68B728C39678005BA194 /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
+		F5BB68B928C3978B005BA194 /* EmailFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F5BB68BB28C67FD6005BA194 /* TextFieldForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForCell.swift; sourceTree = "<group>"; };
+		F5BB68BD28C7B152005BA194 /* PasswordFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F5BB68C028C7B207005BA194 /* ConfirmFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
+		F5BB68C628C90EAA005BA194 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +224,8 @@
 				F52142F42861213C000475AE /* DateExt.swift */,
 				F5BB68A42899701B005BA194 /* UITextFieldExt.swift */,
 				F52143972879E97B000475AE /* ErrorType.swift */,
+				F5BB68BB28C67FD6005BA194 /* TextFieldForCell.swift */,
+				F5BB68C628C90EAA005BA194 /* StringExt.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -311,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				F5BB68A628997E15005BA194 /* VisitsViewCell.swift */,
-				F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */,
+				F5BB68BF28C7B1B5005BA194 /* SettingsTableViewCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -442,8 +458,21 @@
 			children = (
 				F5BB68AE289D7268005BA194 /* SettingsViewController.swift */,
 				F5BB68B128C2432A005BA194 /* BeltSettingsViewController.swift */,
+				F5BB68B728C39678005BA194 /* EmailSettingsViewController.swift */,
+				F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */,
 			);
 			path = SettingsViewControllers;
+			sourceTree = "<group>";
+		};
+		F5BB68BF28C7B1B5005BA194 /* SettingsTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F5BB68B528C28A8A005BA194 /* BeltFieldTableViewCell.swift */,
+				F5BB68B928C3978B005BA194 /* EmailFieldTableViewCell.swift */,
+				F5BB68BD28C7B152005BA194 /* PasswordFieldTableViewCell.swift */,
+				F5BB68C028C7B207005BA194 /* ConfirmFieldTableViewCell.swift */,
+			);
+			path = SettingsTableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,13 +738,17 @@
 				F5BB689F2891A35B005BA194 /* AddVisitView.swift in Sources */,
 				F5BB68B628C28A8A005BA194 /* BeltFieldTableViewCell.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
+				F5BB68C128C7B207005BA194 /* ConfirmFieldTableViewCell.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */,
+				F5BB68BA28C3978B005BA194 /* EmailFieldTableViewCell.swift in Sources */,
 				F5BB68A9289D62D5005BA194 /* SettingsServiceModelProtocol.swift in Sources */,
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
+				F5BB68B828C39678005BA194 /* EmailSettingsViewController.swift in Sources */,
 				F5BB689B289199C3005BA194 /* AddVisitServiceModel.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
+				F5BB68BE28C7B152005BA194 /* PasswordFieldTableViewCell.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
 				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,
 				F52142C128567429000475AE /* LoginViewDelegateProtocol.swift in Sources */,
@@ -729,8 +762,11 @@
 				F5BB6899289059E2005BA194 /* AddVisitServiceModelProtocol.swift in Sources */,
 				F5BB68972890541D005BA194 /* AddVisitViewController.swift in Sources */,
 				F5BB68AB289D63C8005BA194 /* SettingsServiceModel.swift in Sources */,
+				F5BB68BC28C67FD6005BA194 /* TextFieldForCell.swift in Sources */,
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
+				F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */,
+				F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */,
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
 				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,

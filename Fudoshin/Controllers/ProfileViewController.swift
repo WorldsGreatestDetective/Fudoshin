@@ -195,9 +195,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func settingsBarButtonTapped() {
         guard let id = profileServiceModel?.id else {return}
+        guard let beltLevel = profileServiceModel?.beltLevel else {return}
         
         let settingsViewController = SettingsViewController()
-        let settingsServiceModel = SettingsServiceModel(appDatabase: AppDatabase.sharedPool, id: id)
+        let settingsServiceModel = SettingsServiceModel(appDatabase: AppDatabase.sharedPool, id: id, beltLevel: beltLevel)
         
         settingsViewController.setServiceModel(serviceModel: settingsServiceModel)
         

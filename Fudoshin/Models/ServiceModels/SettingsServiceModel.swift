@@ -8,13 +8,19 @@
 import Foundation
 
 class SettingsServiceModel: SettingsServiceModelProtocol {
+    
     var id: String
     var appDatabase: AppDatabaseProtocol
+    var beltLevel: BeltLevel
     
-    init(appDatabase: AppDatabaseProtocol, id: String) {
+    init(appDatabase: AppDatabaseProtocol, id: String, beltLevel: BeltLevel) {
         self.appDatabase = appDatabase
         self.id = id
+        self.beltLevel = beltLevel
     }
+    
+    var password: String?
+    var confirmPassword: String?
     
     func removeUserData() {
         deleteVisitsByUser()
@@ -42,6 +48,25 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
             })
         } catch {
             print(error)
+        }
+    }
+    
+    func setPassword(password: String) {
+        self.password = password
+    }
+    
+    func setConfirmPassword(confirmPassword: String) {
+        self.confirmPassword = confirmPassword
+    }
+    
+    func isPasswordConfirmed() -> Bool? {
+        guard let password = password else {return nil}
+        guard let confirmPassword = confirmPassword else {return nil}
+
+        if password == confirmPassword {
+            return true
+        } else {
+            return false
         }
     }
     

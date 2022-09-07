@@ -55,5 +55,13 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    func presentAlertNameField() {
+        //
+    }
+    
+    func presentAlertPasswordField() {
+        //
+    }
 
 }

@@ -10,4 +10,6 @@ import Foundation
 protocol RegisterViewDelegateProtocol {
     func registerUser()
     func presentAlertEmptyField()
+    func presentAlertNameField()
+    func presentAlertPasswordField()
 }

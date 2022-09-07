@@ -1,21 +1,21 @@
 //
-//  BeltSettingsViewController.swift
+//  EmailSettingsViewController.swift
 //  Fudoshin
 //
-//  Created by Nathan Reilly on 9/2/22.
+//  Created by Nathan Reilly on 9/3/22.
 //
 
 import UIKit
 
-class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
-    
+class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+
     var settingsServiceModel: SettingsServiceModelProtocol?
     var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Belt promotion"
+        title = "Change email"
         configureTableView()
     }
     
@@ -28,7 +28,7 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
         guard let tableView = tableView else {return}
         
         view.addSubview(tableView)
-        tableView.register(BeltFieldTableViewCell.self, forCellReuseIdentifier: "beltCell")
+        tableView.register(EmailFieldTableViewCell.self, forCellReuseIdentifier: "emailCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,19 +36,17 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let beltCell = tableView.dequeueReusableCell(withIdentifier: "beltCell", for: indexPath) as! BeltFieldTableViewCell
+        let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        beltCell.setTextFieldDelegate(delegate: self)
         
         switch indexPath.section {
         case 0:
-            beltCell.selectionStyle = .none
-            return beltCell
+            emailCell.selectionStyle = .none
+            return emailCell
         case 1:
             var content = cell.defaultContentConfiguration()
             
-            content.text = "Promote"
+            content.text = "Change"
             
             cell.contentConfiguration = content
             return cell
@@ -68,20 +66,9 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 1 {
-            print("promoted")
+            print("changed")
             // See SettingsServiceModel
         }
-    }
-    
-    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let settingsServiceModel = settingsServiceModel else {return true}
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        guard let cell = tableView?.cellForRow(at: indexPath) as? BeltFieldTableViewCell else {return true}
-        
-        
-        
-        return true
     }
 
 }

@@ -116,14 +116,26 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             guard let settingsServiceModel = settingsServiceModel else {return}
             guard let navigationController = self.navigationController else {return}
             
-            let beltSettingsViewController = BeltSettingsViewController()
-            beltSettingsViewController.setServiceModel(serviceModel: settingsServiceModel)
+            let beltViewController = BeltSettingsViewController()
+            beltViewController.setServiceModel(serviceModel: settingsServiceModel)
             
-            navigationController.pushViewController(beltSettingsViewController, animated: true)
+            navigationController.pushViewController(beltViewController, animated: true)
         case 2:
-            print("tapped")
+            guard let settingsServiceModel = settingsServiceModel else {return}
+            guard let navigationController = self.navigationController else {return}
+            
+            let emailViewController = EmailSettingsViewController()
+            emailViewController.setServiceModel(serviceModel: settingsServiceModel)
+            
+            navigationController.pushViewController(emailViewController, animated: true)
         case 3:
-            print("tapped")
+            guard let settingsServiceModel = settingsServiceModel else {return}
+            guard let navigationController = self.navigationController else {return}
+            
+            let passwordViewController = PasswordSettingsViewController()
+            passwordViewController.setServiceModel(serviceModel: settingsServiceModel)
+            
+            navigationController.pushViewController(passwordViewController, animated: true)
         case 4:
             navigationController?.popToRootViewController(animated: true)
         default:
