@@ -41,6 +41,8 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
         let confirmCell = tableView.dequeueReusableCell(withIdentifier: "confirmCell", for: indexPath) as! ConfirmFieldTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        guard let settingsServiceModel = settingsServiceModel else {return cell}
+        
         passwordCell.setTextFieldDelegate(delegate: self)
         confirmCell.setTextFieldDelegate(delegate: self)
         
@@ -59,7 +61,9 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
             }
         case 1:
             var content = cell.defaultContentConfiguration()
+            
             content.text = "Change"
+            content.textProperties.color = UIColor.beltLevelToColor(beltLevel: settingsServiceModel.getBeltLevel())
             
             cell.contentConfiguration = content
             return cell
@@ -88,8 +92,8 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
         
         if indexPath.section == 1 {
             if settingsServiceModel.isPasswordConfirmed() == true {
-                print("it worked")
-                // db method
+                settingsServiceModel.updatePassword()
+                presentAlertSuccess()
             } else {
                 presentAlertPasswordMatch()
             }
@@ -108,6 +112,15 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
     private func presentAlertEmptyFields() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: nil, message: "One or more fields are empty", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func presentAlertSuccess() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Success", message: "Your password has been updated", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         

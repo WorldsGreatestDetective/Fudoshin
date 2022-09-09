@@ -36,8 +36,11 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let beltCell = tableView.dequeueReusableCell(withIdentifier: "beltCell", for: indexPath) as! BeltFieldTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        guard let settingsServiceModel = settingsServiceModel else {return cell}
         
         beltCell.setTextFieldDelegate(delegate: self)
         
@@ -49,6 +52,7 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
             var content = cell.defaultContentConfiguration()
             
             content.text = "Promote"
+            content.textProperties.color = UIColor.beltLevelToColor(beltLevel: settingsServiceModel.getBeltLevel())
             
             cell.contentConfiguration = content
             return cell
@@ -66,11 +70,21 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let settingsServiceModel = settingsServiceModel else {return}
         
         if indexPath.section == 1 {
-            print("promoted")
-            // See SettingsServiceModel
+            settingsServiceModel.updateBeltLevel()
+            presentAlertSuccess()
         }
+    }
+    
+    private func presentAlertSuccess() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Success", message: "Your belt level has been updated", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -79,7 +93,9 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
         
         guard let cell = tableView?.cellForRow(at: indexPath) as? BeltFieldTableViewCell else {return true}
         
-        
+        if let beltLevel = cell.getBeltLevel() {
+            settingsServiceModel.setNewBeltLevel(beltLevel: beltLevel)
+        }
         
         return true
     }

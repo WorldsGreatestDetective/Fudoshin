@@ -302,6 +302,10 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         self.visits = visits
     }
     
+    func getUser() -> UserModelProtocol {
+        return self.user
+    }
+    
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String) {
         insertNewVisit(id: id, visitDate: visitDate, sessionType: sessionType, userid: userid)
         if let newVisit = newVisit {

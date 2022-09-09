@@ -9,6 +9,10 @@ import Foundation
 @testable import Fudoshin
 
 class MockRegisterViewDelegate: RegisterViewDelegateProtocol {
+    func presentAlertNameField() {}
+    
+    func presentAlertPasswordField() {}
+    
     func registerUser() {}
     
     func presentAlertEmptyField() {}

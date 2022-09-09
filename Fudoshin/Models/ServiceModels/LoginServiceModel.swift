@@ -47,8 +47,6 @@ class LoginServiceModel: LoginServiceModelProtocol {
                 if let usersByEmail = filterUsersByEmail(users: users) {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
                         
-                        // TODO: Write if-stmt ensuring usersByPassword.count == 1 
-                        
                         if let user = usersByPassword.first {
                             self.user = user
                         } else {

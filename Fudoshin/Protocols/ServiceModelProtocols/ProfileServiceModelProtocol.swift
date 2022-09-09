@@ -56,6 +56,8 @@ protocol ProfileServiceModelProtocol {
     
     func setVisits(visits: [VisitModelProtocol])
     
+    func getUser() -> UserModelProtocol
+    
     func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func setAllVisits()
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)

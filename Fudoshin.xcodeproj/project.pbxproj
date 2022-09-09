@@ -71,6 +71,7 @@
 		F5BB68C128C7B207005BA194 /* ConfirmFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C028C7B207005BA194 /* ConfirmFieldTableViewCell.swift */; };
 		F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */; };
 		F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C628C90EAA005BA194 /* StringExt.swift */; };
+		F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C828C943FB005BA194 /* UIColorExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		F5BB68C028C7B207005BA194 /* ConfirmFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmFieldTableViewCell.swift; sourceTree = "<group>"; };
 		F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68C628C90EAA005BA194 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		F5BB68C828C943FB005BA194 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				F52143972879E97B000475AE /* ErrorType.swift */,
 				F5BB68BB28C67FD6005BA194 /* TextFieldForCell.swift */,
 				F5BB68C628C90EAA005BA194 /* StringExt.swift */,
+				F5BB68C828C943FB005BA194 /* UIColorExt.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				F52142E0285A65EC000475AE /* UserModelProtocol.swift in Sources */,
 				F5BB68A52899701B005BA194 /* UITextFieldExt.swift in Sources */,
 				F521438F2875F4BA000475AE /* SessionType.swift in Sources */,
+				F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */,
 				F5BB68AF289D7268005BA194 /* SettingsViewController.swift in Sources */,
 				F52142D02858F457000475AE /* Visit.swift in Sources */,
 				F5BB6899289059E2005BA194 /* AddVisitServiceModelProtocol.swift in Sources */,

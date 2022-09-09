@@ -36,8 +36,12 @@ class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
+        let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath) as! EmailFieldTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        guard let settingsServiceModel = settingsServiceModel else {return cell}
+        
+        emailCell.setTextFieldDelegate(delegate: self)
         
         switch indexPath.section {
         case 0:
@@ -47,6 +51,9 @@ class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITabl
             var content = cell.defaultContentConfiguration()
             
             content.text = "Change"
+            content.textProperties.color = UIColor.beltLevelToColor(beltLevel: settingsServiceModel.getBeltLevel())
+            
+            // change email; ssm method
             
             cell.contentConfiguration = content
             return cell
@@ -64,11 +71,34 @@ class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let settingsServiceModel = settingsServiceModel else {return}
         
         if indexPath.section == 1 {
-            print("changed")
-            // See SettingsServiceModel
+            settingsServiceModel.updateEmail()
+            presentAlertSuccess()
         }
+    }
+    
+    private func presentAlertSuccess() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Success", message: "Your email has been updated", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let settingsServiceModel = settingsServiceModel else {return true}
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView?.cellForRow(at: indexPath) as? EmailFieldTableViewCell else {return true}
+        
+        if let email = cell.getEmail() {
+            settingsServiceModel.setNewEmail(email: email)
+        }
+        
+        return true
     }
 
 }

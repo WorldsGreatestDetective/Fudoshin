@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
     }
     
     func loginUser() {
-        guard let loginView = view as? LoginView else {print("3"); return}
+        guard let loginView = view as? LoginView else {return}
         
         if let email = loginView.getEmail(), let password = loginView.getPassword() {
             loginServiceModel = LoginServiceModel(email: email, password: password, appDatabase: AppDatabase.sharedPool)
