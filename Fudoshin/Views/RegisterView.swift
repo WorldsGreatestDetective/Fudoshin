@@ -12,7 +12,6 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     // MARK: - Properties
     
     private var delegate: RegisterViewDelegateProtocol?
-
     private let beltLevelsArray: [String] = ["White Belt", "Blue Belt", "Purple Belt", "Brown Belt", "Black Belt"]
     
     private let promptLabel: UILabel = {
@@ -37,7 +36,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
     
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "First name", attributes: attributes)
@@ -54,7 +53,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
     
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Last name", attributes: attributes)
@@ -74,7 +73,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Email", attributes: attributes)
@@ -95,7 +94,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Password", attributes: attributes)
@@ -115,7 +114,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Confirm password", attributes: attributes)
@@ -131,7 +130,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),  NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Belt level", attributes: attributes)
@@ -186,7 +185,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     private func commonInit() {
-        backgroundColor = UIColor.systemGray6
+        backgroundColor = UIColor(white: 0.05, alpha: 1)
         
         let textFieldArray = [firstNameField, lastNameField, emailField]
         
@@ -301,6 +300,15 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     @objc private func registerButtonTapped() {
+        let array = [firstNameField.text, lastNameField.text, passwordField.text, confirmPasswordField.text, beltLevelField.text]
+        
+        for text in array {
+            if text?.isEmpty == true {
+                delegate?.presentAlertEmptyField()
+                return
+            }
+        }
+        
         delegate?.registerUser()
     }
     
@@ -323,9 +331,32 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     }
     
     // MARK: - UITextField Delegate Methods
-    /*
-    internal func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        // if
-    }*/
+    
+    internal func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.isEmpty == true {
+            delegate?.presentAlertEmptyField()
+        } else {
+            switch textField {
+            case firstNameField:
+                firstNameField.text?.forEach({ char in
+                    if char.isWhitespace == true {
+                        delegate?.presentAlertNameField()
+                    }
+                })
+            case lastNameField:
+                lastNameField.text?.forEach({ char in
+                    if char.isWhitespace == true {
+                        delegate?.presentAlertNameField()
+                    }
+                })
+            case passwordField:
+                if passwordField.text!.count <= 6 {
+                    delegate?.presentAlertPasswordField()
+                }
+            default:
+                return
+            }
+        }
+    }
 
 }

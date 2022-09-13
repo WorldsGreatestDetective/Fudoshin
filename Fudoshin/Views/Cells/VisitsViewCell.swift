@@ -13,7 +13,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "cochin", size: 28)
+        label.font = UIFont(name: "kefa", size: 28)
         label.tintColor = .white
         label.textAlignment = .center
         
@@ -24,7 +24,7 @@ class VisitsViewCell: UITableViewCell {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "cochin", size: 20)
+        label.font = UIFont(name: "kefa", size: 20)
         label.tintColor = .white
         label.textAlignment = .center
         
@@ -33,7 +33,7 @@ class VisitsViewCell: UITableViewCell {
     
     private let giLabel: UILabel = {
         let label = UILabel()
-        let image = UIImage(systemName: "circle.lefthalf.filled")
+        //let image = UIImage(systemName: "circle.lefthalf.filled")
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Gi"
@@ -58,7 +58,7 @@ class VisitsViewCell: UITableViewCell {
     
     private let noGiLabel: UILabel = {
         let label = UILabel()
-        let image = UIImage(systemName: "circle.righthalf.filled")
+        //let image = UIImage(systemName: "circle.righthalf.filled")
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No Gi"
@@ -74,7 +74,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -84,7 +84,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -94,7 +94,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -104,7 +104,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -114,7 +114,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -124,7 +124,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -134,7 +134,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -144,7 +144,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -154,7 +154,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -164,7 +164,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -174,7 +174,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -184,7 +184,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "kefa", size: 17)
+        label.font = UIFont(name: "Avenir Next Regular", size: 17)
         
         return label
     }()
@@ -230,7 +230,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "this week" 
-        label.font = UIFont(name: "PingFang HK Regular", size: 14)
+        label.font = UIFont(name: "kefa", size: 14)
         label.textAlignment = .center
         
         return label
@@ -241,7 +241,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "this month"
-        label.font = UIFont(name: "PingFang HK Regular", size: 14)
+        label.font = UIFont(name: "kefa", size: 14)
         label.textAlignment = .center
         
         return label
@@ -252,7 +252,7 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "this year"
-        label.font = UIFont(name: "PingFang HK Regular", size: 14)
+        label.font = UIFont(name: "kefa", size: 14)
         label.textAlignment = .center
         
         return label
@@ -263,24 +263,15 @@ class VisitsViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "total visits"
-        label.font = UIFont(name: "PingFang HK Regular", size: 14)
+        label.font = UIFont(name: "kefa", size: 14)
         label.textAlignment = .center
         
         return label
     }()
-    
-    private let categoryStackView = UIStackView()
-    
+
     private let giStackView = UIStackView()
     private let allStackView = UIStackView()
     private let noGiStackView = UIStackView()
-    
-    private let visitsStackView = UIStackView()
-    
-    private let weekStackView = UIStackView()
-    private let monthStackView = UIStackView()
-    private let yearStackView = UIStackView()
-    private let totalStackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -301,89 +292,51 @@ class VisitsViewCell: UITableViewCell {
     private func addConfiguredSubviews() {
         addSubview(nameLabel)
         addSubview(beltLabel)
-        addSubview(categoryStackView)
-        addSubview(visitsStackView)
+        
+        let views: [UIView] = [
+            noGiStackView, allStackView, giStackView,
+            byWeekGiVisitsLabel, byWeekNoGiVisitsLabel, byWeekAllVisitsLabel,
+            byMonthGiVisitsLabel, byMonthAllVisitsLabel, byMonthNoGiVisitsLabel,
+            byYearGiVisitsLabel, byYearAllVisitsLabel, byYearNoGiVisitsLabel,
+            totalGiVisitsLabel, totalAllVisitsLabel, totalNoGiVisitsLabel,
+            timeUnitYearLabel, timeUnitTotalLabel, timeUnitMonthLabel, timeUnitWeekLabel
+        ]
+        
+        for view in views {
+            addSubview(view)
+        }
     }
     
     private func configureStackView() {
-        let categories = [giStackView, allStackView, noGiStackView]
         let giSymbols = [giLabel, giSymbol]
         let noGiSymbols = [noGiLabel, noGiSymbol]
         let allSymbols = [allLabel, allSymbol]
-        
-        let visits = [weekStackView, timeUnitWeekLabel, monthStackView, timeUnitMonthLabel, yearStackView, timeUnitYearLabel, totalStackView, timeUnitTotalLabel]
-        let weekVisits = [byWeekGiVisitsLabel, byWeekAllVisitsLabel, byWeekNoGiVisitsLabel]
-        let monthVisits = [byMonthGiVisitsLabel, byMonthAllVisitsLabel, byMonthNoGiVisitsLabel]
-        let yearVisits = [byYearGiVisitsLabel, byYearAllVisitsLabel, byYearNoGiVisitsLabel]
-        let totalVisits = [totalGiVisitsLabel, totalAllVisitsLabel, totalNoGiVisitsLabel]
-        
-        categoryStackView.translatesAutoresizingMaskIntoConstraints = false
-        visitsStackView.translatesAutoresizingMaskIntoConstraints = false
-         
-        categoryStackView.axis = .horizontal
         
         giStackView.axis = .vertical
         allStackView.axis = .vertical
         noGiStackView.axis = .vertical
         
-        visitsStackView.axis = .vertical
-        weekStackView.axis = .horizontal
-        monthStackView.axis = .horizontal
-        yearStackView.axis = .horizontal
-        totalStackView.axis = .horizontal
-        
-        categoryStackView.distribution = .equalCentering
-        
-        //visitsStackView.distribution = .equalCentering
-        weekStackView.distribution = .equalCentering
-        monthStackView.distribution = .equalCentering
-        yearStackView.distribution = .equalCentering
-        totalStackView.distribution = .equalCentering
-        
-        categoryStackView.spacing = 135
-        
         giStackView.spacing = 3
         allStackView.spacing = 3
         noGiStackView.spacing = 3
         
-        visitsStackView.spacing = 16
-        weekStackView.spacing = 135
-        monthStackView.spacing = 135
-        yearStackView.spacing = 135
-        totalStackView.spacing = 135
-        
-        for category in categories {
-            categoryStackView.addArrangedSubview(category)
-        }
+        giStackView.translatesAutoresizingMaskIntoConstraints = false
+        noGiStackView.translatesAutoresizingMaskIntoConstraints = false
+        allStackView.translatesAutoresizingMaskIntoConstraints = false
         
         for symbol in giSymbols {
             guard let symbol = symbol else {return}
             giStackView.addArrangedSubview(symbol)
         }
+        
         for symbol in allSymbols {
             guard let symbol = symbol else {return}
             allStackView.addArrangedSubview(symbol)
         }
+        
         for symbol in noGiSymbols {
             guard let symbol = symbol else {return}
             noGiStackView.addArrangedSubview(symbol)
-        }
-        
-        for visit in visits {
-            visitsStackView.addArrangedSubview(visit)
-        }
-        
-        for visit in weekVisits {
-            weekStackView.addArrangedSubview(visit)
-        }
-        for visit in monthVisits {
-            monthStackView.addArrangedSubview(visit)
-        }
-        for visit in yearVisits {
-            yearStackView.addArrangedSubview(visit)
-        }
-        for visit in totalVisits {
-            totalStackView.addArrangedSubview(visit)
         }
     }
     
@@ -395,11 +348,47 @@ class VisitsViewCell: UITableViewCell {
             beltLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
             beltLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            categoryStackView.topAnchor.constraint(equalTo: beltLabel.bottomAnchor, constant: 30),
-            categoryStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            allStackView.topAnchor.constraint(equalTo: beltLabel.bottomAnchor, constant: 30),
+            allStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            giStackView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -140),
+            giStackView.topAnchor.constraint(equalTo: beltLabel.bottomAnchor, constant: 30),
+            noGiStackView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 140),
+            noGiStackView.topAnchor.constraint(equalTo: beltLabel.bottomAnchor, constant: 30),
             
-            visitsStackView.topAnchor.constraint(equalTo: categoryStackView.bottomAnchor, constant: 15),
-            visitsStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            byWeekAllVisitsLabel.topAnchor.constraint(equalTo: allStackView.bottomAnchor, constant: 25),
+            byWeekAllVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timeUnitWeekLabel.topAnchor.constraint(equalTo: byWeekAllVisitsLabel.bottomAnchor, constant: 15),
+            timeUnitWeekLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            byMonthAllVisitsLabel.topAnchor.constraint(equalTo: timeUnitWeekLabel.bottomAnchor, constant: 15),
+            byMonthAllVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timeUnitMonthLabel.topAnchor.constraint(equalTo: byMonthAllVisitsLabel.bottomAnchor, constant: 15),
+            timeUnitMonthLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            byYearAllVisitsLabel.topAnchor.constraint(equalTo: timeUnitMonthLabel.bottomAnchor, constant: 15),
+            byYearAllVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timeUnitYearLabel.topAnchor.constraint(equalTo: byYearAllVisitsLabel.bottomAnchor, constant: 15),
+            timeUnitYearLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            totalAllVisitsLabel.topAnchor.constraint(equalTo: timeUnitYearLabel.bottomAnchor, constant: 15),
+            totalAllVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            timeUnitTotalLabel.topAnchor.constraint(equalTo: totalAllVisitsLabel.bottomAnchor, constant: 15),
+            timeUnitTotalLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            byWeekGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -140),
+            byWeekGiVisitsLabel.topAnchor.constraint(equalTo: allStackView.bottomAnchor, constant: 25),
+            byMonthGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -140),
+            byMonthGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitWeekLabel.bottomAnchor, constant: 15),
+            byYearGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -140),
+            byYearGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitMonthLabel.bottomAnchor, constant: 15),
+            totalGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -140),
+            totalGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitYearLabel.bottomAnchor, constant: 15),
+            
+            byWeekNoGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 140),
+            byWeekNoGiVisitsLabel.topAnchor.constraint(equalTo: allStackView.bottomAnchor, constant: 25),
+            byMonthNoGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 140),
+            byMonthNoGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitWeekLabel.bottomAnchor, constant: 15),
+            byYearNoGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 140),
+            byYearNoGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitMonthLabel.bottomAnchor, constant: 15),
+            totalNoGiVisitsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 140),
+            totalNoGiVisitsLabel.topAnchor.constraint(equalTo: timeUnitYearLabel.bottomAnchor, constant: 15)
         ]
         
         NSLayoutConstraint.activate(constraintsArray)
@@ -485,6 +474,42 @@ class VisitsViewCell: UITableViewCell {
         }
     }
     
+    func alphaToZeroForVisits() {
+        byWeekGiVisitsLabel.alpha = 0
+        byWeekAllVisitsLabel.alpha = 0
+        byWeekNoGiVisitsLabel.alpha = 0
+        
+        byMonthGiVisitsLabel.alpha = 0
+        byMonthAllVisitsLabel.alpha = 0
+        byMonthNoGiVisitsLabel.alpha = 0
+        
+        byYearGiVisitsLabel.alpha = 0
+        byYearAllVisitsLabel.alpha = 0
+        byYearNoGiVisitsLabel.alpha = 0
+        
+        totalGiVisitsLabel.alpha = 0
+        totalAllVisitsLabel.alpha = 0
+        totalNoGiVisitsLabel.alpha = 0
+    }
+    
+    func alphaToOneForVisits() {
+        byWeekGiVisitsLabel.alpha = 1
+        byWeekAllVisitsLabel.alpha = 1
+        byWeekNoGiVisitsLabel.alpha = 1
+        
+        byMonthGiVisitsLabel.alpha = 1
+        byMonthAllVisitsLabel.alpha = 1
+        byMonthNoGiVisitsLabel.alpha = 1
+        
+        byYearGiVisitsLabel.alpha = 1
+        byYearAllVisitsLabel.alpha = 1
+        byYearNoGiVisitsLabel.alpha = 1
+        
+        totalGiVisitsLabel.alpha = 1
+        totalAllVisitsLabel.alpha = 1
+        totalNoGiVisitsLabel.alpha = 1
+    }
+    
     func setGiVisitsByWeek(visits: Int) {
         byWeekGiVisitsLabel.text = "\(visits)"
     }
@@ -532,5 +557,23 @@ class VisitsViewCell: UITableViewCell {
     func setAllVisitsByTotal(visits: Int) {
         totalAllVisitsLabel.text = "\(visits)"
     }
-
+    
+    // MARK: - UIViewAnimating
+    
+    /*
+    var state: UIViewAnimatingState = .inactive
+    var isRunning: Bool = false
+    var isReversed: Bool = false
+    var fractionComplete: CGFloat = 0
+    
+    func startAnimation() {}
+    
+    func startAnimation(afterDelay delay: TimeInterval) {}
+    
+    func pauseAnimation() {}
+    
+    func stopAnimation(_ withoutFinishing: Bool) {}
+    
+    func finishAnimation(at finalPosition: UIViewAnimatingPosition) {}
+     */
 }

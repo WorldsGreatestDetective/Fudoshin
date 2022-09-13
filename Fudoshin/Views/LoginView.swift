@@ -35,7 +35,7 @@ class LoginView: UIView {
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Email", attributes: attributes)
@@ -63,7 +63,7 @@ class LoginView: UIView {
         textField.textAlignment = .left
         textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        textField.setLeftPaddingPoints(20)
+        textField.setLeftPaddingPoints(15)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor(white: 0.6, alpha: 1)]
         let attributedText = NSAttributedString(string: "Password", attributes: attributes)
@@ -112,7 +112,7 @@ class LoginView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = UIColor(white: 0.05, alpha: 1)
+        //backgroundColor = UIColor(white: 0.05, alpha: 1)
         
         configureSubViews()
         addTargetsToButtons()

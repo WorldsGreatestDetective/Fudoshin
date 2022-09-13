@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
         }
     }
     
-    func presentAlertEmptyField() { // TODO: Make nicer message 
+    func presentAlertEmptyField() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: "Error", message: "Required fields are empty", preferredStyle: .alert)
         
@@ -57,11 +57,21 @@ class RegisterViewController: UIViewController, RegisterViewDelegateProtocol {
     }
     
     func presentAlertNameField() {
-        //
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "You cannot have spaces in your name", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     func presentAlertPasswordField() {
-        //
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Your password cannot contain spaces and must be at least 7 characters long", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
 }
