@@ -420,7 +420,7 @@ class VisitsViewCell: UITableViewCell {
     func setSymbolColor(beltLevel: BeltLevel) {
         switch beltLevel {
         case .white:
-            let config = UIImage.SymbolConfiguration(hierarchicalColor: .white)
+            let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
             // TODO: Extract applying config to symbols to method?
             
@@ -432,7 +432,7 @@ class VisitsViewCell: UITableViewCell {
             allSymbol?.image = allImage
             giSymbol?.image = giImage
         case .blue:
-            let config = UIImage.SymbolConfiguration(hierarchicalColor: .systemBlue)
+            let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
             let noGiImage = noGiSymbol?.image?.applyingSymbolConfiguration(config)
             let allImage = allSymbol?.image?.applyingSymbolConfiguration(config)
@@ -442,7 +442,7 @@ class VisitsViewCell: UITableViewCell {
             allSymbol?.image = allImage
             giSymbol?.image = giImage
         case .purple:
-            let config = UIImage.SymbolConfiguration(hierarchicalColor: .systemPurple)
+            let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
             let noGiImage = noGiSymbol?.image?.applyingSymbolConfiguration(config)
             let allImage = allSymbol?.image?.applyingSymbolConfiguration(config)
@@ -452,7 +452,7 @@ class VisitsViewCell: UITableViewCell {
             allSymbol?.image = allImage
             giSymbol?.image = giImage
         case .brown:
-            let config = UIImage.SymbolConfiguration(hierarchicalColor: .systemBrown)
+            let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
             let noGiImage = noGiSymbol?.image?.applyingSymbolConfiguration(config)
             let allImage = allSymbol?.image?.applyingSymbolConfiguration(config)
@@ -462,7 +462,7 @@ class VisitsViewCell: UITableViewCell {
             allSymbol?.image = allImage
             giSymbol?.image = giImage
         case .black:
-            let config = UIImage.SymbolConfiguration(hierarchicalColor: .systemRed)
+            let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
             let noGiImage = noGiSymbol?.image?.applyingSymbolConfiguration(config)
             let allImage = allSymbol?.image?.applyingSymbolConfiguration(config)
@@ -557,23 +557,4 @@ class VisitsViewCell: UITableViewCell {
     func setAllVisitsByTotal(visits: Int) {
         totalAllVisitsLabel.text = "\(visits)"
     }
-    
-    // MARK: - UIViewAnimating
-    
-    /*
-    var state: UIViewAnimatingState = .inactive
-    var isRunning: Bool = false
-    var isReversed: Bool = false
-    var fractionComplete: CGFloat = 0
-    
-    func startAnimation() {}
-    
-    func startAnimation(afterDelay delay: TimeInterval) {}
-    
-    func pauseAnimation() {}
-    
-    func stopAnimation(_ withoutFinishing: Bool) {}
-    
-    func finishAnimation(at finalPosition: UIViewAnimatingPosition) {}
-     */
 }

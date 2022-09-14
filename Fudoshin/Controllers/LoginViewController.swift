@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
                 
                 if let id = loginServiceModel.id, let firstName = loginServiceModel.firstName, let lastName = loginServiceModel.lastName, let beltLevel = loginServiceModel.beltLevel {
                     
-                    guard let navigationController = self.navigationController else {print("5"); return}
+                    guard let navigationController = self.navigationController else {return}
                     
                     let profileServiceModel = ProfileServiceModel(appDatabase: AppDatabase.sharedPool, email: email, password: password, id: id, firstName: firstName, lastName: lastName, beltLevel: beltLevel)
                     let profileViewController = ProfileViewController()

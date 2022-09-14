@@ -34,7 +34,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
     
@@ -51,7 +51,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
     
@@ -71,7 +71,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -92,7 +92,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -112,7 +112,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         textField.autocorrectionType = .no
         textField.borderStyle = .roundedRect
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -128,7 +128,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
      
         textField.borderStyle = .roundedRect
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.4, alpha: 0.9)
+        textField.backgroundColor = .systemGray4
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -141,10 +141,20 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Confirm & Register", for: .normal)
         
-        button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .systemGray3
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)]
+        let attributedText = NSAttributedString(string: "Confirm & Register", attributes: attributes)
+        let attributedString = AttributedString(attributedText)
+        
+        var config = UIButton.Configuration.filled()
+        
+        config.attributedTitle = attributedString
+        config.buttonSize = .medium
+        
+        button.configuration = config
         
         return button
     }()

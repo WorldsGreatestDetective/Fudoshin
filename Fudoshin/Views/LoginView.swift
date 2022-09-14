@@ -16,7 +16,7 @@ class LoginView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Fudoshin"
-        label.font = UIFont(name: "cochin", size: 32)
+        label.font = UIFont(name: "cochin", size: 37)
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = label.frame.width
         label.textAlignment = .center
@@ -33,7 +33,7 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
+        textField.backgroundColor = .systemGray5
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -61,7 +61,7 @@ class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
+        textField.backgroundColor = .systemGray5
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.setLeftPaddingPoints(15)
         
@@ -82,18 +82,41 @@ class LoginView: UIView {
     
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
+
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .white
+        button.tintColor = .systemGray3
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)]
+        let attributedText = NSAttributedString(string: "Login", attributes: attributes)
+        let attributedString = AttributedString(attributedText)
+        
+        var config = UIButton.Configuration.filled()
+        
+        config.attributedTitle = attributedString
+        config.buttonSize = .medium
+        
+        button.configuration = config
         
         return button
     }()
     
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Register", for: .normal)
+       
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .white
+        button.tintColor = .systemGray3
+        
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)]
+        let attributedText = NSAttributedString(string: "Register", attributes: attributes)
+        let attributedString = AttributedString(attributedText)
+        
+        var config = UIButton.Configuration.filled()
+        
+        config.attributedTitle = attributedString
+        config.buttonSize = .medium
+        
+        button.configuration = config
+        
         
         return button
     }()
@@ -152,14 +175,14 @@ class LoginView: UIView {
     private func activateConstraints() {
         let constraintsArray: [NSLayoutConstraint] = [
             logoLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            logoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 92),
             
             fieldStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            fieldStackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 105),
+            fieldStackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 99),
             fieldStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 40),
             
             buttonStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            buttonStackView.topAnchor.constraint(equalTo: fieldStackView.bottomAnchor, constant: 40)
+            buttonStackView.topAnchor.constraint(equalTo: fieldStackView.bottomAnchor, constant: 44)
         ]
         
         NSLayoutConstraint.activate(constraintsArray)
