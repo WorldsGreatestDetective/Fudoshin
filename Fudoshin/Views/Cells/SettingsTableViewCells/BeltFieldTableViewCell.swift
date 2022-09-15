@@ -66,6 +66,10 @@ class BeltFieldTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVie
         beltToolbar.items = [doneBeltBarButton]
     }
     
+    func clearTextField() {
+        textField.text = ""
+    }
+    
     func getBeltLevel() -> BeltLevel? {
         guard let beltLevel = textField.text else {return nil}
         return beltLevel.stringToBeltLevel(beltString: beltLevel)

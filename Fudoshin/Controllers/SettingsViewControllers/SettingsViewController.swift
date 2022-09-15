@@ -111,6 +111,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             alertController.addAction(cancelAction)
             alertController.addAction(yesAction)
             
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             present(alertController, animated: true)
         case 1:
             guard let settingsServiceModel = settingsServiceModel else {return}
@@ -127,6 +129,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let emailViewController = EmailSettingsViewController()
             emailViewController.setServiceModel(serviceModel: settingsServiceModel)
             
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             navigationController.pushViewController(emailViewController, animated: true)
         case 3:
             guard let settingsServiceModel = settingsServiceModel else {return}
@@ -135,8 +139,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let passwordViewController = PasswordSettingsViewController()
             passwordViewController.setServiceModel(serviceModel: settingsServiceModel)
             
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             navigationController.pushViewController(passwordViewController, animated: true)
         case 4:
+            tableView.deselectRow(at: indexPath, animated: true)
             navigationController?.popToRootViewController(animated: true)
         default:
             return

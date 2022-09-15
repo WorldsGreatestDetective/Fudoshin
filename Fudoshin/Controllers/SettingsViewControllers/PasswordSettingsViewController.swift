@@ -90,9 +90,19 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsServiceModel = settingsServiceModel else {return}
         
+        let passwordIndex = IndexPath(row: 0, section: 0)
+        let confirmIndex = IndexPath(row: 1, section: 0)
+        
+        guard let passwordCell = tableView.cellForRow(at: passwordIndex) as? PasswordFieldTableViewCell else {return}
+        guard let confirmCell = tableView.cellForRow(at: confirmIndex) as? ConfirmFieldTableViewCell else {return}
+        
         if indexPath.section == 1 {
             if settingsServiceModel.isPasswordConfirmed() == true {
                 settingsServiceModel.updatePassword()
+                tableView.deselectRow(at: indexPath, animated: true)
+                passwordCell.clearTextField()
+                confirmCell.clearTextField()
+                
                 presentAlertSuccess()
             } else {
                 presentAlertPasswordMatch()

@@ -44,6 +44,10 @@ class PasswordFieldTableViewCell: UITableViewCell {
         
         textField.frame = bounds
     }
+    
+    func clearTextField() {
+        textField.text = ""
+    }
 
     func getPassword() -> String? {
         guard let password = textField.text else {return nil}

@@ -44,6 +44,10 @@ class ConfirmFieldTableViewCell: UITableViewCell {
         textField.frame = bounds
     }
     
+    func clearTextField() {
+        textField.text = ""
+    }
+    
     func getConfirmPassword() -> String? {
         guard let confirmPassword = textField.text else {return nil}
         return confirmPassword

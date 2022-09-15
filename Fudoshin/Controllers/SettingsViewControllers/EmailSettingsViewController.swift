@@ -72,10 +72,16 @@ class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsServiceModel = settingsServiceModel else {return}
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) as? EmailFieldTableViewCell else {return}
         
         if indexPath.section == 1 {
             settingsServiceModel.updateEmail()
+            cell.clearTextField()
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             presentAlertSuccess()
+            //navigationController?.popViewController(animated: true)
         }
     }
     

@@ -72,8 +72,14 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsServiceModel = settingsServiceModel else {return}
         
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) as? BeltFieldTableViewCell else {return}
+        
         if indexPath.section == 1 {
             settingsServiceModel.updateBeltLevel()
+            cell.clearTextField()
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             presentAlertSuccess()
         }
     }

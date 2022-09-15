@@ -45,6 +45,10 @@ class EmailFieldTableViewCell: UITableViewCell {
         textField.frame = bounds
     }
     
+    func clearTextField() {
+        textField.text = ""
+    }
+    
     func getEmail() -> String? {
         guard let email = textField.text else {return nil}
         return email
