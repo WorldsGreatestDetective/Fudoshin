@@ -5,4 +5,4 @@ workflows:
     - name: CICD Started
       script: echo "welcome to CICD"
     - name: Build Fudoshin
-      script: xcodebuild build -workspace "MyXcodeWorkspace.xcworkspace" -scheme "MyScheme" CODE_SIGN_INDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      script: xcodebuild build -workspace "Fudoshin.xcworkspace" -scheme "Fudoshin" CODE_SIGN_INDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
