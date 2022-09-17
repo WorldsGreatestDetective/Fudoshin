@@ -10,6 +10,10 @@ import GRDB
 @testable import Fudoshin
 
 class MockRegisterServiceModel: RegisterServiceModelProtocol {
+    func hashUserPassword() {
+        //
+    }
+    
     var user: UserModelProtocol = MockUser()
     var appDatabase: AppDatabaseProtocol
     

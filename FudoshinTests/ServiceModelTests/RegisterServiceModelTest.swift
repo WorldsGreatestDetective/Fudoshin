@@ -11,7 +11,7 @@ import GRDB
 
 class RegisterServiceModelTest: XCTestCase {
     
-    let user = MockUser()
+    var user = MockUser()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,7 +22,7 @@ class RegisterServiceModelTest: XCTestCase {
     }
 
     func testInsertNewUser() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let serviceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)
@@ -33,4 +33,22 @@ class RegisterServiceModelTest: XCTestCase {
         })
     }
     
+    func testSHA384auth() throws {
+        let dbQueue = try DatabaseQueue()
+        let appDatabase = try MockDatabase(dbwriter: dbQueue)
+        
+        var userTwo = MockUser()
+        
+        userTwo.password = userTwo.password.SHA384(string: userTwo.password)
+        user.password = user.password.SHA384(string: user.password)
+        
+        let serviceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)
+        serviceModel.insertNewUser()
+        
+        try appDatabase.dbwriter.read({ db in
+            let fetchedUser = try MockUser.fetchOne(db, key: ["id" : user.id])
+            
+            XCTAssertEqual(fetchedUser?.password, userTwo.password)
+        })
+    }
 }

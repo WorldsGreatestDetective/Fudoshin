@@ -22,7 +22,7 @@ class LoginServiceModelTests: XCTestCase {
     }
 
     func testFetchUserByLogin() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
         let registerServiceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)

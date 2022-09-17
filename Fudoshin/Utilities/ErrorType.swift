@@ -8,5 +8,6 @@
 import Foundation
 
 enum ErrorType {
-    case loginError
+    case userNotFound
+    case invalidPassword
 }

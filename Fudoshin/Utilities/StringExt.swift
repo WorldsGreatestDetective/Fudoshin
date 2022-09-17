@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CryptoKit
 
 extension String {
     func stringToBeltLevel(beltString: String) -> BeltLevel? {
@@ -26,4 +27,13 @@ extension String {
             return nil
         }
     }
+    
+    func SHA384(string: String) -> String {
+        let digest = CryptoKit.SHA384.hash(data: string.data(using: .utf8) ?? Data())
+
+        return digest.map {
+            String(format: "%02hhx", $0)
+        }.joined()
+    }
+
 }

@@ -57,15 +57,26 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
                     profileViewController.setServiceModel(serviceModel: profileServiceModel)
                     navigationController.pushViewController(profileViewController, animated: true)
                 }
-            } else {
-                presentLoginErrorAlert()
+            } else if loginServiceModel.fetchUserByLogin() == .userNotFound {
+                presentUserNotFoundAlert()
+            } else if loginServiceModel.fetchUserByLogin() == .invalidPassword {
+                presentInvalidPasswordAlert()
             }
         }
     }
     
-    private func presentLoginErrorAlert() {
+    private func presentUserNotFoundAlert() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: "Error", message: "User not found", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func presentInvalidPasswordAlert() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Invalid password", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         

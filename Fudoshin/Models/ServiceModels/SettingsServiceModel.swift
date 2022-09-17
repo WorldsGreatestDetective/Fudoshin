@@ -30,7 +30,7 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
     internal func deleteUser() {
         do {
             try appDatabase.dbwriter.write({ db in
-                try User.deleteOne(db, key: id)
+                try User.deleteOne(db, key: ["id" : id])
             })
         } catch {
             print(error)

@@ -15,7 +15,7 @@ class ProfileServiceModelTests: XCTestCase {
         var db: MockDatabase? = nil
         
         do {
-            let dbQueue = DatabaseQueue()
+            let dbQueue = try DatabaseQueue()
             db = try MockDatabase(dbwriter: dbQueue)
         } catch {
             print(error)

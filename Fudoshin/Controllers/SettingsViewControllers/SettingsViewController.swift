@@ -121,6 +121,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let beltViewController = BeltSettingsViewController()
             beltViewController.setServiceModel(serviceModel: settingsServiceModel)
             
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             navigationController.pushViewController(beltViewController, animated: true)
         case 2:
             guard let settingsServiceModel = settingsServiceModel else {return}

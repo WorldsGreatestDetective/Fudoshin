@@ -43,23 +43,26 @@ class LoginServiceModel: LoginServiceModelProtocol {
         do {
             try appDatabase.dbwriter.read({ db in
                 let users = try User.fetchAll(db)
-                
                 if let usersByEmail = filterUsersByEmail(users: users) {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
                         
                         if let user = usersByPassword.first {
-                            self.user = user
+                            password = password.SHA384(string: password)
+                            
+                            if password == user.password {
+                                self.user = user
+                            } else {
+                                loginError = .invalidPassword
+                            }
+                            
                         } else {
-                            print("test: no user found")
-                            loginError = .loginError
+                            loginError = .userNotFound
                         }
                     } else {
-                        print("1")
-                        loginError = .loginError
+                        loginError = .userNotFound
                     }
                 } else {
-                    print("2")
-                    loginError = .loginError
+                    loginError = .userNotFound
                 }
             })
         } catch {

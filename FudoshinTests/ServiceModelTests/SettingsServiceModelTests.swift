@@ -24,7 +24,7 @@ class SettingsServiceModelTests: XCTestCase {
     }
 
     func testRemoveUserData() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
         let settingsServiceModel = SettingsServiceModel(appDatabase: appDatabase, user: user)
@@ -53,7 +53,7 @@ class SettingsServiceModelTests: XCTestCase {
     }
     
     func testUpdateEmail() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
         let settingsServiceModel = SettingsServiceModel(appDatabase: appDatabase, user: user)
@@ -78,13 +78,13 @@ class SettingsServiceModelTests: XCTestCase {
         })
         
         try appDatabase.dbwriter.read({ db in
-            guard let fetchedUser = try User.fetchOne(db, key: user.id) else {return}
+            guard let fetchedUser = try User.fetchOne(db, key: ["id" : user.id]) else {return}
             XCTAssertEqual(user.email, fetchedUser.email)
         })
     }
     
     func testUpdateBeltLevel() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
         let settingsServiceModel = SettingsServiceModel(appDatabase: appDatabase, user: user)
@@ -109,13 +109,13 @@ class SettingsServiceModelTests: XCTestCase {
         })
         
         try appDatabase.dbwriter.read({ db in
-            guard let fetchedUser = try User.fetchOne(db, key: user.id) else {return}
+            guard let fetchedUser = try User.fetchOne(db, key: ["id" : user.id]) else {return}
             XCTAssertEqual(user.beltLevel, fetchedUser.beltLevel)
         })
     }
     
     func testUpdatePassword() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try AppDatabase(dbwriter: dbQueue)
         
         let settingsServiceModel = SettingsServiceModel(appDatabase: appDatabase, user: user)
@@ -140,7 +140,7 @@ class SettingsServiceModelTests: XCTestCase {
         })
         
         try appDatabase.dbwriter.read({ db in
-            guard let fetchedUser = try User.fetchOne(db, key: user.id) else {return}
+            guard let fetchedUser = try User.fetchOne(db, key: ["id" : user.id]) else {return}
             XCTAssertEqual(user.password, fetchedUser.password)
         })
     }

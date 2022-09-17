@@ -17,6 +17,8 @@ class RegisterServiceModel: RegisterServiceModelProtocol {
     }
     
     func insertNewUser() {
+        hashUserPassword()
+        
         do {
             try appDatabase.dbwriter.write({ db in
                 try user.insert(db)
@@ -24,6 +26,10 @@ class RegisterServiceModel: RegisterServiceModelProtocol {
         } catch {
             print(error)
         }
+    }
+    
+    func hashUserPassword() {
+        user.password = user.password.SHA384(string: user.password)
     }
     
 }

@@ -18,7 +18,7 @@ class AppDatabaseTests: XCTestCase {
     var user = MockUser()
 
     func testUserInsert() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         try appDatabase.dbwriter.write { db in
@@ -28,7 +28,7 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testVisitInsert() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
@@ -42,19 +42,19 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testUserFetch() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
             
-            let newUser = try MockUser.fetchOne(db, key: user.id)
+            let newUser = try MockUser.fetchOne(db, key: ["id" : user.id])
             XCTAssertEqual(user, newUser)
         })
     }
     
     func testVisitFetch() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
@@ -63,14 +63,14 @@ class AppDatabaseTests: XCTestCase {
             try user.insert(db)
             try visit.insert(db)
             
-            if let newVisit = try MockVisit.fetchOne(db, key: visit.id) {
+            if let newVisit = try MockVisit.fetchOne(db, key: ["id" : visit.id]) {
                 XCTAssertEqual(visit.visitDate, newVisit.visitDate)
             }
         })
     }
     
     func testUserUpdate() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         try appDatabase.dbwriter.write({ db in
@@ -78,14 +78,14 @@ class AppDatabaseTests: XCTestCase {
             user.firstName = "Jane"
             
             try user.update(db)
-            let newUser = try MockUser.fetchOne(db, key: user.id)
+            let newUser = try MockUser.fetchOne(db, key: ["id" : user.id])
             
             XCTAssertEqual(user, newUser)
         })
     }
     
     func testUserDelete() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         try appDatabase.dbwriter.write({ db in
@@ -97,7 +97,7 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testVisitDelete() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let visit = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
@@ -112,7 +112,7 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testFetchAllUsers() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let userOne = MockUser()
@@ -132,7 +132,7 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testFetchAllVisits() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let visitOne = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)
@@ -162,19 +162,19 @@ class AppDatabaseTests: XCTestCase {
     }
     
     func testUserDeleteByid() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         try appDatabase.dbwriter.write({ db in
             try user.insert(db)
-            try MockUser.deleteOne(db, key: user.id)
+            try MockUser.deleteOne(db, key: ["id" : user.id])
             
             try XCTAssertFalse(user.exists(db))
         })
     }
     
     func testVisitsDeleteByUser() throws {
-        let dbQueue = DatabaseQueue()
+        let dbQueue = try DatabaseQueue()
         let appDatabase = try MockDatabase(dbwriter: dbQueue)
         
         let visitOne = MockVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: user.id)

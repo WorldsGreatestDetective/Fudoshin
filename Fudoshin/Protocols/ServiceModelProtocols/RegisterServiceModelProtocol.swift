@@ -11,4 +11,5 @@ protocol RegisterServiceModelProtocol {
     var user: UserModelProtocol {get set}
     var appDatabase: AppDatabaseProtocol {get set}
     func insertNewUser()
+    func hashUserPassword() 
 }

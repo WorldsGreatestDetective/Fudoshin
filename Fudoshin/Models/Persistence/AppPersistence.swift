@@ -23,10 +23,7 @@ extension AppDatabase {
             
             let dbURL = folderURL.appendingPathComponent("db.sqlite")
             
-            /*var config = Configuration()
-            config.prepareDatabase { db in
-                db.trace { print($0) }
-            }*/
+            //var config = Configuration()
             
             let dbPool = try DatabasePool(path: dbURL.path)
             
