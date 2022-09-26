@@ -8,6 +8,8 @@
 import Foundation
 
 class ProfileServiceModel: ProfileServiceModelProtocol {
+    
+    
     internal var user: UserModelProtocol
     internal var appDatabase: AppDatabaseProtocol
     
@@ -24,6 +26,7 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         self.user = User(id: id, firstName: firstName, lastName: lastName, email: email, password: password, beltLevel: beltLevel)
         
         setAllVisits()
+        keepUserLoggedIn()
     }
     
     internal var newVisit: VisitModelProtocol? = nil
@@ -357,6 +360,63 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
             })
         } catch {
             print(error)
+        }
+    }
+    
+    internal func keepUserLoggedIn() {
+        
+        if isOneActiveUser() == true {
+            UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+            UserDefaults.standard.synchronize()
+            
+            insertActiveUser()
+        }
+    }
+    
+    internal func insertActiveUser() {
+        if checkForActiveUser() == false {
+            do {
+                try ActiveUserDatabase.sharedPool.dbwriter.write({ db in
+                    try user.insert(db)
+                })
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    internal func checkForActiveUser() -> Bool { // TODO: Rename method? (rename from protocol)
+        var doesExist: Bool = false // TODO: true or false?
+        
+        do {
+            try ActiveUserDatabase.sharedPool.dbwriter.read({ db in
+                if try user.exists(db) == true {
+                    doesExist = true
+                } else {
+                    doesExist = false
+                }
+            })
+        } catch {
+            print(error)
+        }
+        
+        return doesExist
+    }
+    
+    internal func isOneActiveUser() -> Bool {
+        var users: [UserModelProtocol] = []
+        
+        do {
+            try ActiveUserDatabase.sharedPool.dbwriter.read({ db in
+                users = try User.fetchAll(db)
+            })
+        } catch {
+            print(error)
+        }
+        if users.count > 1 {
+            return false
+        } else {
+            return true
         }
     }
     

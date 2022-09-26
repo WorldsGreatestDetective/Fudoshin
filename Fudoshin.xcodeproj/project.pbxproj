@@ -10,6 +10,7 @@
 		02D57770E4BCCBFA9E48E02C /* Pods_Fudoshin_FudoshinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECE8B7DE48466632AAADB7D /* Pods_Fudoshin_FudoshinUITests.framework */; };
 		42795BEE40665E36080F00E6 /* Pods_FudoshinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D043689CE16C5D430D39B4E2 /* Pods_FudoshinTests.framework */; };
 		8F00239B8A80D58C059FC419 /* Pods_Fudoshin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF43755367D19CA6B1A24DC /* Pods_Fudoshin.framework */; };
+		F51F689528DA3F3C00524CC4 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F689428DA3F3C00524CC4 /* KeychainError.swift */; };
 		F52142C128567429000475AE /* LoginViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */; };
 		F52142C52857B208000475AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C42857B208000475AE /* User.swift */; };
 		F52142C92857B625000475AE /* BeltLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52142C82857B625000475AE /* BeltLevel.swift */; };
@@ -69,6 +70,10 @@
 		F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */; };
 		F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C628C90EAA005BA194 /* StringExt.swift */; };
 		F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C828C943FB005BA194 /* UIColorExt.swift */; };
+		F5E8B51028DCB282009E2C1B /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B50F28DCB282009E2C1B /* KeychainTests.swift */; };
+		F5E8B51228DCB311009E2C1B /* KeychainErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B51128DCB311009E2C1B /* KeychainErrorTests.swift */; };
+		F5E8B51428DDFE12009E2C1B /* ActiveUserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B51328DDFE12009E2C1B /* ActiveUserDatabase.swift */; };
+		F5E8B51628DE0215009E2C1B /* ActiveUserPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B51528DE0215009E2C1B /* ActiveUserPersistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,7 @@
 		D043689CE16C5D430D39B4E2 /* Pods_FudoshinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FudoshinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFC18FAE7B01502EFDEBF3C8 /* Pods-Fudoshin-FudoshinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fudoshin-FudoshinUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fudoshin-FudoshinUITests/Pods-Fudoshin-FudoshinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E496AE7482651D003C21ECDC /* Pods-FudoshinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FudoshinTests.release.xcconfig"; path = "Target Support Files/Pods-FudoshinTests/Pods-FudoshinTests.release.xcconfig"; sourceTree = "<group>"; };
+		F51F689428DA3F3C00524CC4 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
 		F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDelegateProtocol.swift; sourceTree = "<group>"; };
 		F52142C42857B208000475AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F52142C82857B625000475AE /* BeltLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeltLevel.swift; sourceTree = "<group>"; };
@@ -161,6 +167,10 @@
 		F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68C628C90EAA005BA194 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F5BB68C828C943FB005BA194 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		F5E8B50F28DCB282009E2C1B /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
+		F5E8B51128DCB311009E2C1B /* KeychainErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrorTests.swift; sourceTree = "<group>"; };
+		F5E8B51328DDFE12009E2C1B /* ActiveUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserDatabase.swift; sourceTree = "<group>"; };
+		F5E8B51528DE0215009E2C1B /* ActiveUserPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserPersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +233,7 @@
 				F5BB68BB28C67FD6005BA194 /* TextFieldForCell.swift */,
 				F5BB68C628C90EAA005BA194 /* StringExt.swift */,
 				F5BB68C828C943FB005BA194 /* UIColorExt.swift */,
+				F51F689428DA3F3C00524CC4 /* KeychainError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -232,6 +243,8 @@
 			children = (
 				F52142CB2857BF40000475AE /* AppDatabase.swift */,
 				F52142CD2857C27A000475AE /* AppPersistence.swift */,
+				F5E8B51328DDFE12009E2C1B /* ActiveUserDatabase.swift */,
+				F5E8B51528DE0215009E2C1B /* ActiveUserPersistence.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -376,6 +389,8 @@
 				F521439328760458000475AE /* ServiceModelTests */,
 				F52142F1285BB9B6000475AE /* DatabaseTests */,
 				F5214388286CFEDD000475AE /* RegisterViewTest.swift */,
+				F5E8B50F28DCB282009E2C1B /* KeychainTests.swift */,
+				F5E8B51128DCB311009E2C1B /* KeychainErrorTests.swift */,
 			);
 			path = FudoshinTests;
 			sourceTree = "<group>";
@@ -741,6 +756,7 @@
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
 				F5BB68B828C39678005BA194 /* EmailSettingsViewController.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
+				F51F689528DA3F3C00524CC4 /* KeychainError.swift in Sources */,
 				F5BB68BE28C7B152005BA194 /* PasswordFieldTableViewCell.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
 				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,
@@ -755,6 +771,7 @@
 				F52142D02858F457000475AE /* Visit.swift in Sources */,
 				F5BB68AB289D63C8005BA194 /* SettingsServiceModel.swift in Sources */,
 				F5BB68BC28C67FD6005BA194 /* TextFieldForCell.swift in Sources */,
+				F5E8B51428DDFE12009E2C1B /* ActiveUserDatabase.swift in Sources */,
 				F52142CE2857C27A000475AE /* AppPersistence.swift in Sources */,
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
 				F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */,
@@ -763,6 +780,7 @@
 				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
 				F55F55EA281C431B00171AA0 /* AppDelegate.swift in Sources */,
+				F5E8B51628DE0215009E2C1B /* ActiveUserPersistence.swift in Sources */,
 				F5BB68B228C2432A005BA194 /* BeltSettingsViewController.swift in Sources */,
 				F55F5620281C443500171AA0 /* LoginView.swift in Sources */,
 				F52142C92857B625000475AE /* BeltLevel.swift in Sources */,
@@ -781,12 +799,14 @@
 				F521439A2879F1AF000475AE /* LoginServiceModelTests.swift in Sources */,
 				F52142FB2864CD18000475AE /* MockRegisterServiceModel.swift in Sources */,
 				F52142E2285A680E000475AE /* AppDatabaseTests.swift in Sources */,
+				F5E8B51028DCB282009E2C1B /* KeychainTests.swift in Sources */,
 				F52142F0285BACFE000475AE /* MockDatabase.swift in Sources */,
 				F5214389286CFEDD000475AE /* RegisterViewTest.swift in Sources */,
 				F52142EB285B9DFB000475AE /* MockUser.swift in Sources */,
 				F5214387286CFE6C000475AE /* MockRegisterViewDelegate.swift in Sources */,
 				F52142E9285B9CFD000475AE /* MockVisit.swift in Sources */,
 				F52143AB288B2418000475AE /* ProfileServiceModelTests.swift in Sources */,
+				F5E8B51228DCB311009E2C1B /* KeychainErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

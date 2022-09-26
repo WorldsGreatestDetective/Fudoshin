@@ -10,20 +10,52 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let loginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else {return}
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.setNavigationBarHidden(true, animated: false)
+        if loginStatus == false {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let viewController = LoginViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.setNavigationBarHidden(true, animated: false)
+            
+            window?.rootViewController = navigationController
+            window?.overrideUserInterfaceStyle = .dark
+            window?.makeKeyAndVisible()
+            window?.windowScene = windowScene
+        } else if loginStatus == true {
+            var user: UserModelProtocol?
+            
+            do {
+                try ActiveUserDatabase.sharedQueue.dbwriter.read({ db in
+                    user = try User.fetchOne(db)
+                })
+            } catch {
+                print(error)
+            }
+            
+            guard let user = user else {return}
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let profileViewController = ProfileViewController()
+            let navigationController = UINavigationController(rootViewController: profileViewController)
+            navigationController.setNavigationBarHidden(true, animated: false)
+            
+            let profileServiceModel = ProfileServiceModel(appDatabase: AppDatabase.sharedPool, email: user.email, password: user.password, id: user.id, firstName: user.firstName, lastName: user.lastName, beltLevel: user.beltLevel)
+            
+            profileViewController.setServiceModel(serviceModel: profileServiceModel)
+            
+            window?.rootViewController = navigationController
+            window?.overrideUserInterfaceStyle = .dark
+            window?.makeKeyAndVisible()
+            window?.windowScene = windowScene
+        }
         
-        window?.rootViewController = navigationController
-        window?.overrideUserInterfaceStyle = .dark
-        window?.makeKeyAndVisible()
-        window?.windowScene = windowScene
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

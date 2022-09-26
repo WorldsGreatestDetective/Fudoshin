@@ -19,7 +19,6 @@ class LoginServiceModel: LoginServiceModelProtocol {
             setPassword(password: user!.password)
         }
     }
-    
     internal var appDatabase: AppDatabaseProtocol
     
     init(email: String, password: String, appDatabase: AppDatabaseProtocol) {
@@ -39,6 +38,7 @@ class LoginServiceModel: LoginServiceModelProtocol {
     
     func fetchUserByLogin() -> ErrorType? {
         var loginError: ErrorType? = nil
+        password = password.SHA384(string: password)
         
         do {
             try appDatabase.dbwriter.read({ db in
@@ -47,8 +47,38 @@ class LoginServiceModel: LoginServiceModelProtocol {
                     if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
                         
                         if let user = usersByPassword.first {
-                            password = password.SHA384(string: password)
+                            if password == user.password {
+                                self.user = user
+                            } else {
+                                loginError = .invalidPassword
+                            }
                             
+                        } else {
+                            loginError = .userNotFound
+                        }
+                    } else {
+                        loginError = .userNotFound
+                    }
+                } else {
+                    loginError = .userNotFound
+                }
+            })
+        } catch {
+            print(error)
+        }
+        return loginError
+    }
+    
+    func fetchUserByKeychain() -> ErrorType? {
+        var loginError: ErrorType? = nil
+        
+        do {
+            try appDatabase.dbwriter.read({ db in
+                let users = try User.fetchAll(db)
+                if let usersByEmail = filterUsersByEmail(users: users) {
+                    if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
+                        
+                        if let user = usersByPassword.first {
                             if password == user.password {
                                 self.user = user
                             } else {

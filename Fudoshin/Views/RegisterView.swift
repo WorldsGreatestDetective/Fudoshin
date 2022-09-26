@@ -86,7 +86,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let passwordField: UITextField = {
         let textField = UITextField()
     
-        textField.textContentType = .newPassword
+        //textField.textContentType = .newPassword
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.borderStyle = .roundedRect
@@ -106,7 +106,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private let confirmPasswordField: UITextField = {
         let textField = UITextField()
      
-        textField.textContentType = .newPassword
+        //textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no

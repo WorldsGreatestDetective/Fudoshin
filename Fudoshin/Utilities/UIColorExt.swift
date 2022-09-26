@@ -20,9 +20,7 @@ extension UIColor {
         case .brown:
             return systemBrown
         case .black:
-            return systemRed
-        default:
-            return white
+            return UIColor(red: 0.5685, green: 0.1137, blue: 0.1294, alpha: 1)
         }
     }
 }

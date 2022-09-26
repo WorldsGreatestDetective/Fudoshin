@@ -82,7 +82,8 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
     
     func updatePassword() {
         guard let password = password else {return}
-        user.password = password
+        let hashPassword = password.SHA384(string: password)
+        user.password = hashPassword
         
         updateUser()
     }
@@ -118,4 +119,26 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
         return beltLevel
     }
     
+    func keepUserLoggedOut() {
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+        deleteActiveUser()
+    }
+    
+    internal func deleteActiveUser() {
+        do {
+            try ActiveUserDatabase.sharedPool.dbwriter.write({ db in
+                try user.delete(db)
+            })
+        } catch {
+            print(error)
+        }
+    }
+    
+    internal func hashUserPassword() {
+        // MARK: WARNING! Never re-hash already persisted user passwords
+        
+        user.password = user.password.SHA384(string: user.password)
+    }
 }

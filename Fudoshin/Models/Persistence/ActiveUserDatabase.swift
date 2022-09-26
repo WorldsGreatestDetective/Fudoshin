@@ -1,14 +1,14 @@
 //
-//  AppDatabase.swift
+//  ActiveUserDatabase.swift
 //  Fudoshin
 //
-//  Created by Nathan Reilly on 6/13/22.
+//  Created by Nathan Reilly on 9/23/22.
 //
 
 import Foundation
 import GRDB
 
-class AppDatabase: AppDatabaseProtocol {
+class ActiveUserDatabase: AppDatabaseProtocol {
     let dbwriter: DatabaseWriter
     var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
@@ -23,12 +23,6 @@ class AppDatabase: AppDatabaseProtocol {
                 t.column("password", .text).notNull(onConflict: nil)
                 t.column("beltLevel", .integer).notNull(onConflict: nil)
             })
-            try db.create(table: "Visit", body: { t in
-                t.column("id", .text).primaryKey().notNull(onConflict: nil)
-                t.column("userid", .text).references("User").notNull(onConflict: nil)
-                t.column("visitDate", .date).notNull(onConflict: nil)
-                t.column("sessionType", .integer).notNull(onConflict: nil)
-            })
         }
         return migrator
     }
@@ -37,5 +31,4 @@ class AppDatabase: AppDatabaseProtocol {
         self.dbwriter = dbwriter
         try migrator.migrate(dbwriter)
     }
-    
 }

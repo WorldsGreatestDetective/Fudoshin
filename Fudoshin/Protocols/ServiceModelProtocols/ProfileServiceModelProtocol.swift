@@ -53,7 +53,6 @@ protocol ProfileServiceModelProtocol {
     func getYearsByVisitsNoGi() -> [Int]?
     
     func getVisits() -> [VisitModelProtocol]
-    
     func setVisits(visits: [VisitModelProtocol])
     
     func getUser() -> UserModelProtocol
@@ -62,4 +61,10 @@ protocol ProfileServiceModelProtocol {
     func setAllVisits()
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func fetchVisitsByUser() -> [VisitModelProtocol]?
+    
+    func keepUserLoggedIn()
+    
+    func insertActiveUser()
+    func checkForActiveUser() -> Bool
+    func isOneActiveUser() -> Bool
 }

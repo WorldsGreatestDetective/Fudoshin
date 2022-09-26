@@ -145,8 +145,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             navigationController.pushViewController(passwordViewController, animated: true)
         case 4:
+            guard let settingsServiceModel = settingsServiceModel else {return}
+            let loginViewController = LoginViewController()
+            
             tableView.deselectRow(at: indexPath, animated: true)
-            navigationController?.popToRootViewController(animated: true)
+            settingsServiceModel.keepUserLoggedOut()
+            navigationController?.setViewControllers([loginViewController], animated: true)
+            navigationController?.popToViewController(loginViewController, animated: true)
         default:
             return
         }

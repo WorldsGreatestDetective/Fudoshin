@@ -36,4 +36,9 @@ protocol SettingsServiceModelProtocol {
     func updatePassword()
     
     func getBeltLevel() -> BeltLevel
+    
+    func keepUserLoggedOut()
+    func deleteActiveUser()
+    
+    func hashUserPassword() 
 }
