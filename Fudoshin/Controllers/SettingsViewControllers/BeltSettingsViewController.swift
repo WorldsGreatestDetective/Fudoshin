@@ -15,7 +15,7 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Belt promotion"
+        title = "Belt change"
         configureTableView()
     }
     
@@ -51,7 +51,7 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
         case 1:
             var content = cell.defaultContentConfiguration()
             
-            content.text = "Promote"
+            content.text = "Change"
             content.textProperties.color = UIColor.beltLevelToColor(beltLevel: settingsServiceModel.getBeltLevel())
             
             cell.contentConfiguration = content
@@ -72,21 +72,32 @@ class BeltSettingsViewController: UIViewController, UITableViewDataSource, UITab
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsServiceModel = settingsServiceModel else {return}
         
-        let indexPath = IndexPath(row: 0, section: 0)
-        guard let cell = tableView.cellForRow(at: indexPath) as? BeltFieldTableViewCell else {return}
+        let beltIndexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: beltIndexPath) as? BeltFieldTableViewCell else {return}
         
         if indexPath.section == 1 {
+            guard let beltLevel = cell.getBeltLevel() else {presentAlertEmptyField(); return}
+            settingsServiceModel.setNewBeltLevel(beltLevel: beltLevel)
             settingsServiceModel.updateBeltLevel()
             cell.clearTextField()
             tableView.deselectRow(at: indexPath, animated: true)
             
-            presentAlertSuccess()
+            navigationController?.popViewController(animated: true)
         }
     }
     
     private func presentAlertSuccess() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: "Success", message: "Your belt level has been updated", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func presentAlertEmptyField() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Field is empty", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: - Properties
     
@@ -197,12 +197,6 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
     private func commonInit() {
         backgroundColor = UIColor(white: 0.05, alpha: 1)
         
-        let textFieldArray = [firstNameField, lastNameField, emailField]
-        
-        for textField in textFieldArray {
-            textField.delegate = self
-        }
-        
         beltPicker.delegate = self
         beltPicker.dataSource = self
         beltToolbar.items = [doneBeltBarButton]
@@ -303,6 +297,31 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         }
     }
     
+    private func isPasswordvalid() -> Bool {
+        if passwordField.text!.count <= 6 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    private func isNameFieldValid() -> Bool {
+        var isValid = true
+        
+        firstNameField.text?.forEach({ char in
+            if char.isWhitespace == true {
+                isValid = false
+            }
+        })
+        lastNameField.text?.forEach({ char in
+            if char.isWhitespace == true {
+                isValid = false
+            }
+        })
+        
+        return isValid
+    }
+    
     // MARK: - Button Target Methods
     
     @objc private func doneBeltBarButtonTapped(_ sender: UIButton) {
@@ -314,9 +333,20 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         
         for text in array {
             if text?.isEmpty == true {
+                print(text)
                 delegate?.presentAlertEmptyField()
                 return
             }
+        }
+        
+        if isNameFieldValid() == false {
+            delegate?.presentAlertNameField()
+            return
+        }
+        
+        if isPasswordvalid() == false {
+            delegate?.presentAlertPasswordField()
+            return
         }
         
         delegate?.registerUser()
@@ -340,8 +370,7 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
         beltLevelField.text = beltLevelsArray[row]
     }
     
-    // MARK: - UITextField Delegate Methods
-    
+    /*
     internal func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == true {
             delegate?.presentAlertEmptyField()
@@ -367,6 +396,5 @@ class RegisterView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIText
                 return
             }
         }
-    }
-
+    }*/
 }

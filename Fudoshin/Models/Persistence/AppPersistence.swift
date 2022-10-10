@@ -23,7 +23,11 @@ extension AppDatabase {
             
             let dbURL = folderURL.appendingPathComponent("db.sqlite")
             
-            //var config = Configuration()
+            /*
+            var config = Configuration()
+            config.prepareDatabase { db in
+                try db.usePassphrase("pA$$")
+            }*/
             
             let dbPool = try DatabasePool(path: dbURL.path)
             
@@ -44,6 +48,13 @@ extension AppDatabase {
             try fileManager.createDirectory(at: folderURL, withIntermediateDirectories: true, attributes: nil)
             
             let dbURL = folderURL.appendingPathComponent("db.sqlite")
+            
+            /*
+            var config = Configuration()
+            config.prepareDatabase { db in
+                try db.usePassphrase("pA$$")
+            }*/
+            
             let dbQueue = try DatabaseQueue(path: dbURL.path)
             
             let database = try AppDatabase(dbwriter: dbQueue)

@@ -61,6 +61,16 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
         }
     }
     
+    private func updateActiveUser() {
+        do {
+            try ActiveUserDatabase.sharedPool.dbwriter.write({ db in
+                try user.update(db)
+            })
+        } catch {
+            print(error)
+        }
+    }
+    
     func removeUserData() {
         deleteVisitsByUser()
         deleteUser()
@@ -68,9 +78,12 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
     
     func updateBeltLevel() {
         guard let newBeltLevel = newBeltLevel else {return}
+        print(newBeltLevel)
         user.beltLevel = newBeltLevel
+        print(user.beltLevel)
         
         updateUser()
+        updateActiveUser()
     }
     
     func updateEmail() {
@@ -78,6 +91,7 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
         user.email = newEmail
         
         updateUser()
+        updateActiveUser()
     }
     
     func updatePassword() {
@@ -86,6 +100,7 @@ class SettingsServiceModel: SettingsServiceModelProtocol {
         user.password = hashPassword
         
         updateUser()
+        updateActiveUser()
     }
     
     func setPassword(password: String) {

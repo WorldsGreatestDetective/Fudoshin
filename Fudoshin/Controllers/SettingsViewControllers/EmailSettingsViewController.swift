@@ -72,22 +72,32 @@ class EmailSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let settingsServiceModel = settingsServiceModel else {return}
-        let indexPath = IndexPath(row: 0, section: 0)
-        guard let cell = tableView.cellForRow(at: indexPath) as? EmailFieldTableViewCell else {return}
+        let emailIndexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: emailIndexPath) as? EmailFieldTableViewCell else {return}
         
         if indexPath.section == 1 {
+            guard let email = cell.getEmail() else {presentAlertEmptyField(); return}
+            settingsServiceModel.setNewEmail(email: email)
             settingsServiceModel.updateEmail()
             cell.clearTextField()
             tableView.deselectRow(at: indexPath, animated: true)
             
-            presentAlertSuccess()
-            //navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true)
         }
     }
     
     private func presentAlertSuccess() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: "Success", message: "Your email has been updated", preferredStyle: .alert)
+        
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func presentAlertEmptyField() {
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: "Error", message: "Field is empty", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         

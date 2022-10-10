@@ -9,7 +9,6 @@ import Foundation
 
 class ProfileServiceModel: ProfileServiceModelProtocol {
     
-    
     internal var user: UserModelProtocol
     internal var appDatabase: AppDatabaseProtocol
     
@@ -30,8 +29,8 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     }
     
     internal var newVisit: VisitModelProtocol? = nil
-    internal var visits: [VisitModelProtocol] = [] 
     
+    internal var visits: [VisitModelProtocol] = []
     internal var noGiVisits: [VisitModelProtocol] = []
     internal var giVisits: [VisitModelProtocol] = []
     

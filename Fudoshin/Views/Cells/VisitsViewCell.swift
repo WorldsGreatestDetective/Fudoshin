@@ -474,6 +474,18 @@ class VisitsViewCell: UITableViewCell {
         }
     }
     
+    func alphaToZeroForAll() {
+        for view in subviews {
+            view.alpha = 0
+        }
+    }
+    
+    func alphaToOneForAll() {
+        for view in subviews {
+            view.alpha = 1
+        }
+    }
+    
     func alphaToZeroForVisits() {
         byWeekGiVisitsLabel.alpha = 0
         byWeekAllVisitsLabel.alpha = 0

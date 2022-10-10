@@ -26,6 +26,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     func setServiceModel(serviceModel: ProfileServiceModelProtocol) {
         profileServiceModel = serviceModel
     }
@@ -52,46 +56,46 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         switch indexPath.row {
         case 0:
-            profileServiceModel.setAllVisits()
-            
+            profileServiceModel.setAllVisits() // alter to set all cell data; create seperate animation with diff cell class methods for reload after settings change
+                
             guard let countByWeek = profileServiceModel.getCountByWeek() else {presentAlertError(); return cell}
             guard let countGiByWeek = profileServiceModel.getCountByWeekGi() else {presentAlertError(); return cell}
             guard let countNoGiByWeek = profileServiceModel.getCountByWeekNoGi() else {presentAlertError(); return cell}
-            
+                
             guard let countByMonth = profileServiceModel.getCountByMonth() else {presentAlertError(); return cell}
             guard let countGiByMonth = profileServiceModel.getCountByMonthGi() else {presentAlertError(); return cell}
             guard let countNoGiByMonth = profileServiceModel.getCountByMonthNoGi() else {presentAlertError(); return cell}
-            
+                
             guard let countByYear = profileServiceModel.getCountByYear() else {presentAlertError(); return cell}
             guard let countGiByYear = profileServiceModel.getCountByYearGi() else {presentAlertError(); return cell}
             guard let countNoGiByYear = profileServiceModel.getCountByYearNoGi() else {presentAlertError(); return cell}
-            
+                
             guard let countByTotal = profileServiceModel.getCountByTotal() else {presentAlertError(); return cell}
             guard let countGiByTotal = profileServiceModel.getCountByTotalGi() else {presentAlertError(); return cell}
             guard let countNoGiByTotal = profileServiceModel.getCountByTotalNoGi() else {presentAlertError(); return cell}
-            
+                
             cell.selectionStyle = .none
-            
+                
             cell.setNameLabelText(firstName: profileServiceModel.firstName, lastName: profileServiceModel.lastName)
             cell.setBeltLabelText(beltLevel: profileServiceModel.beltLevel)
             cell.setSymbolColor(beltLevel: profileServiceModel.beltLevel)
-            
+                
             cell.setAllVisitsByWeek(visits: countByWeek)
             cell.setGiVisitsByWeek(visits: countGiByWeek)
             cell.setNoGiVisitsByWeek(visits: countNoGiByWeek)
-            
+                
             cell.setAllVisitsByMonth(visits: countByMonth)
             cell.setGiVisitsByMonth(visits: countGiByMonth)
             cell.setNoGiVisitsByMonth(visits: countNoGiByMonth)
-            
+                
             cell.setAllVisitsByYear(visits: countByYear)
             cell.setGiVisitsByYear(visits: countGiByYear)
             cell.setNoGiVisitsByYear(visits: countNoGiByYear)
-            
+                
             cell.setAllVisitsByTotal(visits: countByTotal)
             cell.setGiVisitsByTotal(visits: countGiByTotal)
             cell.setNoGiVisitsByTotal(visits: countNoGiByTotal)
-            
+                
             return cell
         default:
             presentAlertError()
@@ -139,6 +143,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
                 cell.alphaToOneForVisits()
+            }
+        }, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.tableView?.reloadData()
+        }
+        
+    }
+    
+    private func reloadVisitsCellAnimated() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView?.cellForRow(at: indexPath) as? VisitsViewCell else {return}
+        
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: .calculationModeLinear, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                cell.alphaToZeroForAll()
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                cell.alphaToOneForAll()
             }
         }, completion: nil)
         

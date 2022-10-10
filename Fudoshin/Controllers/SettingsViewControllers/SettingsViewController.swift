@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
         case 1:
-            content.text = "Belt promotion"
+            content.text = "Belt change"
             content.textProperties.color = .white
             
             cell.contentConfiguration = content

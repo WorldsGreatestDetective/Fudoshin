@@ -96,6 +96,12 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
         guard let passwordCell = tableView.cellForRow(at: passwordIndex) as? PasswordFieldTableViewCell else {return}
         guard let confirmCell = tableView.cellForRow(at: confirmIndex) as? ConfirmFieldTableViewCell else {return}
         
+        guard let password = passwordCell.getPassword() else {presentAlertEmptyFields(); return}
+        guard let confirm = confirmCell.getConfirmPassword() else {presentAlertEmptyFields(); return}
+        
+        settingsServiceModel.setPassword(password: password)
+        settingsServiceModel.setConfirmPassword(confirmPassword: confirm)
+        
         if indexPath.section == 1 {
             if settingsServiceModel.isPasswordConfirmed() == true {
                 settingsServiceModel.updatePassword()
@@ -103,7 +109,7 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
                 passwordCell.clearTextField()
                 confirmCell.clearTextField()
                 
-                presentAlertSuccess()
+                navigationController?.popViewController(animated: true)
             } else {
                 presentAlertPasswordMatch()
             }
@@ -122,15 +128,6 @@ class PasswordSettingsViewController: UIViewController, UITableViewDelegate, UIT
     private func presentAlertEmptyFields() {
         let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let alertController = UIAlertController(title: nil, message: "One or more fields are empty", preferredStyle: .alert)
-        
-        alertController.addAction(dismissAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    private func presentAlertSuccess() {
-        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        let alertController = UIAlertController(title: "Success", message: "Your password has been updated", preferredStyle: .alert)
         
         alertController.addAction(dismissAction)
         
