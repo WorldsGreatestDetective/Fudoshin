@@ -41,6 +41,18 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
     var lastName: String
     var beltLevel: BeltLevel
     
+    func isUserUpdated() -> Bool? {
+        guard let fetchedUser = fetchUserById() else {return nil}
+        
+        if user.beltLevel == fetchedUser.beltLevel,
+           user.password == fetchedUser.password,
+           user.email == fetchedUser.email {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getCountByWeek() -> Int? {
         guard let weeks = getWeeksByVisits() else {return nil}
         
@@ -327,6 +339,19 @@ class ProfileServiceModel: ProfileServiceModelProtocol {
         
         self.noGiVisits = noGiVisits
         self.giVisits = giVisits
+    }
+    
+    func fetchUserById() -> UserModelProtocol? {
+        var fetchedUser: UserModelProtocol?
+        
+        do {
+            try appDatabase.dbwriter.write({ db in
+                fetchedUser = try User.fetchOne(db, key: self.id)
+            })
+        } catch {
+            print(error)
+        }
+        return fetchedUser
     }
     
     internal func fetchVisitsByUser() -> [VisitModelProtocol]? {

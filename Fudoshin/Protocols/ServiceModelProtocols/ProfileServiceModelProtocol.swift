@@ -57,12 +57,14 @@ protocol ProfileServiceModelProtocol {
     
     func getUser() -> UserModelProtocol
     
+    func fetchUserById() -> UserModelProtocol?
     func insertNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func setAllVisits()
     func saveNewVisit(id: String, visitDate: DateString, sessionType: SessionType, userid: String)
     func fetchVisitsByUser() -> [VisitModelProtocol]?
     
     func keepUserLoggedIn()
+    func isUserUpdated() -> Bool?
     
     func insertActiveUser()
     func checkForActiveUser() -> Bool

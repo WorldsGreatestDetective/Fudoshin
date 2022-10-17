@@ -28,6 +28,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let profileServiceModel = profileServiceModel else {return}
+        
+        if profileServiceModel.isUserUpdated() == false {
+            guard let fetchedUser = profileServiceModel.fetchUserById() else {return}
+            let newProfileServiceModel = ProfileServiceModel(appDatabase: AppDatabase.sharedPool, email: fetchedUser.email, password: fetchedUser.password, id: fetchedUser.id, firstName: fetchedUser.firstName, lastName: fetchedUser.lastName, beltLevel: fetchedUser.beltLevel)
+            
+            self.profileServiceModel = newProfileServiceModel
+            
+            setNavigationItemsColor(beltLevel: self.profileServiceModel!.beltLevel)
+            reloadVisitsCellAnimated()
+        }
     }
     
     func setServiceModel(serviceModel: ProfileServiceModelProtocol) {
@@ -131,6 +142,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(settingsBarButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = UIColor.beltLevelToColor(beltLevel: profileServiceModel.beltLevel)
+    }
+    
+    private func setNavigationItemsColor(beltLevel: BeltLevel) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.beltLevelToColor(beltLevel: beltLevel)
+            navigationItem.leftBarButtonItem?.tintColor = UIColor.beltLevelToColor(beltLevel: beltLevel)
+        }
     }
     
     private func reloadVisitsAnimated() {
