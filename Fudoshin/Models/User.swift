@@ -19,7 +19,7 @@ struct User: UserModelProtocol {
     
     var beltLevel: BeltLevel
     
-    static func setid() -> String{
+    static func setid() -> String {
         let identifier: String = UUID().uuidString
         
         return identifier

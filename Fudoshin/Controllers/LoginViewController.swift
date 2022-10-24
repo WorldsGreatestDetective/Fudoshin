@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         super.viewDidLoad()
         
         setView()
+        setupToHideKeyboardOnTapOnView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,14 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         loginView.setDelegate(delegate: self)
         
         self.view = loginView
+    }
+    
+    func setServiceModel(serviceModel: LoginServiceModelProtocol) {
+        loginServiceModel = serviceModel
+    }
+    
+    func setServiceModelToNil() {
+        loginServiceModel = nil
     }
     
     func pushToRegisterVC() {
@@ -81,6 +90,23 @@ class LoginViewController: UIViewController, LoginViewDelegateProtocol {
         alertController.addAction(dismissAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func persistDemoUser() {
+        guard let loginServiceModel = loginServiceModel else {return}
+        loginServiceModel.insertDemoUser()
+    }
+    
+    func setupToHideKeyboardOnTapOnView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        
+        //tap.cancelsTouchesInView = false
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 
 }

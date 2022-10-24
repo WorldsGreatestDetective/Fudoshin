@@ -20,6 +20,7 @@ protocol LoginServiceModelProtocol {
     var beltLevel: BeltLevel? {get set}
     
     func fetchUserByLogin() -> ErrorType?
+    func insertDemoUser()
     func filterUsersByEmail(users: [UserModelProtocol]) -> [UserModelProtocol]?
     func filterUsersByPassword(users: [UserModelProtocol]) -> [UserModelProtocol]?
     

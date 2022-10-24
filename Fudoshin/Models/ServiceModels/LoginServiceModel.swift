@@ -8,6 +8,8 @@
 import Foundation
 
 class LoginServiceModel: LoginServiceModelProtocol {
+    
+    
     internal var user: UserModelProtocol? {
         didSet {
             setid(id: user!.id)
@@ -69,37 +71,24 @@ class LoginServiceModel: LoginServiceModelProtocol {
         return loginError
     }
     
-    func fetchUserByKeychain() -> ErrorType? {
-        var loginError: ErrorType? = nil
+    func insertDemoUser() {
+        let demoPassword = "demoPassword"
+        let hashedPass = demoPassword.SHA384(string: demoPassword)
+        let demoUser = User(id: "879CB539-6B57-47B7-8911-A0E7BD7772E2"
+                        , firstName: "Demo", lastName: "Name", email: "demoEmail", password: hashedPass, beltLevel: .purple)
         
         do {
-            try appDatabase.dbwriter.read({ db in
-                let users = try User.fetchAll(db)
-                if let usersByEmail = filterUsersByEmail(users: users) {
-                    if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
-                        
-                        if let user = usersByPassword.first {
-                            if password == user.password {
-                                self.user = user
-                            } else {
-                                loginError = .invalidPassword
-                            }
-                            
-                        } else {
-                            loginError = .userNotFound
-                        }
-                    } else {
-                        loginError = .userNotFound
-                    }
+            try appDatabase.dbwriter.write { db in
+                if try demoUser.exists(db) == true {
+                    print("true")
+                    return
                 } else {
-                    loginError = .userNotFound
+                    try demoUser.insert(db)
                 }
-            })
+            }
         } catch {
             print(error)
         }
-        
-        return loginError
     }
     
     internal func filterUsersByEmail(users: [UserModelProtocol]) -> [UserModelProtocol]? {
@@ -139,5 +128,38 @@ class LoginServiceModel: LoginServiceModelProtocol {
     internal func setPassword(password: String) {
         self.password = password
     }
+    
+    /*func fetchUserByKeychain() -> ErrorType? {
+        var loginError: ErrorType? = nil
+        
+        do {
+            try appDatabase.dbwriter.read({ db in
+                let users = try User.fetchAll(db)
+                if let usersByEmail = filterUsersByEmail(users: users) {
+                    if let usersByPassword = filterUsersByPassword(users: usersByEmail) {
+                        
+                        if let user = usersByPassword.first {
+                            if password == user.password {
+                                self.user = user
+                            } else {
+                                loginError = .invalidPassword
+                            }
+                            
+                        } else {
+                            loginError = .userNotFound
+                        }
+                    } else {
+                        loginError = .userNotFound
+                    }
+                } else {
+                    loginError = .userNotFound
+                }
+            })
+        } catch {
+            print(error)
+        }
+        
+        return loginError
+    }*/
     
 }
