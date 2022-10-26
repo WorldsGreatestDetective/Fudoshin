@@ -20,10 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(frame: UIScreen.main.bounds)
             
             let viewController = LoginViewController()
-            viewController.setServiceModel(serviceModel: LoginServiceModel(email: "", password: "", appDatabase: AppDatabase.sharedQueue))
-            
-            viewController.persistDemoUser()
-            viewController.setServiceModelToNil()
             
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.setNavigationBarHidden(true, animated: false)
