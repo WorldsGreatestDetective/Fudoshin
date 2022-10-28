@@ -1,0 +1,6 @@
+framework module Pods_Fudoshin_FudoshinUITests {
+  umbrella header "Pods-Fudoshin-FudoshinUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
