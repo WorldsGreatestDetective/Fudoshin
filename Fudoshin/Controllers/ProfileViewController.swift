@@ -51,8 +51,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
         view.addSubview(tableView)
         tableView.register(VisitsViewCell.self, forCellReuseIdentifier: "visitsCell")
+        tableView.register(MonthlyViewCell.self, forCellReuseIdentifier: "MonthlyCell")
         tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
+        //tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -63,6 +64,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "visitsCell", for: indexPath) as! VisitsViewCell
+        let monthCell = tableView.dequeueReusableCell(withIdentifier: "MonthlyCell", for: indexPath) as! MonthlyViewCell
+        
         guard let profileServiceModel = profileServiceModel else {return cell}
         
         switch indexPath.row {
@@ -108,6 +111,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.setNoGiVisitsByTotal(visits: countNoGiByTotal)
                 
             return cell
+        case 1:
+            monthCell.setSymbolColor(beltLevel: profileServiceModel.beltLevel)
+            return monthCell
         default:
             presentAlertError()
             return cell
@@ -115,8 +121,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let tableView = self.tableView else {return 500}
-        return tableView.frame.height
+        switch indexPath.row {
+        case 0:
+            return 450
+        case 1:
+            return 350
+        default:
+            return 450
+        }
     }
     
     private func configureNavigation() {
@@ -209,7 +221,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @objc func presentActionSheetAddVisit() {
         guard let profileServiceModel = profileServiceModel else {return}
-        guard let tableView = tableView else {return}
+        //guard let tableView = tableView else {return}
 
         let giAction = UIAlertAction(title: "Gi", style: .default) { action in
             profileServiceModel.insertNewVisit(id: Visit.setid(), visitDate: Date.setDateStringFromNow(), sessionType: .gi, userid: profileServiceModel.id)
@@ -249,4 +261,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationController.pushViewController(settingsViewController, animated: true)
     }
 
+}
+
+extension ProfileViewController: MonthlyViewCellDelegate {
+    
 }

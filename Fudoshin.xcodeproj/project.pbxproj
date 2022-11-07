@@ -70,6 +70,9 @@
 		F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */; };
 		F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C628C90EAA005BA194 /* StringExt.swift */; };
 		F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C828C943FB005BA194 /* UIColorExt.swift */; };
+		F5DD8139290C4C3300654DB9 /* MonthlyVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */; };
+		F5DD813B29117D1500654DB9 /* MonthlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */; };
+		F5DD813D29117DED00654DB9 /* MonthlyViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */; };
 		F5E8B51028DCB282009E2C1B /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B50F28DCB282009E2C1B /* KeychainTests.swift */; };
 		F5E8B51228DCB311009E2C1B /* KeychainErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B51128DCB311009E2C1B /* KeychainErrorTests.swift */; };
 		F5E8B51428DDFE12009E2C1B /* ActiveUserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B51328DDFE12009E2C1B /* ActiveUserDatabase.swift */; };
@@ -167,6 +170,9 @@
 		F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68C628C90EAA005BA194 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F5BB68C828C943FB005BA194 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsViewController.swift; sourceTree = "<group>"; };
+		F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCell.swift; sourceTree = "<group>"; };
+		F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCellDelegate.swift; sourceTree = "<group>"; };
 		F5E8B50F28DCB282009E2C1B /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		F5E8B51128DCB311009E2C1B /* KeychainErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainErrorTests.swift; sourceTree = "<group>"; };
 		F5E8B51328DDFE12009E2C1B /* ActiveUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserDatabase.swift; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 				F52142D728590656000475AE /* RegisterViewDelegateProtocol.swift */,
 				F52142C028567429000475AE /* LoginViewDelegateProtocol.swift */,
 				F5BB68A02891A91C005BA194 /* AddVisitViewDelegateProtocol.swift */,
+				F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */,
 			);
 			path = DelegateProtocols;
 			sourceTree = "<group>";
@@ -336,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				F5BB68A628997E15005BA194 /* VisitsViewCell.swift */,
+				F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */,
 				F5BB68BF28C7B1B5005BA194 /* SettingsTableViewCells */,
 			);
 			path = Cells;
@@ -432,6 +440,7 @@
 				F55F561D281C440400171AA0 /* LoginViewController.swift */,
 				F52142D528590626000475AE /* RegisterViewController.swift */,
 				F521439D28807EB7000475AE /* ProfileViewController.swift */,
+				F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */,
 				F5BB68B028C242EB005BA194 /* SettingsViewControllers */,
 			);
 			path = Controllers;
@@ -748,12 +757,14 @@
 				F5BB68B628C28A8A005BA194 /* BeltFieldTableViewCell.swift in Sources */,
 				F52143022864EA04000475AE /* LoginServiceModelProtocol.swift in Sources */,
 				F5BB68C128C7B207005BA194 /* ConfirmFieldTableViewCell.swift in Sources */,
+				F5DD8139290C4C3300654DB9 /* MonthlyVisitsViewController.swift in Sources */,
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */,
 				F5BB68BA28C3978B005BA194 /* EmailFieldTableViewCell.swift in Sources */,
 				F5BB68A9289D62D5005BA194 /* SettingsServiceModelProtocol.swift in Sources */,
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,
+				F5DD813D29117DED00654DB9 /* MonthlyViewCellDelegate.swift in Sources */,
 				F5BB68B828C39678005BA194 /* EmailSettingsViewController.swift in Sources */,
 				F521438C286D01EC000475AE /* RegisterViewProtocol.swift in Sources */,
 				F51F689528DA3F3C00524CC4 /* KeychainError.swift in Sources */,
@@ -776,6 +787,7 @@
 				F52143002864E7A1000475AE /* AppDatabaseProtocol.swift in Sources */,
 				F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */,
 				F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */,
+				F5DD813B29117D1500654DB9 /* MonthlyViewCell.swift in Sources */,
 				F52142F92864CB59000475AE /* RegisterServiceModelProtocol.swift in Sources */,
 				F5BB68A12891A91C005BA194 /* AddVisitViewDelegateProtocol.swift in Sources */,
 				F52142C52857B208000475AE /* User.swift in Sources */,
