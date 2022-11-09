@@ -22,7 +22,8 @@ class MonthlyVisitsViewController: UIViewController, UITableViewDataSource, UITa
         let tableView = UITableView(frame: view.frame)
         self.tableView = tableView
         
-        //
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

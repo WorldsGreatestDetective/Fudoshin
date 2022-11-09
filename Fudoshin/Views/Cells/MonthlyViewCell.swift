@@ -12,7 +12,7 @@ class MonthlyViewCell: UITableViewCell {
     private let januarySymbol: UIImageView? = {
         guard let image = UIImage(systemName: "j.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -24,7 +24,7 @@ class MonthlyViewCell: UITableViewCell {
     private let februarySymbol: UIImageView? = {
         guard let image = UIImage(systemName: "f.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -36,7 +36,7 @@ class MonthlyViewCell: UITableViewCell {
     private let marchSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "m.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -48,7 +48,7 @@ class MonthlyViewCell: UITableViewCell {
     private let aprilSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "a.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -60,7 +60,7 @@ class MonthlyViewCell: UITableViewCell {
     private let maySymbol: UIImageView? = {
         guard let image = UIImage(systemName: "m.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -72,7 +72,7 @@ class MonthlyViewCell: UITableViewCell {
     private let juneSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "j.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -84,7 +84,7 @@ class MonthlyViewCell: UITableViewCell {
     private let julySymbol: UIImageView? = {
         guard let image = UIImage(systemName: "j.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -96,7 +96,7 @@ class MonthlyViewCell: UITableViewCell {
     private let augustSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "a.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -108,7 +108,7 @@ class MonthlyViewCell: UITableViewCell {
     private let septemberSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "s.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -120,7 +120,7 @@ class MonthlyViewCell: UITableViewCell {
     private let octoberSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "o.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -132,7 +132,7 @@ class MonthlyViewCell: UITableViewCell {
     private let novemberSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "n.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -144,7 +144,7 @@ class MonthlyViewCell: UITableViewCell {
     private let decemberSymbol: UIImageView? = {
         guard let image = UIImage(systemName: "d.circle.fill") else {return nil}
         
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        let config = UIImage.SymbolConfiguration(pointSize: 27)
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
@@ -170,22 +170,26 @@ class MonthlyViewCell: UITableViewCell {
     }
     
     private func commonInit() {
-        activateConstraints()
         configureSubViews()
-        
         addSubview(stackViewOne)
         addSubview(stackViewTwo)
         addSubview(stackViewThree)
+        
+        activateConstraints()
     }
     
     private func configureSubViews() {
+        stackViewOne.translatesAutoresizingMaskIntoConstraints = false
+        stackViewTwo.translatesAutoresizingMaskIntoConstraints = false
+        stackViewThree.translatesAutoresizingMaskIntoConstraints = false
+        
         stackViewOne.axis = .horizontal
         stackViewTwo.axis = .horizontal
         stackViewThree.axis = .horizontal
         
-        stackViewOne.spacing = 45
-        stackViewTwo.spacing = 45
-        stackViewThree.spacing = 45
+        stackViewOne.spacing = 60
+        stackViewTwo.spacing = 60
+        stackViewThree.spacing = 60
         
         let viewsOne = [januarySymbol, februarySymbol, marchSymbol, aprilSymbol]
         let viewsTwo = [maySymbol, juneSymbol, julySymbol, augustSymbol]
@@ -210,9 +214,9 @@ class MonthlyViewCell: UITableViewCell {
             stackViewTwo.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             stackViewThree.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             
-            stackViewOne.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
-            stackViewTwo.topAnchor.constraint(equalTo: stackViewOne.bottomAnchor, constant: 15),
-            stackViewThree.topAnchor.constraint(equalTo: stackViewTwo.bottomAnchor, constant: 15)
+            stackViewOne.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
+            stackViewTwo.topAnchor.constraint(equalTo: stackViewOne.bottomAnchor, constant: 25),
+            stackViewThree.topAnchor.constraint(equalTo: stackViewTwo.bottomAnchor, constant: 25)
         ]
         
         NSLayoutConstraint.activate(array)

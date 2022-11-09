@@ -418,7 +418,18 @@ class VisitsViewCell: UITableViewCell {
     }
     
     func setSymbolColor(beltLevel: BeltLevel) {
-        switch beltLevel {
+        
+        let config = UIImage.SymbolConfiguration(hierarchicalColor: .white)
+        
+        let noGiImage = noGiSymbol?.image?.applyingSymbolConfiguration(config)
+        let allImage = allSymbol?.image?.applyingSymbolConfiguration(config)
+        let giImage = giSymbol?.image?.applyingSymbolConfiguration(config)
+        
+        noGiSymbol?.image = noGiImage
+        allSymbol?.image = allImage
+        giSymbol?.image = giImage
+        
+        /*switch beltLevel {
         case .white:
             let config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor.beltLevelToColor(beltLevel: beltLevel))
             
@@ -471,7 +482,7 @@ class VisitsViewCell: UITableViewCell {
             noGiSymbol?.image = noGiImage
             allSymbol?.image = allImage
             giSymbol?.image = giImage
-        }
+        }*/
     }
     
     func alphaToZeroForAll() {

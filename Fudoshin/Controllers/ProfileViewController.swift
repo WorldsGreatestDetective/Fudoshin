@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
         view.addSubview(tableView)
         tableView.register(VisitsViewCell.self, forCellReuseIdentifier: "visitsCell")
-        tableView.register(MonthlyViewCell.self, forCellReuseIdentifier: "MonthlyCell")
+        tableView.register(MonthlyViewCell.self, forCellReuseIdentifier: "monthlyCell")
         tableView.separatorStyle = .none
         //tableView.isScrollEnabled = false
         tableView.delegate = self
@@ -59,17 +59,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "visitsCell", for: indexPath) as! VisitsViewCell
-        let monthCell = tableView.dequeueReusableCell(withIdentifier: "MonthlyCell", for: indexPath) as! MonthlyViewCell
-        
-        guard let profileServiceModel = profileServiceModel else {return cell}
+        let dummyCell = UITableViewCell()
+        guard let profileServiceModel = profileServiceModel else {return dummyCell}
         
         switch indexPath.row {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "visitsCell", for: indexPath) as! VisitsViewCell
+            
             profileServiceModel.setAllVisits() // alter to set all cell data; create seperate animation with diff cell class methods for reload after settings change
                 
             guard let countByWeek = profileServiceModel.getCountByWeek() else {presentAlertError(); return cell}
@@ -112,11 +112,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             return cell
         case 1:
+            let monthCell = tableView.dequeueReusableCell(withIdentifier: "monthlyCell", for: indexPath) as! MonthlyViewCell
+            
+            monthCell.selectionStyle = .none
             monthCell.setSymbolColor(beltLevel: profileServiceModel.beltLevel)
             return monthCell
         default:
             presentAlertError()
-            return cell
+            return dummyCell
         }
     }
     

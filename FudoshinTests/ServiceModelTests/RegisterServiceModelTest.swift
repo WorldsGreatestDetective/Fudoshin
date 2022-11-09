@@ -40,7 +40,6 @@ class RegisterServiceModelTest: XCTestCase {
         var userTwo = MockUser()
         
         userTwo.password = userTwo.password.SHA384(string: userTwo.password)
-        user.password = user.password.SHA384(string: user.password)
         
         let serviceModel = RegisterServiceModel(appDatabase: appDatabase, userModel: user)
         serviceModel.insertNewUser()

@@ -70,6 +70,8 @@
 		F5BB68C328C7B422005BA194 /* PasswordSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */; };
 		F5BB68C728C90EAB005BA194 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C628C90EAA005BA194 /* StringExt.swift */; };
 		F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C828C943FB005BA194 /* UIColorExt.swift */; };
+		F5D95646291C4CA9008DD412 /* MonthlyVisitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D95645291C4CA9008DD412 /* MonthlyVisitsProtocol.swift */; };
+		F5D95648291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D95647291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift */; };
 		F5DD8139290C4C3300654DB9 /* MonthlyVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */; };
 		F5DD813B29117D1500654DB9 /* MonthlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */; };
 		F5DD813D29117DED00654DB9 /* MonthlyViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */; };
@@ -170,6 +172,8 @@
 		F5BB68C228C7B422005BA194 /* PasswordSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewController.swift; sourceTree = "<group>"; };
 		F5BB68C628C90EAA005BA194 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		F5BB68C828C943FB005BA194 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		F5D95645291C4CA9008DD412 /* MonthlyVisitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsProtocol.swift; sourceTree = "<group>"; };
+		F5D95647291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsServiceModel.swift; sourceTree = "<group>"; };
 		F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsViewController.swift; sourceTree = "<group>"; };
 		F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCell.swift; sourceTree = "<group>"; };
 		F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCellDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				F52143012864EA04000475AE /* LoginServiceModelProtocol.swift */,
 				F52142F2285F8AA3000475AE /* ProfileServiceModelProtocol.swift */,
 				F5BB68A8289D62D5005BA194 /* SettingsServiceModelProtocol.swift */,
+				F5D95645291C4CA9008DD412 /* MonthlyVisitsProtocol.swift */,
 			);
 			path = ServiceModelProtocols;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				F521439528788188000475AE /* LoginServiceModel.swift */,
 				F52143A828870744000475AE /* ProfileServiceModel.swift */,
 				F5BB68AA289D63C8005BA194 /* SettingsServiceModel.swift */,
+				F5D95647291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift */,
 			);
 			path = ServiceModels;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 				F51F689528DA3F3C00524CC4 /* KeychainError.swift in Sources */,
 				F5BB68BE28C7B152005BA194 /* PasswordFieldTableViewCell.swift in Sources */,
 				F52142E5285A8562000475AE /* VisitModelProtocol.swift in Sources */,
+				F5D95648291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift in Sources */,
 				F55F561E281C440400171AA0 /* LoginViewController.swift in Sources */,
 				F52142C128567429000475AE /* LoginViewDelegateProtocol.swift in Sources */,
 				F52142D628590626000475AE /* RegisterViewController.swift in Sources */,
@@ -779,6 +786,7 @@
 				F521438F2875F4BA000475AE /* SessionType.swift in Sources */,
 				F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */,
 				F5BB68AF289D7268005BA194 /* SettingsViewController.swift in Sources */,
+				F5D95646291C4CA9008DD412 /* MonthlyVisitsProtocol.swift in Sources */,
 				F52142D02858F457000475AE /* Visit.swift in Sources */,
 				F5BB68AB289D63C8005BA194 /* SettingsServiceModel.swift in Sources */,
 				F5BB68BC28C67FD6005BA194 /* TextFieldForCell.swift in Sources */,
