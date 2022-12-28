@@ -72,6 +72,7 @@
 		F5BB68C928C943FB005BA194 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB68C828C943FB005BA194 /* UIColorExt.swift */; };
 		F5D95646291C4CA9008DD412 /* MonthlyVisitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D95645291C4CA9008DD412 /* MonthlyVisitsProtocol.swift */; };
 		F5D95648291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D95647291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift */; };
+		F5D9564E2922F603008DD412 /* YearlyVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9564D2922F603008DD412 /* YearlyVisitsViewController.swift */; };
 		F5DD8139290C4C3300654DB9 /* MonthlyVisitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */; };
 		F5DD813B29117D1500654DB9 /* MonthlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */; };
 		F5DD813D29117DED00654DB9 /* MonthlyViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */; };
@@ -174,6 +175,7 @@
 		F5BB68C828C943FB005BA194 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		F5D95645291C4CA9008DD412 /* MonthlyVisitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsProtocol.swift; sourceTree = "<group>"; };
 		F5D95647291C4D0B008DD412 /* MonthlyVisitsServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsServiceModel.swift; sourceTree = "<group>"; };
+		F5D9564D2922F603008DD412 /* YearlyVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyVisitsViewController.swift; sourceTree = "<group>"; };
 		F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyVisitsViewController.swift; sourceTree = "<group>"; };
 		F5DD813A29117D1500654DB9 /* MonthlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCell.swift; sourceTree = "<group>"; };
 		F5DD813C29117DED00654DB9 /* MonthlyViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewCellDelegate.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				F55F561D281C440400171AA0 /* LoginViewController.swift */,
 				F52142D528590626000475AE /* RegisterViewController.swift */,
 				F521439D28807EB7000475AE /* ProfileViewController.swift */,
+				F5D9564D2922F603008DD412 /* YearlyVisitsViewController.swift */,
 				F5DD8138290C4C3300654DB9 /* MonthlyVisitsViewController.swift */,
 				F5BB68B028C242EB005BA194 /* SettingsViewControllers */,
 			);
@@ -767,6 +770,7 @@
 				F52142F3285F8AA4000475AE /* ProfileServiceModelProtocol.swift in Sources */,
 				F52142D828590656000475AE /* RegisterViewDelegateProtocol.swift in Sources */,
 				F52143A928870745000475AE /* ProfileServiceModel.swift in Sources */,
+				F5D9564E2922F603008DD412 /* YearlyVisitsViewController.swift in Sources */,
 				F5BB68BA28C3978B005BA194 /* EmailFieldTableViewCell.swift in Sources */,
 				F5BB68A9289D62D5005BA194 /* SettingsServiceModelProtocol.swift in Sources */,
 				F521439E28807EB7000475AE /* ProfileViewController.swift in Sources */,

@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(VisitsViewCell.self, forCellReuseIdentifier: "visitsCell")
         tableView.register(MonthlyViewCell.self, forCellReuseIdentifier: "monthlyCell")
         tableView.separatorStyle = .none
-        //tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -115,6 +115,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let monthCell = tableView.dequeueReusableCell(withIdentifier: "monthlyCell", for: indexPath) as! MonthlyViewCell
             
             monthCell.selectionStyle = .none
+            monthCell.setDelegate(delegate: self)
             monthCell.setSymbolColor(beltLevel: profileServiceModel.beltLevel)
             return monthCell
         default:
@@ -267,5 +268,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 }
 
 extension ProfileViewController: MonthlyViewCellDelegate {
+    
+    func pushToYearlyVisits(month: Int) {
+        guard let profileServiceModel = profileServiceModel else {return}
+        guard let navigationController = self.navigationController else {return}
+        
+        let visits = profileServiceModel.visits
+        
+        let yearlyVisitsViewController = YearlyVisitsViewController()
+        let monthlyVisitsServiceModel = MonthlyVisitsServiceModel(visits: visits, monthofYear: month)
+        
+        yearlyVisitsViewController.setServiceModel(serviceModel: monthlyVisitsServiceModel)
+        
+        navigationController.pushViewController(yearlyVisitsViewController, animated: true)
+    }
     
 }

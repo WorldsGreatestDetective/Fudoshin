@@ -16,7 +16,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 1
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -28,7 +31,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 2
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -40,7 +46,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 3
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -52,7 +61,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 4
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -64,7 +76,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 5
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -76,7 +91,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 6
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -88,7 +106,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 7
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -100,7 +121,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 8
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -112,8 +136,11 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
-        view.contentMode = .scaleAspectFit
         
+        view.contentMode = .scaleAspectFit
+        view.tag = 9
+        view.isUserInteractionEnabled = true
+
         return view
     }()
     
@@ -124,7 +151,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 10
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -136,7 +166,10 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 11
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -148,16 +181,17 @@ class MonthlyViewCell: UITableViewCell {
         let newImage = image.applyingSymbolConfiguration(config)
         
         let view = UIImageView(image: newImage)
+        
         view.contentMode = .scaleAspectFit
+        view.tag = 12
+        view.isUserInteractionEnabled = true
         
         return view
     }()
     
     private var delegate: MonthlyViewCellDelegate?
     
-    private var stackViewOne = UIStackView()
-    private var stackViewTwo = UIStackView()
-    private var stackViewThree = UIStackView()
+    private var mainStackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -171,17 +205,32 @@ class MonthlyViewCell: UITableViewCell {
     
     private func commonInit() {
         configureSubViews()
-        addSubview(stackViewOne)
-        addSubview(stackViewTwo)
-        addSubview(stackViewThree)
         
+        contentView.addSubview(mainStackView)
+        
+        addTargetToSymbols()
         activateConstraints()
     }
     
     private func configureSubViews() {
-        stackViewOne.translatesAutoresizingMaskIntoConstraints = false
-        stackViewTwo.translatesAutoresizingMaskIntoConstraints = false
-        stackViewThree.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mainStackView.axis = .vertical
+        mainStackView.distribution = .equalCentering
+        mainStackView.alignment = .fill
+        mainStackView.spacing = 40
+        
+        let stackViewOne = UIStackView()
+        let stackViewTwo = UIStackView()
+        let stackViewThree = UIStackView()
+        
+        stackViewOne.alignment = .top
+        stackViewTwo.alignment = .top
+        stackViewThree.alignment = .top
+        
+        stackViewOne.distribution = .equalSpacing
+        stackViewTwo.distribution = .equalSpacing
+        stackViewThree.distribution = .equalSpacing
         
         stackViewOne.axis = .horizontal
         stackViewTwo.axis = .horizontal
@@ -195,6 +244,8 @@ class MonthlyViewCell: UITableViewCell {
         let viewsTwo = [maySymbol, juneSymbol, julySymbol, augustSymbol]
         let viewsThree = [septemberSymbol, octoberSymbol, novemberSymbol, decemberSymbol]
         
+        let stackViews = [stackViewOne,stackViewTwo,stackViewThree]
+        
         for one in viewsOne {
             stackViewOne.addArrangedSubview(one!)
         }
@@ -206,20 +257,71 @@ class MonthlyViewCell: UITableViewCell {
         for three in viewsThree {
             stackViewThree.addArrangedSubview(three!)
         }
+        
+        for view in stackViews {
+            mainStackView.addArrangedSubview(view)
+        }
+        
     }
     
     private func activateConstraints() {
         let array: [NSLayoutConstraint] = [
-            stackViewOne.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            stackViewTwo.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            stackViewThree.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            
-            stackViewOne.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
-            stackViewTwo.topAnchor.constraint(equalTo: stackViewOne.bottomAnchor, constant: 25),
-            stackViewThree.topAnchor.constraint(equalTo: stackViewTwo.bottomAnchor, constant: 25)
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            //mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25),
+            mainStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -25)
         ]
         
         NSLayoutConstraint.activate(array)
+    }
+    
+    private func addTargetToSymbols() {
+        let symbols: [UIImageView?] = [januarySymbol, februarySymbol, marchSymbol, aprilSymbol, maySymbol, juneSymbol, julySymbol, augustSymbol, septemberSymbol, octoberSymbol, novemberSymbol, decemberSymbol]
+        
+        for symbol in symbols {
+            guard let symbol = symbol else {return}
+            
+            let gestureRecognizer = UITapGestureRecognizer()
+            gestureRecognizer.addTarget(self, action: #selector(monthSymbolTapped(sender:)))
+            symbol.addGestureRecognizer(gestureRecognizer)
+        }
+    }
+    
+    @objc func monthSymbolTapped(sender: UIGestureRecognizer) {
+        guard let tag = sender.view?.tag else {return}
+        
+        switch tag {
+        case 1:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 2:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 3:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 4:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 5:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 6:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 7:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 8:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 9:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 10:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 11:
+            delegate?.pushToYearlyVisits(month: tag)
+        case 12:
+            delegate?.pushToYearlyVisits(month: tag)
+        default:
+            return
+        }
+    }
+    
+    func setDelegate(delegate: MonthlyViewCellDelegate) {
+        self.delegate = delegate
     }
     
     func setSymbolColor(beltLevel: BeltLevel) {

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MonthlyViewCellDelegate {
-    
+    func pushToYearlyVisits(month: Int) 
 }
